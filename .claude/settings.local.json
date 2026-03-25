@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(npx playwright:*)",
+      "Bash(find /c/Users/amyog/Desktop/Elementum/test-results -name *.png)",
+      "Bash(grep -c \"''Inter''\" styles.css)",
+      "Bash(grep FFD54F.*animateMotion index.html)",
+      "Bash(npm run:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(node -e \":*)",
+      "Bash(cmd /c \"for /f \"\"tokens=5\"\" %a in \\(''netstat -ano ^| findstr :3333 ^| findstr LISTENING''\\) do taskkill /PID %a /F\")",
+      "Bash(cmd /c \"netstat -ano 2>&1 | findstr :3333\")",
+      "Bash(cmd /c \"netstat -ano 2>&1\")",
+      "Bash(cmd /c \"netstat -aon 2>&1\")",
+      "Bash(cmd /c \"wmic process where \"\"commandline like ''%serve%3333%''\"\" get processid,commandline 2>&1\")",
+      "Bash(cmd /c \"netstat -aon\")"
+    ]
+  }
+}
