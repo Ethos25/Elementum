@@ -1,0 +1,22 @@
+{
+  "name": "elementum",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dragon.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "snap": "playwright test --reporter=list",
+    "dev": "serve . --listen 3333",
+    "serve": "serve . --listen 3333"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "playwright": "^1.58.2",
+    "serve": "^14.2.6"
+  }
+}

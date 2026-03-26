@@ -1,0 +1,10 @@
+node_modules/
+screenshots/
+test-results/
+*.local
+*.png
+*.jpg
+*.jpeg
+npm-debug.log*
+.DS_Store
+Thumbs.db

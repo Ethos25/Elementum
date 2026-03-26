@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Elementum — Chemistry for Ages 4+</title>
+<meta name="description" content="A new twist on chemistry, designed for ages 4+. 118 elements with personalities, superpowers, and a cosmic dragon guide. Built for the kid who already knows 800 dinosaur names and isn't done learning.">
+
+<!-- Open Graph (Facebook, iMessage, LinkedIn, Slack) -->
+<meta property="og:title" content="Elementum">
+<meta property="og:description" content="A new twist on chemistry, designed for ages 4+. 118 elements. One cosmic dragon. Built for the kid who isn't done learning.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://reapproacheducation.com/learning-lab/og-elementum.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Elementum — A cosmic dragon surrounded by glowing element cards">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Elementum">
+<meta name="twitter:description" content="118 elements with personalities, superpowers, and a cosmic dragon guide. Chemistry for ages 4+.">
+<meta name="twitter:image" content="https://reapproacheducation.com/learning-lab/og-elementum.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0E1A;--bg2:#141829;--bg3:#1A1F35;--t1:#F0EDE6;--t2:#A8A4B8;--cyan:#7DF9FF;--purple:#C792EA}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{font-family:'Fredoka',sans-serif;background:var(--bg);color:var(--t1);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.sf{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.st{position:absolute;border-radius:50%;background:#fff;animation:tw var(--d) ease-in-out infinite alternate}
+@keyframes tw{0%{opacity:var(--a);transform:scale(.8)}100%{opacity:var(--b);transform:scale(1.2)}}
+
+/* ═══ WELCOME PAGE ═══ */
+.welcome{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--bg);z-index:1100;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:0 24px;transition:opacity .6s;overflow-y:auto}
+.welcome.done{opacity:0;pointer-events:none}
+.w-hero{text-align:center;max-width:420px;width:100%;margin:auto;padding:32px 0}
+.w-title{font-family:'Fredoka',sans-serif;font-size:2.2rem;font-weight:700;background:linear-gradient(135deg,var(--cyan),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px}
+.w-tagline{font-family:'Quicksand',sans-serif;font-size:.88rem;color:var(--t1);line-height:1.55;font-weight:500;margin-bottom:28px;max-width:360px;margin-left:auto;margin-right:auto}
+.w-tagline strong{color:var(--cyan)}
+.w-form{display:flex;flex-direction:column;gap:14px;width:100%;max-width:320px;margin:0 auto}
+.w-field{text-align:left}
+.w-field label{font-family:'Quicksand',sans-serif;font-size:.7rem;font-weight:700;color:var(--t2);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:5px}
+.w-field input{width:100%;padding:12px 16px;border-radius:12px;border:1.5px solid rgba(125,249,255,.15);background:rgba(255,255,255,.05);color:var(--t1);font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:500;outline:none;transition:border-color .2s}
+.w-field input:focus{border-color:var(--cyan)}
+.w-field input::placeholder{color:rgba(168,164,184,.4)}
+.w-hint{font-family:'Quicksand',sans-serif;font-size:.62rem;color:var(--t2);opacity:.6;margin-top:4px}
+.w-start{padding:14px 32px;border-radius:14px;border:none;font-family:'Fredoka',sans-serif;font-size:1.05rem;font-weight:700;cursor:pointer;background:linear-gradient(135deg,var(--cyan),var(--purple));color:var(--bg);margin-top:10px;transition:transform .15s;width:100%}
+.w-start:active{transform:scale(.96)}
+.w-start:disabled{opacity:.3;cursor:default}
+.w-parent{margin:24px auto 0;padding:14px 16px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);max-width:320px;text-align:left}
+.w-parent p{font-family:'Quicksand',sans-serif;font-size:.68rem;color:var(--t2);line-height:1.5;font-weight:500}
+.w-parent strong{color:var(--t1);font-weight:700}
+.w-divider{text-align:center;margin:4px 0;position:relative}
+.w-divider::before{content:'';position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(255,255,255,.08)}
+.w-divider span{font-family:'Quicksand',sans-serif;font-size:.58rem;color:var(--t2);opacity:.5;background:var(--bg);padding:0 10px;position:relative}
+
+/* WELCOME BEAT */
+.welcome-beat{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--bg);z-index:1050;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px}
+.wb-name{font-family:'Fredoka',sans-serif;font-size:2rem;font-weight:700;background:linear-gradient(135deg,var(--cyan),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center;margin-bottom:8px}
+.wb-sub{font-family:'Quicksand',sans-serif;font-size:.9rem;color:var(--t2);font-weight:500;text-align:center;margin-bottom:24px}
+.wb-btn{padding:14px 32px;border-radius:14px;border:none;font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:600;cursor:pointer;background:linear-gradient(135deg,var(--cyan),var(--purple));color:var(--bg);transition:transform .15s}
+.wb-btn:active{transform:scale(.95)}
+
+/* SHARE CARD */
+.share-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(11,14,26,.92);z-index:850;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .3s}
+.share-overlay.active{opacity:1;pointer-events:auto}
+.share-card{width:100%;max-width:340px;border-radius:20px;background:linear-gradient(135deg,rgba(125,249,255,.06),rgba(199,146,234,.06));border:1.5px solid rgba(125,249,255,.15);padding:28px 24px;text-align:center}
+.sc-dragon{width:100px;height:78px;margin:0 auto 10px;filter:drop-shadow(0 0 12px rgba(125,249,255,.3))}
+.sc-name{font-family:'Fredoka',sans-serif;font-size:1.6rem;font-weight:700;color:var(--t1);margin-bottom:4px}
+.sc-title{font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:700;color:#FFD54F;margin-bottom:12px}
+.sc-stat{font-family:'Quicksand',sans-serif;font-size:2.2rem;font-weight:700;color:var(--cyan);line-height:1}
+.sc-stat-label{font-family:'Quicksand',sans-serif;font-size:.7rem;color:var(--t2);font-weight:600;margin-bottom:14px}
+.sc-bar{height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;margin-bottom:14px}
+.sc-bar-fill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--purple));border-radius:3px}
+.sc-brand{font-family:'Fredoka',sans-serif;font-size:.65rem;color:var(--t2);opacity:.4;letter-spacing:.08em}
+.share-close{margin-top:16px;padding:12px 28px;border-radius:12px;border:none;background:rgba(255,255,255,.08);color:var(--t1);font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer}
+
+/* PROFILE TAB */
+.profile{position:relative;z-index:10;padding:16px;display:flex;flex-direction:column;align-items:center;gap:14px;padding-bottom:90px;max-width:400px;margin:0 auto}
+.prof-card{width:100%;border-radius:18px;background:var(--bg3);border:1.5px solid rgba(125,249,255,.1);padding:20px;text-align:center}
+.prof-name{font-family:'Fredoka',sans-serif;font-size:1.4rem;font-weight:700;color:var(--t1)}
+.prof-title{font-family:'Fredoka',sans-serif;font-size:.8rem;font-weight:700;color:#FFD54F;margin-top:2px}
+.prof-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.prof-stat{padding:10px;border-radius:10px;background:rgba(255,255,255,.04);text-align:center}
+.prof-stat-val{font-family:'Fredoka',sans-serif;font-size:1.3rem;font-weight:700;color:var(--cyan)}
+.prof-stat-lbl{font-family:'Quicksand',sans-serif;font-size:.6rem;color:var(--t2);font-weight:600;margin-top:2px}
+.prof-anchors{width:100%;text-align:left}
+.prof-anchors h3{font-family:'Fredoka',sans-serif;font-size:.75rem;font-weight:600;color:var(--t2);margin-bottom:8px}
+.prof-anchor{font-family:'Quicksand',sans-serif;font-size:.72rem;color:var(--t1);line-height:1.6;font-weight:500}
+.prof-anchor span{color:var(--cyan);font-weight:700}
+.prof-timeline{width:100%;text-align:left}
+.prof-timeline h3{font-family:'Fredoka',sans-serif;font-size:.75rem;font-weight:600;color:var(--t2);margin-bottom:8px}
+.tl-item{font-family:'Quicksand',sans-serif;font-size:.7rem;color:var(--t2);line-height:1.8;font-weight:500;padding-left:14px;position:relative}
+.tl-item::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--cyan)}
+.prof-share{padding:12px 24px;border-radius:12px;border:1.5px solid rgba(125,249,255,.15);background:rgba(255,255,255,.04);color:var(--cyan);font-family:'Fredoka',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;width:100%}
+
+/* ═══ INTRO ═══ */
+.intro-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--bg);z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;transition:opacity .6s}
+.intro-overlay.done{opacity:0;pointer-events:none}
+.intro-dragon{width:180px;height:140px;margin-bottom:16px;animation:dragonFloat 3s ease-in-out infinite}
+@keyframes dragonFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.intro-text{text-align:center;max-width:340px}
+.intro-title{font-size:1.5rem;font-weight:700;background:linear-gradient(135deg,var(--cyan),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.intro-speech{font-family:'Quicksand',sans-serif;font-size:.92rem;color:var(--t1);line-height:1.5;font-weight:500;min-height:60px;margin-bottom:16px}
+.intro-card{width:200px;aspect-ratio:3/4;border-radius:18px;margin:0 auto 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;opacity:0;transform:scale(.8);transition:all .5s cubic-bezier(.34,1.56,.64,1)}
+.intro-card.show{opacity:1;transform:scale(1)}
+.intro-card .ic-emoji{font-size:2.2rem}.intro-card .ic-sym{font-size:3.2rem;font-weight:700;line-height:1}.intro-card .ic-name{font-size:1rem;font-weight:600}
+.intro-btn{padding:14px 32px;border-radius:14px;border:none;font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:600;cursor:pointer;transition:all .2s;min-width:160px}
+.intro-btn.primary{background:linear-gradient(135deg,var(--cyan),var(--purple));color:var(--bg)}
+.intro-btn.primary:active{transform:scale(.95)}
+
+/* ═══ HEADER ═══ */
+.hdr{position:relative;z-index:10;text-align:center;padding:12px 20px 0}
+.hdr h1{font-weight:700;font-size:.85rem;letter-spacing:.08em;background:linear-gradient(135deg,var(--cyan),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hdr-row{display:flex;align-items:center;justify-content:center;gap:8px}
+.reset-btn{background:none;border:none;color:var(--t2);opacity:.25;font-size:.6rem;font-family:'Quicksand',sans-serif;font-weight:600;cursor:pointer;padding:4px 8px;border-radius:6px}
+.reset-confirm{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(11,14,26,.92);z-index:950;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;gap:16px}
+.reset-confirm p{font-family:'Quicksand',sans-serif;font-size:.95rem;color:var(--t1);text-align:center;line-height:1.5;max-width:300px}
+.reset-confirm .warn{color:#EF5350;font-weight:700;font-size:.85rem}
+.reset-btns{display:flex;gap:12px}
+.reset-btns button{padding:12px 24px;border-radius:12px;border:none;font-family:'Fredoka',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer;min-width:100px}
+.rbtn-cancel{background:rgba(255,255,255,.1);color:var(--t1)}.rbtn-reset{background:#EF5350;color:#fff}
+
+/* ═══ MASCOT HERO ═══ */
+.mbar{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;margin:0 16px 6px;padding:6px 14px 12px;background:linear-gradient(135deg,rgba(125,249,255,.04),rgba(199,146,234,.04));border:1px solid rgba(125,249,255,.08);border-radius:16px;transition:all .4s}
+.mbar svg.dragon-hero{width:140px;height:110px;flex-shrink:0;transition:all .5s cubic-bezier(.34,1.56,.64,1);filter:drop-shadow(0 0 12px rgba(125,249,255,.15))}
+.msp{font-family:'Quicksand',sans-serif;font-size:.82rem;color:var(--t1);line-height:1.4;font-weight:500;text-align:center;max-width:340px;margin-top:2px}
+.msp strong{color:var(--cyan);font-weight:700}
+.pwr-row{display:flex;align-items:center;gap:8px;margin-top:6px;width:100%;max-width:280px}
+.pwr{font-family:'Quicksand',sans-serif;font-size:.58rem;color:var(--cyan);font-weight:700;white-space:nowrap}
+.pwr-bar{flex:1;height:4px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden}
+.pwr-fill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--purple));border-radius:2px;transition:width .6s cubic-bezier(.34,1.56,.64,1)}
+.mbar.excited svg.dragon-hero{transform:scale(1.08);filter:drop-shadow(0 0 24px rgba(125,249,255,.4)) drop-shadow(0 0 48px rgba(199,146,234,.2))}
+.mbar.excited{border-color:rgba(125,249,255,.25);background:linear-gradient(135deg,rgba(125,249,255,.08),rgba(199,146,234,.08))}
+@keyframes dragonPulse{0%{filter:drop-shadow(0 0 12px rgba(125,249,255,.15))}50%{filter:drop-shadow(0 0 30px rgba(125,249,255,.5)) drop-shadow(0 0 60px rgba(199,146,234,.3))}100%{filter:drop-shadow(0 0 12px rgba(125,249,255,.15))}}
+.mbar.pulse svg.dragon-hero{animation:dragonPulse .6s ease-out}
+.mbar[data-tier="1"] svg.dragon-hero{opacity:.7}
+.mbar[data-tier="2"] svg.dragon-hero{opacity:.85}
+.mbar[data-tier="3"] svg.dragon-hero{opacity:1}
+.mbar[data-tier="4"] svg.dragon-hero{opacity:1;filter:drop-shadow(0 0 16px rgba(125,249,255,.3))}
+.mbar[data-tier="5"] svg.dragon-hero{opacity:1;filter:drop-shadow(0 0 24px rgba(125,249,255,.4)) drop-shadow(0 0 48px rgba(199,146,234,.25))}
+.ach-row{text-align:center;margin-top:4px}
+.ach-title{font-family:'Fredoka',sans-serif;font-size:.62rem;font-weight:700;color:#FFD54F;letter-spacing:.05em}
+
+/* ═══ TABS ═══ */
+.ltabs{position:relative;z-index:10;display:flex;justify-content:center;gap:0;margin:8px 16px 0;border-radius:12px;overflow:hidden;border:1.5px solid rgba(125,249,255,.15);background:rgba(255,255,255,.03);margin-bottom:4px}
+.ltab{flex:1;padding:9px 6px;font-family:'Fredoka',sans-serif;font-size:.72rem;font-weight:600;color:var(--t2);background:transparent;border:none;cursor:pointer;transition:all .3s;text-align:center}
+.ltab.active{color:var(--bg);background:linear-gradient(135deg,var(--cyan),var(--purple))}
+.ltab .lc{display:block;font-size:.55rem;font-weight:500;margin-top:1px;opacity:.7}
+.ltab.locked{opacity:.35;cursor:not-allowed}.ltab.locked::after{content:'🔒';font-size:.5rem;margin-left:2px}
+.ftabs{position:relative;z-index:10;display:flex;gap:6px;padding:0 16px 6px;overflow-x:auto;scrollbar-width:none;margin-top:10px}
+.ftabs::-webkit-scrollbar{display:none}
+.ftab{flex-shrink:0;padding:6px 12px;border-radius:18px;border:1.5px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:var(--t2);font-family:'Fredoka',sans-serif;font-size:.7rem;font-weight:600;cursor:pointer;transition:all .3s cubic-bezier(.34,1.56,.64,1);white-space:nowrap}
+.ftab.active{color:var(--bg);border-color:transparent;transform:scale(1.05)}
+.fbio{position:relative;z-index:10;margin:0 16px 10px;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);display:none}
+.fbio.show{display:block;animation:fadeIn .3s ease}
+.fbio-text{font-family:'Quicksand',sans-serif;font-size:.76rem;color:var(--t2);line-height:1.45;font-weight:500}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.cnt{position:relative;z-index:10;text-align:center;font-family:'Quicksand',sans-serif;font-size:.65rem;color:var(--t2);margin-bottom:10px;font-weight:600}
+.cnt span{color:var(--cyan)}
+
+/* ═══ CARDS ═══ */
+.grid{position:relative;z-index:10;display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;padding:0 16px 90px}
+.cw{cursor:pointer;animation:ci .4s cubic-bezier(.34,1.56,.64,1) backwards;position:relative}
+@keyframes ci{from{opacity:0;transform:translateY(20px) scale(.92)}to{opacity:1;transform:translateY(0) scale(1)}}
+.cin{position:relative;width:100%;aspect-ratio:3/4;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 8px;gap:2px;overflow:hidden;transition:transform .15s}
+.cin::before{content:'';position:absolute;top:-1px;left:-1px;right:-1px;bottom:-1px;border-radius:14px;background:radial-gradient(ellipse at 30% 20%,var(--cg) 0%,transparent 60%);opacity:.2;pointer-events:none}
+.cw:active .cin{transform:scale(.95)}
+.c-emoji{font-size:1.6rem;filter:drop-shadow(0 2px 3px rgba(0,0,0,.3))}
+.c-sym{font-family:'Fredoka',sans-serif;font-size:2.6rem;font-weight:700;color:var(--cc);line-height:1;text-shadow:0 0 20px var(--cg),0 0 40px var(--cg)}
+.c-name{font-family:'Fredoka',sans-serif;font-size:.8rem;font-weight:600;color:var(--t1);text-align:center}
+.c-fam{position:absolute;top:6px;right:7px;font-family:'Quicksand',sans-serif;font-size:.48rem;font-weight:700;color:var(--cc);opacity:.55;text-transform:uppercase;letter-spacing:.04em;text-align:right;max-width:52px;line-height:1.2}
+.cw.undiscovered .cin{filter:brightness(.5) saturate(.1)}.cw.undiscovered .c-sym{text-shadow:none}.cw.undiscovered .c-emoji{opacity:0}.cw.undiscovered .c-name{opacity:.4}.cw.undiscovered .c-fam{opacity:0}
+.cw.undiscovered::after{content:'?';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem;font-weight:700;color:rgba(255,255,255,.25);pointer-events:none}
+
+/* ═══ DRAGON MAP ═══ */
+.dmap{position:relative;z-index:10;padding:8px 8px 80px;overflow-x:auto}
+.dmap-grid{display:grid;grid-template-columns:repeat(18,minmax(32px,1fr));grid-template-rows:repeat(10,32px);gap:2px;min-width:600px;margin:0 auto;max-width:800px}
+.dm-cell{border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;position:relative;font-family:'Fredoka',sans-serif;min-height:32px}
+.dm-cell:active{transform:scale(.9)}.dm-num{font-size:.38rem;font-weight:600;opacity:.6;line-height:1}.dm-sym{font-size:.65rem;font-weight:700;line-height:1.1}
+.dm-cell.undiscovered{filter:brightness(.45) saturate(.1)}.dm-cell.undiscovered .dm-sym{opacity:.3}
+.dm-label{font-family:'Quicksand',sans-serif;font-size:.5rem;font-weight:700;color:var(--t2);opacity:.5;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.dm-col-hint{position:relative;z-index:10;margin:0 8px 8px;padding:8px 12px;border-radius:10px;background:linear-gradient(135deg,rgba(125,249,255,.06),rgba(199,146,234,.06));border:1px solid rgba(125,249,255,.1);text-align:center;display:none}
+.dm-col-hint.show{display:block;animation:fadeIn .3s ease}
+.dm-col-hint p{font-family:'Quicksand',sans-serif;font-size:.75rem;color:var(--cyan);font-weight:600;line-height:1.4}
+
+/* ═══ ELEMENT OF THE DAY ═══ */
+.eotd{position:relative;z-index:10;padding:16px;display:flex;flex-direction:column;align-items:center;gap:14px;padding-bottom:90px}
+.eotd-card{width:100%;max-width:360px;border-radius:20px;overflow:hidden;text-align:center}
+.eotd-hdr{padding:24px 20px 16px;position:relative}
+.eotd-hdr::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 30%,var(--cg) 0%,transparent 70%);opacity:.15}
+.eotd-emoji{font-size:2.8rem;position:relative;z-index:1}
+.eotd-sym{font-family:'Fredoka',sans-serif;font-size:3.5rem;font-weight:700;color:var(--cc);text-shadow:0 0 30px var(--cg);position:relative;z-index:1;line-height:1}
+.eotd-name{font-family:'Fredoka',sans-serif;font-size:1.5rem;font-weight:700;color:var(--t1);position:relative;z-index:1}
+.eotd-body{padding:18px 20px 24px;display:flex;flex-direction:column;gap:14px;text-align:left}
+.eotd-teach{padding:12px 14px;border-radius:12px;background:linear-gradient(135deg,rgba(125,249,255,.06),rgba(199,146,234,.06));border:1px solid rgba(125,249,255,.1)}
+.eotd-teach p{font-family:'Quicksand',sans-serif;font-size:.78rem;color:var(--cyan);font-weight:600;line-height:1.4;font-style:italic}
+.eotd-nav{display:flex;gap:10px}
+.eotd-nav button{flex:1;padding:11px;border-radius:12px;border:1.5px solid rgba(125,249,255,.15);background:rgba(255,255,255,.04);color:var(--t1);font-family:'Fredoka',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;min-height:44px}
+
+/* ═══ MATCH GAME ═══ */
+.match-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(11,14,26,.92);z-index:800;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;gap:16px;opacity:0;pointer-events:none;transition:opacity .3s}
+.match-overlay.active{opacity:1;pointer-events:auto}
+.match-q{font-family:'Quicksand',sans-serif;font-size:1rem;color:var(--t1);text-align:center;font-weight:600;line-height:1.4}
+.match-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:320px}
+.match-opt{padding:16px 12px;border-radius:14px;border:1.5px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;transition:all .2s;min-height:80px;justify-content:center}
+.match-opt:active{transform:scale(.95)}
+.match-opt .mo-emoji{font-size:1.8rem}.match-opt .mo-name{font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600;color:var(--t1)}
+.match-opt.correct{border-color:#66BB6A;background:rgba(102,187,106,.15)}
+.match-opt.wrong{border-color:#EF5350;background:rgba(239,83,80,.1);opacity:.5}
+.match-result{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:700;color:var(--cyan);min-height:30px;text-align:center}
+.match-skip{background:none;border:none;color:var(--t2);font-family:'Quicksand',sans-serif;font-size:.7rem;font-weight:600;cursor:pointer;opacity:.5;padding:8px}
+
+/* ═══ MODAL ═══ */
+.mov{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(11,14,26,.88);backdrop-filter:blur(10px);z-index:500;display:flex;align-items:flex-start;justify-content:center;padding:48px 20px 20px;opacity:0;pointer-events:none;transition:opacity .3s;overflow-y:auto}
+.mov.active{opacity:1;pointer-events:auto}
+.mcard{width:100%;max-width:340px;border-radius:20px;background:var(--bg3);overflow:hidden;transform:scale(.9) translateY(16px);transition:transform .4s cubic-bezier(.34,1.56,.64,1);max-height:88vh;overflow-y:auto}
+.mov.active .mcard{transform:scale(1) translateY(0)}
+.mhdr{padding:16px 16px 12px;position:relative;display:flex;align-items:center;gap:12px;text-align:left}
+.mhdr::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 30% 40%,var(--cg) 0%,transparent 70%);opacity:.15;pointer-events:none}
+.mx{position:absolute;top:8px;right:10px;width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.1);color:var(--t2);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2}
+.m-emoji{font-size:2.4rem;position:relative;z-index:1;flex-shrink:0;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3))}
+.m-info{position:relative;z-index:1;display:flex;flex-direction:column;gap:1px}
+.m-sym{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:700;color:var(--cc);text-shadow:0 0 20px var(--cg);line-height:1}
+.m-name{font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:700;color:var(--t1)}
+.m-meta{display:flex;gap:6px;margin-top:3px;position:relative;z-index:1;flex-wrap:wrap}
+.m-meta span{font-family:'Quicksand',sans-serif;font-size:.58rem;font-weight:600;padding:2px 7px;border-radius:6px;background:rgba(255,255,255,.08);color:var(--t2)}
+.m-body{padding:14px 18px 20px;display:flex;flex-direction:column;gap:12px}
+.m-lbl{font-family:'Quicksand',sans-serif;font-size:.55rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--cc);opacity:.7}
+.m-fact{font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:600;color:var(--t1);line-height:1.45}
+.m-story{font-family:'Quicksand',sans-serif;font-size:.82rem;font-weight:500;color:var(--t2);line-height:1.5}
+.m-eternatus{padding:10px 12px;border-radius:10px;background:linear-gradient(135deg,rgba(125,249,255,.08),rgba(199,146,234,.08));border:1px solid rgba(125,249,255,.12);margin-top:14px}
+.m-eternatus p{font-family:'Quicksand',sans-serif;font-size:.78rem;color:var(--cyan);font-weight:600;line-height:1.4;font-style:italic}
+.m-speak{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:11px;border-radius:12px;border:1.5px solid var(--cb);background:var(--cbg);color:var(--cc);font-family:'Fredoka',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;min-height:44px}
+.m-combos{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.m-combo{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid var(--cb)}
+.m-combo-eq{font-family:'Quicksand',sans-serif;font-size:.72rem;font-weight:700;color:var(--cc)}.m-combo-arrow{font-size:.85rem;color:var(--cc);opacity:.7}
+.m-combo-result{font-family:'Quicksand',sans-serif;font-size:.78rem;font-weight:600;color:var(--t1)}
+
+/* ═══ CELEBRATIONS ═══ */
+.celeb{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:600}
+/* NEW ELEMENT TOAST */
+.toast{position:fixed;top:6px;left:16px;right:16px;z-index:610;padding:7px 14px;background:var(--bg3);border:1px solid rgba(125,249,255,.12);border-left:3px solid var(--cyan);border-radius:10px;display:flex;align-items:center;gap:8px;transform:translateY(calc(-100% - 16px));transition:transform .35s cubic-bezier(.34,1.56,.64,1);pointer-events:auto;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.4)}
+.toast.show{transform:translateY(0)}
+.toast-emoji{font-size:1rem}
+.toast-text{font-family:'Fredoka',sans-serif;font-size:.72rem;font-weight:600;color:var(--t1)}
+.toast-fam{font-family:'Quicksand',sans-serif;font-size:.55rem;font-weight:600;color:var(--t2);margin-left:auto}
+/* FAMILY COMPLETE OVERLAY */
+.fam-celeb{position:fixed;top:0;left:0;width:100%;height:100%;z-index:700;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .5s}
+.fam-celeb.active{opacity:1;pointer-events:auto}
+.fam-celeb-bg{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(11,14,26,.92)}
+.fam-celeb-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:400px;height:400px;border-radius:50%;opacity:.25;filter:blur(60px)}
+.fam-celeb-content{position:relative;z-index:1;text-align:center;max-width:340px}
+.fam-celeb-badge{font-family:'Fredoka',sans-serif;font-size:.7rem;font-weight:700;padding:6px 16px;border-radius:20px;display:inline-block;margin-bottom:12px;letter-spacing:.06em;text-transform:uppercase}
+.fam-celeb-title{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:700;color:var(--t1);margin-bottom:8px;line-height:1.2}
+.fam-celeb-quote{font-family:'Quicksand',sans-serif;font-size:.9rem;font-weight:600;color:var(--cyan);line-height:1.5;font-style:italic;margin-bottom:12px}
+.fam-celeb-dragon{font-family:'Quicksand',sans-serif;font-size:.7rem;color:var(--t2);font-weight:500}
+/* OLD CELEB TEXT (kept for achievements) */
+.celeb-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Fredoka',sans-serif;font-size:1.3rem;font-weight:700;color:var(--cyan);text-shadow:0 0 20px var(--cyan);opacity:0;animation:celebPop .8s cubic-bezier(.34,1.56,.64,1) forwards}
+@keyframes celebPop{0%{opacity:0;transform:translate(-50%,-50%) scale(.5)}30%{opacity:1;transform:translate(-50%,-50%) scale(1.2)}100%{opacity:0;transform:translate(-50%,-60%) scale(1)}}
+.mega-celeb{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(11,14,26,.95);z-index:900;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .4s}
+.mega-celeb.active{opacity:1;pointer-events:auto}
+.mc-title{font-family:'Fredoka',sans-serif;font-size:1.6rem;font-weight:700;text-align:center;background:linear-gradient(135deg,var(--cyan),#FFD54F,var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;animation:shm 2s ease-in-out infinite}
+@keyframes shm{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.mc-sub{font-family:'Quicksand',sans-serif;font-size:.9rem;color:var(--t1);text-align:center;margin-bottom:20px;font-weight:500;line-height:1.5}
+.mc-btn{padding:14px 36px;border-radius:14px;border:none;font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:600;cursor:pointer;background:linear-gradient(135deg,var(--cyan),var(--purple));color:var(--bg)}
+
+.particle{position:fixed;width:5px;height:5px;border-radius:50%;pointer-events:none;z-index:600;animation:pf .6s cubic-bezier(.25,.46,.45,.94) forwards}
+@keyframes pf{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(0)}}
+.hidden{display:none!important}
+
+/* ARC BANNER */
+.arc-banner{position:relative;z-index:10;margin:8px 16px 0;padding:12px 16px;border-radius:14px;background:linear-gradient(135deg,rgba(125,249,255,.06),rgba(199,146,234,.06));border:1.5px solid rgba(125,249,255,.12);text-align:center;animation:fadeIn .4s ease}
+.arc-title{font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:700;color:var(--t1);margin-bottom:4px}
+.arc-desc{font-family:'Quicksand',sans-serif;font-size:.72rem;color:var(--cyan);font-weight:600;line-height:1.4;font-style:italic}
+.arc-progress{font-family:'Quicksand',sans-serif;font-size:.6rem;color:var(--t2);margin-top:6px;font-weight:600}
+.arc-complete{animation:celebPop .8s cubic-bezier(.34,1.56,.64,1) forwards}
+
+/* WELCOME BACK */
+.wb-return{position:relative;z-index:10;margin:0 16px 4px;padding:10px 14px;border-radius:12px;background:linear-gradient(135deg,rgba(125,249,255,.05),rgba(199,146,234,.05));border:1px solid rgba(125,249,255,.08);text-align:center;animation:fadeIn .5s ease;cursor:pointer}
+.wb-return p{font-family:'Quicksand',sans-serif;font-size:.78rem;color:var(--cyan);font-weight:600;line-height:1.4;font-style:italic}
+
+/* SESSION SUMMARY */
+.sess-summary{width:100%;border-radius:14px;background:var(--bg3);border:1.5px solid rgba(125,249,255,.1);padding:16px;text-align:left}
+.sess-summary h3{font-family:'Fredoka',sans-serif;font-size:.75rem;font-weight:600;color:var(--t2);margin-bottom:8px}
+.sess-item{font-family:'Quicksand',sans-serif;font-size:.72rem;color:var(--t1);line-height:1.6;font-weight:500}
+
+/* RADIANT ELEMENTS */
+@keyframes rainbowShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes sparkleRotate{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+@keyframes textShimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+.mhdr.radiant{background:linear-gradient(135deg,#ff6b6b,#ffd93d,#6bcb77,#4d96ff,#9b59b6,#ff6b6b)!important;background-size:300% 300%;animation:rainbowShift 3s ease infinite}
+.mhdr.radiant .m-sym{background:linear-gradient(90deg,#fff,#ffd93d,#fff);background-size:400% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:textShimmer 2s linear infinite}
+.radiant-badge{font-family:'Fredoka',sans-serif;font-size:.55rem;font-weight:700;color:#FFD93D;background:rgba(255,217,61,.15);padding:3px 10px;border-radius:8px;display:inline-block;margin-bottom:4px;letter-spacing:.06em;position:relative;z-index:1}
+.radiant-sparkle{position:absolute;top:50%;left:50%;width:80px;height:80px;pointer-events:none;z-index:0;animation:sparkleRotate 4s linear infinite}
+.radiant-sparkle::before,.radiant-sparkle::after{content:'✨';position:absolute;font-size:.7rem}
+.radiant-sparkle::before{top:0;left:50%;transform:translateX(-50%)}
+.radiant-sparkle::after{bottom:0;right:0}
+.card-radiant{position:absolute;top:4px;left:4px;font-size:.5rem;z-index:3;opacity:.8}
+
+/* RADIANT METEOR SHOWER */
+.meteor-shower{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:650;overflow:hidden}
+.meteor{position:absolute;width:3px;height:3px;border-radius:50%;animation:meteorFall linear forwards}
+.meteor::after{content:'';position:absolute;top:0;left:0;width:2px;height:40px;background:linear-gradient(to bottom,currentColor,transparent);transform:rotate(45deg);transform-origin:top left;border-radius:2px}
+@keyframes meteorFall{0%{opacity:1;transform:translate(0,0)}100%{opacity:0;transform:translate(var(--mx),var(--my))}}
+.radiant-flash{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:640;opacity:0;animation:radFlash .6s ease-out forwards}
+@keyframes radFlash{0%{opacity:0}15%{opacity:.3}100%{opacity:0}}
+.radiant-ring{position:fixed;pointer-events:none;z-index:645;border-radius:50%;border:2px solid;opacity:0;animation:ringExpand .8s ease-out forwards}
+@keyframes ringExpand{0%{opacity:.8;transform:translate(-50%,-50%) scale(0)}60%{opacity:.4}100%{opacity:0;transform:translate(-50%,-50%) scale(1)}}
+@keyframes confettiBurst{0%{opacity:1;transform:translateY(0) translateX(0) rotate(0deg) scale(1)}40%{opacity:1}100%{opacity:0;transform:translateY(var(--cty)) translateX(var(--ctx)) rotate(var(--cr)) scale(0.3)}}
+
+/* BUDDY BADGE */
+.buddy-wrap{position:absolute;top:6px;right:10px;display:flex;flex-direction:column;align-items:center;gap:2px;z-index:2;cursor:pointer}
+.buddy-badge{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;border:2px solid rgba(125,249,255,.2);background:rgba(255,255,255,.04);transition:all .3s;animation:buddyPulse 3s ease-in-out infinite}
+.buddy-wrap:active .buddy-badge{transform:scale(.9)}
+.buddy-badge.empty{font-size:.8rem;opacity:.3;animation:none}
+.buddy-label{font-family:'Quicksand',sans-serif;font-size:.45rem;font-weight:700;color:var(--t2);text-transform:uppercase;letter-spacing:.06em;opacity:.5}
+.buddy-wrap.has-buddy .buddy-label{opacity:.8;color:var(--cyan)}
+@keyframes buddyPulse{0%,100%{box-shadow:0 0 8px rgba(125,249,255,.1)}50%{box-shadow:0 0 16px rgba(125,249,255,.25)}}
+
+/* WILD ELEMENT BANNER */
+.wild-banner{position:relative;z-index:10;margin:6px 16px 0;padding:12px 16px;border-radius:14px;background:linear-gradient(135deg,rgba(255,213,79,.06),rgba(125,249,255,.06));border:1.5px solid rgba(255,213,79,.2);display:flex;align-items:center;gap:12px;animation:fadeIn .5s ease;cursor:pointer}
+.wild-banner:active{transform:scale(.98)}
+.wild-text{flex:1;font-family:'Quicksand',sans-serif;font-size:.78rem;color:#FFD54F;font-weight:600;line-height:1.4}
+.wild-btn{font-family:'Fredoka',sans-serif;font-size:.75rem;font-weight:700;color:var(--bg);background:linear-gradient(135deg,#FFD54F,var(--cyan));padding:8px 16px;border-radius:10px;border:none;cursor:pointer;white-space:nowrap}
+.wild-reveal{text-align:center;padding:20px 16px}
+.wild-reveal .wr-emoji{font-size:2.4rem;animation:ci .4s cubic-bezier(.34,1.56,.64,1)}
+.wild-reveal .wr-sym{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:700;line-height:1}
+.wild-reveal .wr-name{font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:600;color:var(--t1);margin-top:2px}
+.wild-reveal .wr-speech{font-family:'Quicksand',sans-serif;font-size:.72rem;color:var(--cyan);font-weight:600;font-style:italic;margin-top:8px}
+
+@media(max-width:500px){.hdr h1{font-size:.65rem}.mbar svg.dragon-hero{width:120px;height:94px}.grid{grid-template-columns:repeat(2,1fr);gap:8px;padding:0 12px 80px}.ftabs{padding:0 12px 6px}.mbar{margin:0 12px 6px;padding:4px 12px 10px}.ltabs{margin:6px 12px 0}.fbio{margin:0 12px 8px}.w-title{font-size:1.6rem}}
+@media(min-width:768px){.mbar svg.dragon-hero{width:160px;height:125px}.grid{grid-template-columns:repeat(4,1fr);max-width:680px;margin:0 auto}.ftabs{justify-content:center;flex-wrap:wrap}.mbar{max-width:680px;margin:0 auto 8px}.ltabs{max-width:560px;margin:8px auto 0}.fbio{max-width:680px;margin:0 auto 10px}}
+</style>
+</head>
+<body>
+<div class="sf" id="sf"></div>
+
+<!-- WELCOME PAGE -->
+<div class="welcome" id="welcome">
+  <div class="w-hero">
+    <svg class="w-dragon" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" style="width:130px;height:100px;margin-bottom:10px;animation:dragonFloat 3s ease-in-out infinite;filter:drop-shadow(0 0 14px rgba(125,249,255,.25))">
+      <defs><filter id="wg"><feGaussianBlur stdDeviation="2.5" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="wg2"><feGaussianBlur stdDeviation="4" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter><radialGradient id="wbG" cx="50%" cy="40%" r="50%"><stop offset="0%" stop-color="#7DF9FF" stop-opacity=".25"/><stop offset="100%" stop-color="#C792EA" stop-opacity=".03"/></radialGradient><linearGradient id="wwG" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#C792EA" stop-opacity=".35"/><stop offset="100%" stop-color="#7DF9FF" stop-opacity=".08"/></linearGradient></defs>
+      <!-- Wings -->
+      <path d="M58 65 Q28 28 12 42 Q2 52 18 64 Q8 48 22 38 Q34 26 44 48Z" fill="url(#wwG)" stroke="#C792EA" stroke-width="1.2" filter="url(#wg)" opacity=".7"><animate attributeName="d" dur="4s" repeatCount="indefinite" values="M58 65 Q28 28 12 42 Q2 52 18 64 Q8 48 22 38 Q34 26 44 48Z;M58 65 Q26 33 10 46 Q0 56 16 66 Q6 51 20 41 Q32 30 44 50Z;M58 65 Q28 28 12 42 Q2 52 18 64 Q8 48 22 38 Q34 26 44 48Z"/></path>
+      <path d="M142 65 Q172 28 188 42 Q198 52 182 64 Q192 48 178 38 Q166 26 156 48Z" fill="url(#wwG)" stroke="#C792EA" stroke-width="1.2" filter="url(#wg)" opacity=".7"><animate attributeName="d" dur="4s" repeatCount="indefinite" values="M142 65 Q172 28 188 42 Q198 52 182 64 Q192 48 178 38 Q166 26 156 48Z;M142 65 Q174 33 190 46 Q200 56 184 66 Q194 51 180 41 Q168 30 156 50Z;M142 65 Q172 28 188 42 Q198 52 182 64 Q192 48 178 38 Q166 26 156 48Z"/></path>
+      <!-- Body -->
+      <ellipse cx="100" cy="75" rx="28" ry="20" fill="url(#wbG)" filter="url(#wg2)"/>
+      <ellipse cx="100" cy="75" rx="22" ry="14" fill="none" stroke="#7DF9FF" stroke-width="1" opacity=".35" filter="url(#wg)"/>
+      <!-- Spine -->
+      <path d="M86 58 L90 51 L94 58 L100 49 L106 58 L110 51 L114 58" fill="none" stroke="#C792EA" stroke-width="1.8" stroke-linecap="round" filter="url(#wg)" opacity=".6"/>
+      <!-- Neck + Head -->
+      <path d="M84 66 Q78 52 81 42 Q84 36 91 33" fill="none" stroke="#7DF9FF" stroke-width="2" stroke-linecap="round" filter="url(#wg)"/>
+      <path d="M80 28 Q84 32 87 36 Q92 42 96 36 Q99 32 103 28" fill="none" stroke="#7DF9FF" stroke-width="2.2" stroke-linecap="round" filter="url(#wg)"/>
+      <!-- Horns -->
+      <path d="M91 33 Q87 26 80 28 Q76 30 74 26 L71 18" fill="none" stroke="#C792EA" stroke-width="1.8" stroke-linecap="round" filter="url(#wg)"/>
+      <path d="M92 33 Q96 26 103 28 Q107 30 109 26 L112 18" fill="none" stroke="#C792EA" stroke-width="1.8" stroke-linecap="round" filter="url(#wg)"/>
+      <!-- Snout -->
+      <path d="M87 37 Q84 41 80 43 Q78 42 77 39" fill="none" stroke="#7DF9FF" stroke-width="1.5" stroke-linecap="round" filter="url(#wg)"/>
+      <!-- Eyes -->
+      <ellipse cx="86" cy="32" rx="3.5" ry="3" fill="#7DF9FF" filter="url(#wg)"><animate attributeName="ry" values="3;3;.4;3;3" dur="4s" repeatCount="indefinite" keyTimes="0;.45;.5;.55;1"/></ellipse>
+      <ellipse cx="97" cy="32" rx="3.5" ry="3" fill="#7DF9FF" filter="url(#wg)"><animate attributeName="ry" values="3;3;.4;3;3" dur="4s" repeatCount="indefinite" keyTimes="0;.45;.5;.55;1" begin=".1s"/></ellipse>
+      <circle cx="87" cy="31.5" r="1.5" fill="#fff"/><circle cx="98" cy="31.5" r="1.5" fill="#fff"/>
+      <!-- Chest gem -->
+      <circle cx="100" cy="72" r="5" fill="none" stroke="#FFD54F" stroke-width="1.2" opacity=".5" filter="url(#wg)"><animate attributeName="opacity" values=".5;.8;.5" dur="3s" repeatCount="indefinite"/></circle>
+      <circle cx="100" cy="72" r="2.5" fill="#FFD54F" opacity=".4"><animate attributeName="opacity" values=".4;.7;.4" dur="3s" repeatCount="indefinite"/></circle>
+      <!-- Tail -->
+      <path d="M124 80 Q140 90 148 102 Q156 118 146 128" fill="none" stroke="#7DF9FF" stroke-width="2" stroke-linecap="round" filter="url(#wg)"><animate attributeName="d" dur="3s" repeatCount="indefinite" values="M124 80 Q140 90 148 102 Q156 118 146 128;M124 80 Q138 94 144 108 Q148 122 142 130;M124 80 Q140 90 148 102 Q156 118 146 128"/></path>
+      <!-- Orbiting atoms -->
+      <circle r="2.5" fill="#7DF9FF" opacity=".5"><animateMotion dur="3s" repeatCount="indefinite" path="M100,55 A28,28 0 1,1 99.99,55"/></circle>
+      <circle r="2" fill="#C792EA" opacity=".4"><animateMotion dur="4.2s" repeatCount="indefinite" path="M100,72 A35,18 0 1,1 99.99,72"/></circle>
+      <circle r="1.8" fill="#FFD54F" opacity=".3"><animateMotion dur="5.5s" repeatCount="indefinite" path="M100,65 A22,30 0 1,1 99.99,65"/></circle>
+    </svg>
+    <div class="w-title">Elementum</div>
+    <div class="w-tagline">A new twist on chemistry, designed for ages 4+. Built for the kid who already knows 800 dinosaur names and isn't done learning.<br><br>Every element has a personality, a superpower, and a story. Your child is about to meet all <strong>118</strong>.</div>
+    <div class="w-form">
+      <div class="w-field">
+        <label>Child's First Name *</label>
+        <input type="text" id="wName" placeholder="e.g. Leo" maxlength="20" autocomplete="off">
+      </div>
+      <div class="w-field">
+        <label>Favorite Toy or Comfort Object *</label>
+        <input type="text" id="wToy" placeholder="e.g. Ellie (blanket), Bear, Lamby" maxlength="30" autocomplete="off">
+        <div class="w-hint">Carbon will say "I'm inside [toy]!"</div>
+      </div>
+      <div class="w-divider"><span>Optional — unlocks extra personalization</span></div>
+      <div class="w-field">
+        <label>Favorite Food</label>
+        <input type="text" id="wFood" placeholder="e.g. pizza, mac and cheese" maxlength="30" autocomplete="off">
+        <div class="w-hint">Elements will reference this food in their stories</div>
+      </div>
+      <div class="w-field">
+        <label>Pet's Name</label>
+        <input type="text" id="wPet" placeholder="e.g. Max, Luna" maxlength="20" autocomplete="off">
+        <div class="w-hint">Elements will mention your pet by name</div>
+      </div>
+      <div class="w-field">
+        <label>Favorite Color</label>
+        <input type="text" id="wColor" placeholder="e.g. blue, red, green, purple" maxlength="15" autocomplete="off">
+        <div class="w-hint">We'll match it to the element that creates it</div>
+      </div>
+      <div class="w-field">
+        <label>Birthday (day of month)</label>
+        <input type="number" id="wBday" placeholder="e.g. 6, 15, 23" min="1" max="31" autocomplete="off">
+        <div class="w-hint">Your child gets a personal Element Buddy based on their birthday</div>
+      </div>
+      <button class="w-start" id="wStart" disabled>Begin the Quest</button>
+      <div class="w-hint" id="wStartHint" style="text-align:center;margin-top:4px">Enter name and toy to begin</div>
+    </div>
+    <div class="w-parent">
+      <p><strong>For parents:</strong> Elementum teaches all 118 elements through a character-driven collection quest. Your child discovers elements, restores a dragon's powers, unlocks Mega Evolution at 20, and earns titles up to "Eternal Dragon" at 118. Progress saves automatically. No ads. No accounts. Just chemistry disguised as adventure.</p>
+    </div>
+  </div>
+</div>
+
+<!-- WELCOME BEAT -->
+<div class="welcome-beat hidden" id="welcomeBeat">
+  <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" style="width:160px;height:125px;margin-bottom:16px;animation:dragonFloat 3s ease-in-out infinite;filter:drop-shadow(0 0 20px rgba(125,249,255,.3))">
+    <defs><filter id="wbg"><feGaussianBlur stdDeviation="3" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="wbg2"><feGaussianBlur stdDeviation="5" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter><radialGradient id="wbbG" cx="50%" cy="40%" r="50%"><stop offset="0%" stop-color="#7DF9FF" stop-opacity=".3"/><stop offset="100%" stop-color="#C792EA" stop-opacity=".05"/></radialGradient><linearGradient id="wbwG" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#C792EA" stop-opacity=".4"/><stop offset="100%" stop-color="#7DF9FF" stop-opacity=".1"/></linearGradient></defs>
+    <path d="M58 65 Q28 28 12 42 Q2 52 18 64 Q8 48 22 38 Q34 26 44 48Z" fill="url(#wbwG)" stroke="#C792EA" stroke-width="1.5" filter="url(#wbg)" opacity=".8"><animate attributeName="d" dur="4s" repeatCount="indefinite" values="M58 65 Q28 28 12 42 Q2 52 18 64 Q8 48 22 38 Q34 26 44 48Z;M58 65 Q26 33 10 46 Q0 56 16 66 Q6 51 20 41 Q32 30 44 50Z;M58 65 Q28 28 12 42 Q2 52 18 64 Q8 48 22 38 Q34 26 44 48Z"/></path>
+    <path d="M142 65 Q172 28 188 42 Q198 52 182 64 Q192 48 178 38 Q166 26 156 48Z" fill="url(#wbwG)" stroke="#C792EA" stroke-width="1.5" filter="url(#wbg)" opacity=".8"><animate attributeName="d" dur="4s" repeatCount="indefinite" values="M142 65 Q172 28 188 42 Q198 52 182 64 Q192 48 178 38 Q166 26 156 48Z;M142 65 Q174 33 190 46 Q200 56 184 66 Q194 51 180 41 Q168 30 156 50Z;M142 65 Q172 28 188 42 Q198 52 182 64 Q192 48 178 38 Q166 26 156 48Z"/></path>
+    <ellipse cx="100" cy="75" rx="30" ry="22" fill="url(#wbbG)" filter="url(#wbg2)"/>
+    <ellipse cx="100" cy="75" rx="24" ry="16" fill="none" stroke="#7DF9FF" stroke-width="1.2" opacity=".4" filter="url(#wbg)"/>
+    <path d="M86 58 L90 51 L94 58 L100 49 L106 58 L110 51 L114 58" fill="none" stroke="#C792EA" stroke-width="2" stroke-linecap="round" filter="url(#wbg)" opacity=".7"/>
+    <path d="M84 66 Q78 52 81 42 Q84 36 91 33" fill="none" stroke="#7DF9FF" stroke-width="2.5" stroke-linecap="round" filter="url(#wbg)"/>
+    <path d="M80 28 Q84 32 87 36 Q92 42 96 36 Q99 32 103 28" fill="none" stroke="#7DF9FF" stroke-width="2.5" stroke-linecap="round" filter="url(#wbg)"/>
+    <path d="M91 33 Q87 26 80 28 Q76 30 74 26 L71 18" fill="none" stroke="#C792EA" stroke-width="2" stroke-linecap="round" filter="url(#wbg)"/>
+    <path d="M92 33 Q96 26 103 28 Q107 30 109 26 L112 18" fill="none" stroke="#C792EA" stroke-width="2" stroke-linecap="round" filter="url(#wbg)"/>
+    <ellipse cx="86" cy="32" rx="4" ry="3.5" fill="#7DF9FF" filter="url(#wbg)"><animate attributeName="ry" values="3.5;3.5;.4;3.5;3.5" dur="4s" repeatCount="indefinite" keyTimes="0;.45;.5;.55;1"/></ellipse>
+    <ellipse cx="97" cy="32" rx="4" ry="3.5" fill="#7DF9FF" filter="url(#wbg)"><animate attributeName="ry" values="3.5;3.5;.4;3.5;3.5" dur="4s" repeatCount="indefinite" keyTimes="0;.45;.5;.55;1" begin=".1s"/></ellipse>
+    <circle cx="87" cy="31.5" r="2" fill="#fff"/><circle cx="98" cy="31.5" r="2" fill="#fff"/>
+    <circle cx="100" cy="72" r="6" fill="none" stroke="#FFD54F" stroke-width="1.5" opacity=".6" filter="url(#wbg)"><animate attributeName="opacity" values=".5;.8;.5" dur="3s" repeatCount="indefinite"/></circle>
+    <circle cx="100" cy="72" r="3" fill="#FFD54F" opacity=".5"/>
+    <path d="M124 80 Q140 90 148 102 Q156 118 146 128" fill="none" stroke="#7DF9FF" stroke-width="2.2" stroke-linecap="round" filter="url(#wbg)"><animate attributeName="d" dur="3s" repeatCount="indefinite" values="M124 80 Q140 90 148 102 Q156 118 146 128;M124 80 Q138 94 144 108 Q148 122 142 130;M124 80 Q140 90 148 102 Q156 118 146 128"/></path>
+    <circle r="3" fill="#7DF9FF" opacity=".5"><animateMotion dur="3s" repeatCount="indefinite" path="M100,55 A28,28 0 1,1 99.99,55"/></circle>
+    <circle r="2.5" fill="#C792EA" opacity=".4"><animateMotion dur="4.2s" repeatCount="indefinite" path="M100,72 A35,18 0 1,1 99.99,72"/></circle>
+    <circle r="2" fill="#FFD54F" opacity=".3"><animateMotion dur="5.5s" repeatCount="indefinite" path="M100,65 A22,30 0 1,1 99.99,65"/></circle>
+  </svg>
+  <div class="wb-name" id="wbName"></div>
+  <div class="wb-sub">Eternatus is waiting for you.</div>
+  <button class="wb-btn" id="wbBtn">Next →</button>
+</div>
+
+<!-- INTRO -->
+<div class="intro-overlay hidden" id="intro">
+  <svg class="intro-dragon" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+    <defs><filter id="glo"><feGaussianBlur stdDeviation="3" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="glo2"><feGaussianBlur stdDeviation="5" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter><radialGradient id="bodyG" cx="50%" cy="40%" r="50%"><stop offset="0%" stop-color="#7DF9FF" stop-opacity=".3"/><stop offset="100%" stop-color="#C792EA" stop-opacity=".05"/></radialGradient><linearGradient id="wingG" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#C792EA" stop-opacity=".4"/><stop offset="100%" stop-color="#7DF9FF" stop-opacity=".1"/></linearGradient></defs>
+    <path d="M60 65 Q30 30 15 45 Q5 55 20 65 Q10 50 25 40 Q35 28 45 50Z" fill="url(#wingG)" stroke="#C792EA" stroke-width="1" filter="url(#glo)" opacity=".7"><animate attributeName="d" dur="4s" repeatCount="indefinite" values="M60 65 Q30 30 15 45 Q5 55 20 65 Q10 50 25 40 Q35 28 45 50Z;M60 65 Q28 35 12 48 Q2 58 18 68 Q8 53 22 43 Q33 32 45 52Z;M60 65 Q30 30 15 45 Q5 55 20 65 Q10 50 25 40 Q35 28 45 50Z"/></path>
+    <path d="M140 65 Q170 30 185 45 Q195 55 180 65 Q190 50 175 40 Q165 28 155 50Z" fill="url(#wingG)" stroke="#C792EA" stroke-width="1" filter="url(#glo)" opacity=".7"><animate attributeName="d" dur="4s" repeatCount="indefinite" values="M140 65 Q170 30 185 45 Q195 55 180 65 Q190 50 175 40 Q165 28 155 50Z;M140 65 Q172 35 188 48 Q198 58 182 68 Q192 53 178 43 Q167 32 155 52Z;M140 65 Q170 30 185 45 Q195 55 180 65 Q190 50 175 40 Q165 28 155 50Z"/></path>
+    <ellipse cx="100" cy="75" rx="30" ry="22" fill="url(#bodyG)" filter="url(#glo2)"/><ellipse cx="100" cy="75" rx="24" ry="16" fill="none" stroke="#7DF9FF" stroke-width="1.2" opacity=".4" filter="url(#glo)"/>
+    <path d="M88 60 L92 54 L96 60 L100 52 L104 60 L108 54 L112 60" fill="none" stroke="#C792EA" stroke-width="1.5" stroke-linecap="round" filter="url(#glo)" opacity=".6"/>
+    <path d="M85 68 Q80 55 82 45 Q85 38 92 35" fill="none" stroke="#7DF9FF" stroke-width="1.8" stroke-linecap="round" filter="url(#glo)"/>
+    <path d="M92 35 Q88 28 82 30 Q78 32 76 28 L74 22" fill="none" stroke="#C792EA" stroke-width="1.5" stroke-linecap="round" filter="url(#glo)"/>
+    <path d="M92 35 Q96 28 102 30 Q106 32 108 28 L110 22" fill="none" stroke="#C792EA" stroke-width="1.5" stroke-linecap="round" filter="url(#glo)"/>
+    <path d="M82 30 Q86 34 88 38 Q92 42 96 38 Q98 34 102 30" fill="none" stroke="#7DF9FF" stroke-width="2" stroke-linecap="round" filter="url(#glo)"/>
+    <circle cx="86" cy="33" r="3" fill="#7DF9FF" filter="url(#glo)"><animate attributeName="r" values="3;3;.5;3;3" dur="4s" repeatCount="indefinite" keyTimes="0;.45;.5;.55;1"/></circle>
+    <circle cx="98" cy="33" r="3" fill="#7DF9FF" filter="url(#glo)"><animate attributeName="r" values="3;3;.5;3;3" dur="4s" repeatCount="indefinite" keyTimes="0;.45;.5;.55;1" begin=".1s"/></circle>
+    <circle cx="86" cy="33" r="1.2" fill="#fff"/><circle cx="98" cy="33" r="1.2" fill="#fff"/>
+    <path d="M124 80 Q140 88 148 100 Q155 115 145 125 Q140 130 138 126" fill="none" stroke="#7DF9FF" stroke-width="1.8" stroke-linecap="round" filter="url(#glo)"><animate attributeName="d" dur="3s" repeatCount="indefinite" values="M124 80 Q140 88 148 100 Q155 115 145 125 Q140 130 138 126;M124 80 Q138 92 144 105 Q148 118 142 128 Q138 132 135 128;M124 80 Q140 88 148 100 Q155 115 145 125 Q140 130 138 126"/></path>
+    <circle r="2.5" fill="#7DF9FF" opacity=".6"><animateMotion dur="3s" repeatCount="indefinite" path="M100,60 A25,25 0 1,1 99.99,60"/></circle>
+    <circle r="2" fill="#C792EA" opacity=".5"><animateMotion dur="4s" repeatCount="indefinite" path="M100,75 A32,18 0 1,1 99.99,75"/></circle>
+  </svg>
+  <div class="intro-text">
+    <div class="intro-title" id="iTitle">Professor Eternatus</div>
+    <div class="intro-speech" id="iSpeech"></div>
+    <div class="intro-card" id="iCard"></div>
+    <button class="intro-btn primary" id="iBtn">Let's Go!</button>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div id="app" class="hidden">
+<header class="hdr"><div class="hdr-row"><h1>Elementum</h1></div></header>
+<div class="reset-confirm hidden" id="resetConfirm"><p>Start Elementum from scratch?</p><p class="warn">This erases ALL progress. Eternatus loses all powers.</p><div class="reset-btns"><button class="rbtn-cancel" id="resetCancel">Keep Going</button><button class="rbtn-reset" id="resetYes">Reset Everything</button></div></div>
+
+<div class="mbar" id="mbar" data-tier="1">
+  <div class="buddy-wrap" id="buddyWrap" onclick="onBuddyTap()"><div class="buddy-badge empty" id="buddyBadge">?</div><div class="buddy-label" id="buddyLabel">BUDDY</div></div>
+  <svg class="dragon-hero" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+    <defs><filter id="gm"><feGaussianBlur stdDeviation="2.5" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="gm2"><feGaussianBlur stdDeviation="4" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter><radialGradient id="bG2" cx="50%" cy="40%" r="50%"><stop offset="0%" stop-color="#7DF9FF" stop-opacity=".25"/><stop offset="100%" stop-color="#C792EA" stop-opacity=".03"/></radialGradient><linearGradient id="wG2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#C792EA" stop-opacity=".35"/><stop offset="100%" stop-color="#7DF9FF" stop-opacity=".08"/></linearGradient></defs>
+    <path d="M58 65 Q28 28 12 42 Q2 52 18 64 Q8 48 22 38 Q34 26 44 48Z" fill="url(#wG2)" stroke="#C792EA" stroke-width="1.2" filter="url(#gm)" opacity=".7"><animate attributeName="d" dur="4s" repeatCount="indefinite" values="M58 65 Q28 28 12 42 Q2 52 18 64 Q8 48 22 38 Q34 26 44 48Z;M58 65 Q26 33 10 46 Q0 56 16 66 Q6 51 20 41 Q32 30 44 50Z;M58 65 Q28 28 12 42 Q2 52 18 64 Q8 48 22 38 Q34 26 44 48Z"/></path>
+    <path d="M142 65 Q172 28 188 42 Q198 52 182 64 Q192 48 178 38 Q166 26 156 48Z" fill="url(#wG2)" stroke="#C792EA" stroke-width="1.2" filter="url(#gm)" opacity=".7"><animate attributeName="d" dur="4s" repeatCount="indefinite" values="M142 65 Q172 28 188 42 Q198 52 182 64 Q192 48 178 38 Q166 26 156 48Z;M142 65 Q174 33 190 46 Q200 56 184 66 Q194 51 180 41 Q168 30 156 50Z;M142 65 Q172 28 188 42 Q198 52 182 64 Q192 48 178 38 Q166 26 156 48Z"/></path>
+    <ellipse cx="100" cy="75" rx="28" ry="20" fill="url(#bG2)" filter="url(#gm2)"/><ellipse cx="100" cy="75" rx="22" ry="14" fill="none" stroke="#7DF9FF" stroke-width="1" opacity=".35" filter="url(#gm)"/>
+    <path d="M86 58 L90 51 L94 58 L100 49 L106 58 L110 51 L114 58" fill="none" stroke="#C792EA" stroke-width="1.8" stroke-linecap="round" filter="url(#gm)" opacity=".6"/>
+    <path d="M84 66 Q78 52 81 42 Q84 36 91 33" fill="none" stroke="#7DF9FF" stroke-width="2" stroke-linecap="round" filter="url(#gm)"/>
+    <path d="M80 28 Q84 32 87 36 Q92 42 96 36 Q99 32 103 28" fill="none" stroke="#7DF9FF" stroke-width="2.2" stroke-linecap="round" filter="url(#gm)"/>
+    <path d="M91 33 Q87 26 80 28 Q76 30 74 26 L71 18" fill="none" stroke="#C792EA" stroke-width="1.8" stroke-linecap="round" filter="url(#gm)"/>
+    <path d="M92 33 Q96 26 103 28 Q107 30 109 26 L112 18" fill="none" stroke="#C792EA" stroke-width="1.8" stroke-linecap="round" filter="url(#gm)"/>
+    <circle cx="86" cy="32" rx="3.5" ry="3" fill="#7DF9FF" filter="url(#gm)"><animate attributeName="r" values="3.5;3.5;.4;3.5;3.5" dur="4s" repeatCount="indefinite" keyTimes="0;.45;.5;.55;1"/></circle>
+    <circle cx="97" cy="32" rx="3.5" ry="3" fill="#7DF9FF" filter="url(#gm)"><animate attributeName="r" values="3.5;3.5;.4;3.5;3.5" dur="4s" repeatCount="indefinite" keyTimes="0;.45;.5;.55;1" begin=".1s"/></circle>
+    <circle cx="87" cy="31.5" r="1.5" fill="#fff"/><circle cx="98" cy="31.5" r="1.5" fill="#fff"/>
+    <circle cx="100" cy="72" r="5" fill="none" stroke="#FFD54F" stroke-width="1.2" opacity=".5" filter="url(#gm)"><animate attributeName="opacity" values=".5;.8;.5" dur="3s" repeatCount="indefinite"/></circle>
+    <circle cx="100" cy="72" r="2.5" fill="#FFD54F" opacity=".4"><animate attributeName="opacity" values=".4;.7;.4" dur="3s" repeatCount="indefinite"/></circle>
+    <path d="M124 80 Q140 90 148 102 Q156 118 146 128" fill="none" stroke="#7DF9FF" stroke-width="2" stroke-linecap="round" filter="url(#gm)"><animate attributeName="d" dur="3s" repeatCount="indefinite" values="M124 80 Q140 90 148 102 Q156 118 146 128;M124 80 Q138 94 144 108 Q148 122 142 130;M124 80 Q140 90 148 102 Q156 118 146 128"/></path>
+    <circle r="2.5" fill="#7DF9FF" opacity=".5"><animateMotion dur="3s" repeatCount="indefinite" path="M100,55 A28,28 0 1,1 99.99,55"/></circle>
+    <circle r="2" fill="#C792EA" opacity=".4"><animateMotion dur="4.2s" repeatCount="indefinite" path="M100,72 A35,18 0 1,1 99.99,72"/></circle>
+    <circle r="1.8" fill="#FFD54F" opacity=".3"><animateMotion dur="5.5s" repeatCount="indefinite" path="M100,65 A22,30 0 1,1 99.99,65"/></circle>
+  </svg>
+  <div class="msp" id="msp"><strong>Eternatus:</strong> <span id="mspText">Tap an element to restore my power!</span></div>
+  <div class="pwr-row"><div class="pwr" id="pwrLabel">Powers: 0 / 20</div><div class="pwr-bar"><div class="pwr-fill" id="pwrFill" style="width:0%"></div></div></div>
+  <div class="ach-row"><span class="ach-title" id="achTitle"></span></div>
+</div>
+
+<div class="wb-return hidden" id="wbReturn" onclick="this.classList.add('hidden')"><p id="wbReturnText"></p></div>
+<div class="wild-banner hidden" id="wildBanner"><div class="wild-text" id="wildText">🐉 Eternatus senses a wild element nearby!</div><button class="wild-btn" id="wildBtn">Reveal →</button></div>
+<div class="arc-banner hidden" id="arcBanner"><div class="arc-title" id="arcTitle"></div><div class="arc-desc" id="arcDesc"></div><div class="arc-progress" id="arcProg"></div></div>
+
+<div class="ltabs" id="ltabs">
+  <button class="ltab active" data-lv="1">Starters<span class="lc">20 Elements</span></button>
+  <button class="ltab" data-lv="2">Mega Evolution<span class="lc">All 118</span></button>
+  <button class="ltab" data-lv="eotd">Today<span class="lc">Element of Day</span></button>
+  <button class="ltab" data-lv="map">Dragon's Map<span class="lc">Periodic Grid</span></button>
+  <button class="ltab" data-lv="profile">My Dex<span class="lc">Profile</span></button>
+</div>
+
+<div class="ftabs" id="ftabs"></div>
+<div class="fbio" id="fbio"><div class="fbio-text" id="fbioText"></div></div>
+<div class="cnt" id="cnt"></div>
+<div class="grid" id="grid"></div>
+<div class="dmap hidden" id="dmap"><div class="ftabs" id="dmFtabs" style="margin-top:8px"></div><div class="fbio" id="dmFbio"><div class="fbio-text" id="dmFbioText"></div></div><div class="dm-col-hint" id="dmColHint"><p id="dmColText"></p></div><div class="dmap-grid" id="dmapGrid"></div></div>
+<div class="eotd hidden" id="eotd"></div>
+<div class="profile hidden" id="profile"></div>
+</div>
+
+<!-- SHARE CARD -->
+<div class="share-overlay" id="shareOv">
+  <div class="share-card" id="shareCard">
+    <div class="sc-name" id="scName"></div>
+    <div class="sc-title" id="scTitle"></div>
+    <div class="sc-stat" id="scStat"></div>
+    <div class="sc-stat-label">of 118 elements discovered</div>
+    <div class="sc-bar"><div class="sc-bar-fill" id="scBar" style="width:0%"></div></div>
+    <div class="sc-brand">Elementum — The Periodic Quest</div>
+  </div>
+  <button class="share-close" id="shareClose">Close</button>
+</div>
+
+<!-- MODAL -->
+<div class="mov" id="mov"><div class="mcard" id="mc"><button class="mx" id="mx">&times;</button><div class="mhdr" id="mhdr"><div class="m-emoji" id="me"></div><div class="m-info"><div class="m-sym" id="ms"></div><div class="m-name" id="mn"></div><div class="m-meta" id="mm"></div></div></div><div class="m-body"><div><div class="m-lbl">Superpower</div><div class="m-fact" id="mf"></div></div><div><div class="m-lbl">In Your World</div><div class="m-story" id="mst"></div></div><div id="mCombosWrap" style="display:none"><div class="m-lbl">⚡ Mega Combos</div><div class="m-combos" id="mCombos"></div></div><div class="m-eternatus" id="metern" style="display:none"><p id="meternText"></p></div><button class="m-speak" id="mspk"><span>🔊</span><span>Hear My Name</span></button></div></div></div>
+<div class="celeb" id="celeb"></div>
+<div class="toast" id="toast" onclick="this.classList.remove('show')"><div class="toast-emoji" id="toastEmoji"></div><div class="toast-text" id="toastText"></div><div class="toast-fam" id="toastFam"></div></div>
+<div class="fam-celeb" id="famCeleb"><div class="fam-celeb-bg"></div><div class="fam-celeb-glow" id="famGlow"></div><div class="fam-celeb-content"><div class="fam-celeb-badge" id="famBadge"></div><div class="fam-celeb-title" id="famTitle"></div><div class="fam-celeb-quote" id="famQuote"></div><div class="fam-celeb-dragon">🐉 Professor Eternatus</div><button style="margin-top:20px;padding:12px 32px;border-radius:12px;border:none;font-family:'Fredoka',sans-serif;font-size:.9rem;font-weight:600;cursor:pointer;background:rgba(255,255,255,.1);color:var(--t1)" id="famClose">Continue →</button></div></div>
+<div class="mega-celeb" id="megaCeleb"><div class="mc-title" id="mcTitle">MEGA EVOLUTION UNLOCKED!</div><div class="mc-sub" id="mcSub"></div><button class="mc-btn" id="mcBtn">Enter Mega Evolution →</button></div>
+<div class="match-overlay" id="matchOv"><div class="match-q" id="matchQ"></div><div class="match-opts" id="matchOpts"></div><div class="match-result" id="matchRes"></div><button class="match-skip" id="matchSkip">Skip for now</button></div>
+
+<script>
+// ═══════════════════════════════════════
+// PERSONALIZATION
+// ═══════════════════════════════════════
+const SK='elementum_v2';
+let P={name:'Explorer',toy:'blanket',food:'',pet:'',color:'',bday:0};
+let state;
+
+function loadAll(){
+  try{const d=JSON.parse(localStorage.getItem(SK))||{};state=d.state||{};P=d.profile||P}catch(e){state={}}
+  if(!state.disc)state.disc=[];if(!state.fams)state.fams=[];if(!state.intro)state.intro=false;
+  if(!state.megaUnlocked)state.megaUnlocked=false;if(!state.achShown)state.achShown=[];
+  if(!state.matchesPlayed)state.matchesPlayed=0;if(!state.matchesCorrect)state.matchesCorrect=0;if(!state.firstDiscTime)state.firstDiscTime=null;
+  if(!state.currentArc)state.currentArc=0;if(!state.arcComplete)state.arcComplete=[];
+  if(!state.lastVisit)state.lastVisit=Date.now();if(!state.sessionDisc)state.sessionDisc=[];
+  if(!state.megaTourDone)state.megaTourDone=false;if(!state.lastWild)state.lastWild=0;
+  if(!state.radiants)state.radiants=[];if(!state.whispersShown)state.whispersShown=[];
+  if(!state.combosReacted)state.combosReacted=[];if(!state.secret119)state.secret119=false;
+}
+function saveAll(){try{localStorage.setItem(SK,JSON.stringify({state,profile:P}))}catch(e){}}
+function isDisc(n){return state.disc.includes(n)}
+function discover(n){if(!isDisc(n)){state.disc.push(n);if(!state.firstDiscTime)state.firstDiscTime=Date.now();saveAll();return true}return false}
+function isFamDisc(f){return state.fams.includes(f)}
+function discoverFam(f){if(!isFamDisc(f)){state.fams.push(f);saveAll();return true}return false}
+// Color to element mapping
+const COLOR_MAP={red:{el:'Strontium',s:'Sr',n:38,why:'makes red fireworks'},blue:{el:'Cobalt',s:'Co',n:27,why:'creates the deepest blue paint'},green:{el:'Chromium',s:'Cr',n:24,why:'makes emeralds green and chrome shine'},yellow:{el:'Sulfur',s:'S',n:16,why:'is bright yellow and found in volcanoes'},purple:{el:'Iodine',s:'I',n:53,why:'turns gorgeous purple when heated'},orange:{el:'Copper',s:'Cu',n:29,why:'glows orange when heated'},pink:{el:'Cobalt',s:'Co',n:27,why:'makes pink glass'},white:{el:'Titanium',s:'Ti',n:22,why:'makes the whitest white paint'},gold:{el:'Gold',s:'Au',n:79,why:'IS your favorite color'},silver:{el:'Silver',s:'Ag',n:47,why:'IS your favorite color'}};
+function getColorElement(){const c=P.color.toLowerCase().trim();return COLOR_MAP[c]||null}
+// Token replacement with all fields
+function T(s){
+  let r=s.replace(/\{name\}/g,P.name).replace(/\{toy\}/g,P.toy);
+  if(P.food)r=r.replace(/\{food\}/g,P.food);else r=r.replace(/\{food\}/g,'your food');
+  if(P.pet)r=r.replace(/\{pet\}/g,P.pet);else r=r.replace(/\{pet\}/g,'your pet');
+  if(P.color)r=r.replace(/\{color\}/g,P.color);else r=r.replace(/\{color\}/g,'your favorite color');
+  return r;
+}
+loadAll();
+
+// ═══════════════════════════════════════
+// FAMILIES
+// ═══════════════════════════════════════
+const F={
+lifemaker:{n:"Life Makers",c:"#66BB6A",bg:"rgba(102,187,106,.08)",gl:"rgba(102,187,106,.3)",bd:"rgba(102,187,106,.2)",bio:"These are the building blocks of everything alive. You, me, trees, {toy}. They make life possible.",disc:"Life energy flows through me!",audio:[440,'sine',.12]},
+noble:{n:"Glow Squad",c:"#CE93D8",bg:"rgba(206,147,216,.08)",gl:"rgba(206,147,216,.3)",bd:"rgba(206,147,216,.2)",bio:"The lone wolves of my kingdom. They never team up with anyone. But send electricity through them and they glow any color you want.",disc:"My wings shimmer with new light!",audio:[880,'sine',.18]},
+warrior:{n:"Metal Warriors",c:"#5C6BC0",bg:"rgba(92,107,192,.08)",gl:"rgba(92,107,192,.3)",bd:"rgba(92,107,192,.2)",bio:"My biggest army! These metals build everything. Bridges, coins, jewelry, rockets. The workhorses of the world.",disc:"My armor hardens! Nothing can stop me!",audio:[330,'triangle',.1]},
+explosion:{n:"Explosion Squad",c:"#EF5350",bg:"rgba(239,83,80,.08)",gl:"rgba(239,83,80,.3)",bd:"rgba(239,83,80,.2)",bio:"CAREFUL, {name}! Drop these in water and BOOM! The most wild and reactive metals. Dangerous, powerful, and never boring.",disc:"POWER surges through my veins!",audio:[200,'square',.06]},
+earth:{n:"Earth Builders",c:"#FFA726",bg:"rgba(255,167,38,.08)",gl:"rgba(255,167,38,.3)",bd:"rgba(255,167,38,.2)",bio:"Strong and steady like the ground beneath your feet. They build bones, make fireworks flash, and chalk the sidewalk.",disc:"The ground trembles with new strength!",audio:[260,'sine',.14]},
+shifter:{n:"Shape Shifters",c:"#26A69A",bg:"rgba(38,166,154,.08)",gl:"rgba(38,166,154,.3)",bd:"rgba(38,166,154,.2)",bio:"Sneaky metals that bend and change. Some melt right in your hand! Soft but very clever.",disc:"My form shifts and flows!",audio:[500,'sine',.1]},
+halfhalf:{n:"Half-and-Halfs",c:"#AB47BC",bg:"rgba(171,71,188,.08)",gl:"rgba(171,71,188,.3)",bd:"rgba(171,71,188,.2)",bio:"The tricksters! Half metal, half not. Silicon is beach sand that learned to think. They cannot pick a side.",disc:"Both sides of my power unite!",audio:[600,'triangle',.12]},
+saltmaker:{n:"Salt Makers",c:"#C0CA33",bg:"rgba(192,202,51,.08)",gl:"rgba(192,202,51,.3)",bd:"rgba(192,202,51,.2)",bio:"Fierce and stinky! These make salts, clean pools, and protect teeth. They fight germs and never apologize for the smell.",disc:"My breath burns with fierce energy!",audio:[700,'sawtooth',.06]},
+hidden:{n:"Hidden Powers",c:"#00897B",bg:"rgba(0,137,123,.08)",gl:"rgba(0,137,123,.3)",bd:"rgba(0,137,123,.2)",bio:"My secret weapons! Rare earths hiding inside every phone, every magnet, every laser. The world runs on them.",disc:"Ancient secrets awaken inside me!",audio:[520,'sine',.16]},
+radioactive:{n:"Radioactive Force",c:"#FF7043",bg:"rgba(255,112,67,.08)",gl:"rgba(255,112,67,.3)",bd:"rgba(255,112,67,.2)",bio:"The final bosses. Planet-level power. Uranium runs whole cities. Plutonium could destroy them. The most powerful elements in existence.",disc:"Raw cosmic power floods through me!",audio:[180,'square',.08]}
+};
+
+// ═══════════════════════════════════════
+// ELEMENT DATA (all 118)
+// ═══════════════════════════════════════
+const E=[
+// L1: 20 starters (combos, revisit lines, rich stories)
+{n:"Hydrogen",s:"H",num:1,e:"💧",f:"lifemaker",p:"Tiny powerhouse",fact:"Lightest thing in the universe!",story:"I'm tiny but mighty. Two of me plus Oxygen makes every drop of water {name} drinks.",l1:1,eLine:"The first atom ever born! Ancient fire returns!",rv:"Back so soon? I may be tiny but I'm unforgettable!",cb:[{w:"Oxygen",r:"Water 💧",eq:"H₂O"},{w:"Hydrogen",r:"Hydrogen Gas 🫧",eq:"H₂"}]},
+{n:"Helium",s:"He",num:2,e:"🎈",f:"noble",p:"Floaty giggler",fact:"I make balloons fly!",story:"WHEEE! Breathe me in and your voice goes all squeaky! I float above everything!",l1:1,eLine:"My wings feel lighter already!",rv:"WHEEE you're back! Want to float with me again?",cb:[]},
+{n:"Carbon",s:"C",num:6,e:"💎",f:"lifemaker",p:"Builder of life",fact:"I'm in EVERYTHING alive!",story:"I'm inside {toy}! Cotton is long chains of me, Carbon! Hug {toy} and you hug billions of my atoms.",l1:1,eLine:"I feel {toy}'s warmth! Life energy is flooding back!",rv:"Hey, go hug {toy} for me. I'm in every thread.",cb:[{w:"Oxygen",r:"Carbon Dioxide 🌬️",eq:"CO₂"},{w:"Carbon + heat",r:"Diamond 💎",eq:"C → 💎"},{w:"Hydrogen",r:"Methane 🔥",eq:"CH₄"}]},
+{n:"Nitrogen",s:"N",num:7,e:"👻",f:"lifemaker",p:"Invisible ninja",fact:"I'm most of the air!",story:"Can't see me, smell me, or taste me. But almost 8 out of 10 bits of air? That's me. Ninja life.",l1:1,rv:"Shh. I was here the whole time. You just couldn't see me.",cb:[{w:"Hydrogen",r:"Ammonia 🧴",eq:"NH₃"},{w:"Oxygen",r:"Laughing Gas 😂",eq:"N₂O"}]},
+{n:"Oxygen",s:"O",num:8,e:"🌬️",f:"lifemaker",p:"Breath of life",fact:"Every breath. That's me.",story:"Breathe in right now, {name}. Feel that? That's me giving your whole body energy. You're welcome.",l1:1,eLine:"I can BREATHE again! *takes huge breath*",rv:"Take a deep breath. That's me saying hello.",cb:[{w:"Hydrogen",r:"Water 💧",eq:"H₂O"},{w:"Iron",r:"Rust 🟤",eq:"Fe₂O₃"},{w:"Carbon",r:"Carbon Dioxide 🌬️",eq:"CO₂"}]},
+{n:"Sodium",s:"Na",num:11,e:"🍟",f:"explosion",p:"Salty explosive",fact:"I EXPLODE in water!",story:"On fries I'm yummy salt. Alone near water? BOOM! Stand back!",l1:1,rv:"Keep me away from that water glass. I'm serious.",cb:[{w:"Chlorine",r:"Table Salt 🧂",eq:"NaCl"}]},
+{n:"Aluminum",s:"Al",num:13,e:"✈️",f:"shifter",p:"Lightweight champ",fact:"Strong but super light!",story:"Foil, cans, airplane wings. I hold a plane up AND get crushed by your hand. Weird, right?",l1:1,rv:"Crush a foil ball for me. Go on. I can take it.",cb:[{w:"Oxygen",r:"Sapphires! 💙",eq:"Al₂O₃"}]},
+{n:"Silicon",s:"Si",num:14,e:"💻",f:"halfhalf",p:"Thinking sand",fact:"Sand that thinks!",story:"Started as beach sand. Now I run every computer, phone, and tablet. Biggest glow up ever.",l1:1,rv:"I'm literally inside the thing you're tapping right now.",cb:[{w:"Oxygen",r:"Glass & Sand 🏖️",eq:"SiO₂"}]},
+{n:"Sulfur",s:"S",num:16,e:"🥚",f:"lifemaker",p:"Stinky legend",fact:"I stink. Sorry not sorry.",story:"Rotten egg smell? That's me. I also live in volcanoes. Gross AND awesome.",l1:1,rv:"You came back even though I stink? Respect.",cb:[{w:"Oxygen",r:"Sulfuric Acid ⚗️",eq:"H₂SO₄"},{w:"Iron",r:"Fool's Gold ✨",eq:"FeS₂"}]},
+{n:"Chlorine",s:"Cl",num:17,e:"🏊",f:"saltmaker",p:"Pool protector",fact:"I zap germs in water!",story:"That pool smell? Me, fighting germs so {name} can splash safe. Tough job, someone's gotta.",l1:1,rv:"Smell that? Oh wait, you can't. I'm just text. Lucky you.",cb:[{w:"Sodium",r:"Table Salt 🧂",eq:"NaCl"}]},
+{n:"Potassium",s:"K",num:19,e:"🍌",f:"explosion",p:"Banana power",fact:"I hide in bananas!",story:"I help muscles move and hearts beat. Next time {name} eats a banana, say hi to me.",l1:1,rv:"Banana time yet? I'll be waiting inside.",cb:[{w:"Water",r:"EXPLOSION! 💥",eq:"2K + H₂O → boom"}]},
+{n:"Calcium",s:"Ca",num:20,e:"🦴",f:"earth",p:"Bone builder",fact:"I build your bones!",story:"Without me you'd be floppy like a jellyfish. Every glass of milk makes {name} stronger because of me.",l1:1,rv:"Stand up straight! That's me holding you up.",cb:[{w:"Carbon+Oxygen",r:"Chalk ✏️",eq:"CaCO₃"}]},
+{n:"Titanium",s:"Ti",num:22,e:"🦾",f:"warrior",p:"Superhero metal",fact:"Superhero strong!",story:"Rockets, jets, fake bones. Almost nothing breaks me. Superheroes would pick me for armor.",l1:1,rv:"Try to break me. Go ahead. I'll wait.",cb:[{w:"Oxygen",r:"White Paint 🎨",eq:"TiO₂"}]},
+{n:"Iron",s:"Fe",num:26,e:"🌉",f:"warrior",p:"Strong protector",fact:"Bridges AND blood!",story:"I hold up bridges outside AND carry oxygen inside {name}'s blood. Double duty. No big deal.",l1:1,rv:"I'm in your blood RIGHT NOW. You literally can't live without me.",cb:[{w:"Carbon",r:"Steel ⚔️",eq:"Fe+C"},{w:"Oxygen",r:"Rust 🟤",eq:"Fe₂O₃"},{w:"Sulfur",r:"Fool's Gold ✨",eq:"FeS₂"}]},
+{n:"Nickel",s:"Ni",num:28,e:"🪙",f:"warrior",p:"Coin keeper",fact:"Coins are named after me!",story:"That shiny nickel in the piggy bank? Me. Smooth, strong, and humble about it.",l1:1,rv:"Check your pockets. I might be in there.",cb:[]},
+{n:"Copper",s:"Cu",num:29,e:"🟤",f:"warrior",p:"Wire runner",fact:"I carry electricity!",story:"Every light, TV, charger. Electricity flows through me in the walls. I'm the delivery dragon of power.",l1:1,rv:"Turn on a light. That electricity just ran through me.",cb:[{w:"Tin",r:"Bronze 🏺",eq:"Cu+Sn"},{w:"Zinc",r:"Brass 🎺",eq:"Cu+Zn"}]},
+{n:"Silver",s:"Ag",num:47,e:"🪞",f:"warrior",p:"Mirror maker",fact:"Shiniest metal ever!",story:"Mirrors? Me. I bounce light so perfectly you see yourself. Pretty cool trick, right?",l1:1,rv:"Look in a mirror. You're seeing me in action.",cb:[{w:"Sulfur",r:"Tarnish 🖤",eq:"Ag₂S"}]},
+{n:"Gold",s:"Au",num:79,e:"👑",f:"warrior",p:"The king",fact:"I never rust. Ever.",story:"Pirates hunted me. Queens wore me. I stay shiny for thousands of years. I'm THAT good.",l1:1,eLine:"My scales are hardening into golden armor!",rv:"Back for more? I get it. I'm irresistible.",cb:[]},
+{n:"Neon",s:"Ne",num:10,e:"✨",f:"noble",p:"Night lighter",fact:"I glow in the dark!",story:"Bright signs at night? My show. Pick any color. I light up the whole street.",l1:1,rv:"Want to see me glow? Take a night drive.",cb:[]},
+{n:"Argon",s:"Ar",num:18,e:"💡",f:"noble",p:"Shy protector",fact:"I hide in lightbulbs.",story:"Quietly keeping the light going inside every bulb. Don't mind me. Just doing my thing.",l1:1,rv:"Oh... you noticed me? I was trying to be invisible.",cb:[]},
+// L2: 98 more (top 15 enriched with combos+revisits)
+{n:"Lithium",s:"Li",num:3,e:"🔋",f:"explosion",fact:"I power batteries!",story:"Every time the iPad charges, I store all that energy inside.",rv:"Charge me up! I'm ready to go again.",cb:[{w:"Oxygen",r:"Lithium Oxide 🔋",eq:"Li₂O"}]},
+{n:"Beryllium",s:"Be",num:4,e:"💚",f:"earth",fact:"I make emeralds green!",story:"Gorgeous green gems? I make them green. Hiding inside every emerald."},
+{n:"Boron",s:"B",num:5,e:"🧹",f:"halfhalf",fact:"I clean your clothes!",story:"In laundry soap fighting stains. Also in some slime recipes!"},
+{n:"Fluorine",s:"F",num:9,e:"😁",f:"saltmaker",fact:"I protect your teeth!",story:"In toothpaste fighting sugar bugs and making teeth tough.",rv:"Brush your teeth yet today? I'll be waiting!"},
+{n:"Magnesium",s:"Mg",num:12,e:"🎆",f:"earth",fact:"I make bright flashes!",story:"Fireworks and sparklers use me for that dazzling white burst."},
+{n:"Phosphorus",s:"P",num:15,e:"🕯️",f:"lifemaker",fact:"I glow AND I'm in DNA!",story:"Strike a match? That's me! Also hiding in bones and DNA."},
+{n:"Scandium",s:"Sc",num:21,e:"🏟️",f:"warrior",fact:"Stadium lights need me!",story:"Super bright stadium lights at the ballpark? I help them shine."},
+{n:"Vanadium",s:"V",num:23,e:"🔧",f:"warrior",fact:"I toughen up steel!",story:"Tools, springs, jet engines. I mix into steel and make it way stronger."},
+{n:"Chromium",s:"Cr",num:24,e:"🪩",f:"warrior",fact:"I make things shiny!",story:"Chrome bumpers, stainless steel. That mirror shine is all me."},
+{n:"Manganese",s:"Mn",num:25,e:"🥫",f:"warrior",fact:"I stop rust!",story:"Without me, train tracks crumble and cans fall apart."},
+{n:"Cobalt",s:"Co",num:27,e:"🔵",f:"warrior",fact:"I paint the best blue!",story:"That deep gorgeous blue in paintings? My color for thousands of years."},
+{n:"Zinc",s:"Zn",num:30,e:"🛡️",f:"warrior",fact:"I help cuts heal!",story:"Scrapes and cuts? I help the body fix them. Also in sunscreen!",rv:"Got any scrapes? I'm on the job."},
+{n:"Gallium",s:"Ga",num:31,e:"🫠",f:"shifter",fact:"I melt in your hand!",story:"Hold me and I turn to liquid metal puddle. How cool is that?",rv:"Want to melt me again? I love that trick."},
+{n:"Germanium",s:"Ge",num:32,e:"🔌",f:"halfhalf",fact:"First computer chip!",story:"Before Silicon took over, I was the star of electronics."},
+{n:"Arsenic",s:"As",num:33,e:"☠️",f:"halfhalf",fact:"Famous sneaky poison!",story:"Mystery books love me. But I also make green fireworks!"},
+{n:"Selenium",s:"Se",num:34,e:"🥜",f:"lifemaker",fact:"I hide in Brazil nuts!",story:"Your body needs tiny bits of me to stay healthy and strong."},
+{n:"Bromine",s:"Br",num:35,e:"🟫",f:"saltmaker",fact:"I'm liquid AND stinky!",story:"My name literally means stench in Greek. I earned it.",rv:"Yeah, I stink. At least I own it."},
+{n:"Krypton",s:"Kr",num:36,e:"🦸",f:"noble",fact:"Not Superman's planet!",story:"I'm real! I glow bright white. Superman's planet just borrowed my cool name.",rv:"No, I can't give you superpowers. Stop asking.",cb:[{w:"Electricity",r:"White Light ⚡",eq:"Kr → glow"}]},
+{n:"Rubidium",s:"Rb",num:37,e:"🕰️",f:"explosion",fact:"I keep perfect time!",story:"GPS satellites use clocks made with me to know exactly where {name} is."},
+{n:"Strontium",s:"Sr",num:38,e:"🎇",f:"earth",fact:"Red fireworks are me!",story:"That deep red in fireworks on the Fourth of July? I light up the sky!"},
+{n:"Yttrium",s:"Y",num:39,e:"📺",f:"warrior",fact:"I make screens glow red!",story:"That red on the TV? I help create it in every show {name} watches."},
+{n:"Zirconium",s:"Zr",num:40,e:"💍",f:"warrior",fact:"I look like diamonds!",story:"Sparkly gems that look like diamonds? Some are made from me!"},
+{n:"Niobium",s:"Nb",num:41,e:"🚀",f:"warrior",fact:"I build rocket engines!",story:"I handle insane heat without melting. Rockets need me."},
+{n:"Molybdenum",s:"Mo",num:42,e:"⚔️",f:"warrior",fact:"I make steel unbreakable!",story:"The strongest steel in the world has me mixed in."},
+{n:"Technetium",s:"Tc",num:43,e:"⚗️",f:"warrior",fact:"First lab-made element!",story:"Scientists created me! I help doctors take pictures inside bodies."},
+{n:"Ruthenium",s:"Ru",num:44,e:"💽",f:"warrior",fact:"I store computer data!",story:"Hard drives use me to remember files and photos."},
+{n:"Rhodium",s:"Rh",num:45,e:"🏆",f:"warrior",fact:"Pricier than gold!",story:"I'm rare, shiny, and super valuable. Cars need me to clean exhaust."},
+{n:"Palladium",s:"Pd",num:46,e:"🚗",f:"warrior",fact:"I clean car exhaust!",story:"Inside catalytic converters, turning bad air into cleaner air."},
+{n:"Cadmium",s:"Cd",num:48,e:"🎨",f:"warrior",fact:"Bright yellow paint!",story:"Famous painters used me for the brightest yellows that pop."},
+{n:"Indium",s:"In",num:49,e:"📱",f:"shifter",fact:"Touchscreens need me!",story:"Every tap on the iPad? I'm why the screen responds."},
+{n:"Tin",s:"Sn",num:50,e:"🥫",f:"shifter",fact:"I keep food fresh!",story:"Cans of soup? I coat them to keep food safe and yummy."},
+{n:"Antimony",s:"Sb",num:51,e:"🔥",f:"halfhalf",fact:"I stop fires!",story:"Mixed into materials to keep fires from spreading. Safety hero!"},
+{n:"Tellurium",s:"Te",num:52,e:"🧄",f:"halfhalf",fact:"Garlic breath for weeks!",story:"Touch me and your breath smells like garlic forever. Sorry!",rv:"Still have garlic breath? That might be me."},
+{n:"Iodine",s:"I",num:53,e:"🧂",f:"saltmaker",fact:"I turn purple when hot!",story:"Brown stuff on scrapes? Me! Heat me up and I turn gorgeous purple."},
+{n:"Xenon",s:"Xe",num:54,e:"🔦",f:"noble",fact:"Brightest headlights!",story:"Super bright blue-white car headlights? That's me shining."},
+{n:"Cesium",s:"Cs",num:55,e:"⏱️",f:"explosion",fact:"I define one second!",story:"Scientists use me to measure what one second actually is."},
+{n:"Barium",s:"Ba",num:56,e:"🟢",f:"earth",fact:"Green fireworks!",story:"Doctors also use me to see inside tummies with special cameras."},
+{n:"Lanthanum",s:"La",num:57,e:"🎬",f:"hidden",fact:"Movie lights need me!",story:"Hollywood uses me to light up movie sets super bright."},
+{n:"Cerium",s:"Ce",num:58,e:"🔥",f:"hidden",fact:"I spark lighters!",story:"That little wheel making sparks? I create those sparks!"},
+{n:"Praseodymium",s:"Pr",num:59,e:"🥽",f:"hidden",fact:"I shield welder eyes!",story:"Green goggles protecting eyes from super hot torches? Me."},
+{n:"Neodymium",s:"Nd",num:60,e:"🧲",f:"hidden",fact:"Strongest magnets!",story:"Headphones and speakers have my super-strong magnets inside.",rv:"Put two of my magnets together. Feel that pull? That's me.",cb:[{w:"Iron+Boron",r:"Super Magnet 🧲",eq:"Nd₂Fe₁₄B"}]},
+{n:"Promethium",s:"Pm",num:61,e:"🌙",f:"hidden",fact:"I glow in the dark!",story:"Named after the god who stole fire. I glow like tiny fire."},
+{n:"Samarium",s:"Sm",num:62,e:"🧲",f:"hidden",fact:"Guitar magnets!",story:"Electric guitars use me to pick up string vibrations."},
+{n:"Europium",s:"Eu",num:63,e:"💶",f:"hidden",fact:"I protect real money!",story:"Hidden in bills. UV light reveals me, proving money is real."},
+{n:"Gadolinium",s:"Gd",num:64,e:"🏥",f:"hidden",fact:"I help MRI machines!",story:"Doctors use me to see clearer pictures inside bodies."},
+{n:"Terbium",s:"Tb",num:65,e:"📺",f:"hidden",fact:"Green on TV screens!",story:"That green color on TV? I help create it."},
+{n:"Dysprosium",s:"Dy",num:66,e:"💨",f:"hidden",fact:"My name means hard-to-get!",story:"So hard to find, they named me that. Now I'm in wind turbines."},
+{n:"Holmium",s:"Ho",num:67,e:"🧲",f:"hidden",fact:"Mega magnet power!",story:"I create the most powerful magnetic fields of any element."},
+{n:"Erbium",s:"Er",num:68,e:"🌐",f:"hidden",fact:"I boost the internet!",story:"Internet signals travel through glass cables. I keep them strong."},
+{n:"Thulium",s:"Tm",num:69,e:"📡",f:"hidden",fact:"Rare laser maker!",story:"Doctors use my special lasers for delicate surgeries."},
+{n:"Ytterbium",s:"Yb",num:70,e:"⏰",f:"hidden",fact:"Future clock!",story:"Scientists are building the next super-accurate clock with me."},
+{n:"Lutetium",s:"Lu",num:71,e:"🔬",f:"hidden",fact:"I fight cancer!",story:"Doctors use me in special treatments. Tiny but mighty."},
+{n:"Hafnium",s:"Hf",num:72,e:"⚡",f:"warrior",fact:"Nuclear controller!",story:"Inside power plants, I keep nuclear energy safe and useful."},
+{n:"Tantalum",s:"Ta",num:73,e:"📱",f:"warrior",fact:"Inside every phone!",story:"The iPad has me inside, helping electronics work smoothly."},
+{n:"Tungsten",s:"W",num:74,e:"💡",f:"warrior",fact:"Highest melting point!",story:"Old lightbulbs had me as the glowing wire. I never melt.",rv:"Go ahead, try to melt me. You can't. Nobody can."},
+{n:"Rhenium",s:"Re",num:75,e:"✈️",f:"warrior",fact:"Jet engine survivor!",story:"Inside the hottest part of jet engines, still standing."},
+{n:"Osmium",s:"Os",num:76,e:"⚖️",f:"warrior",fact:"Heaviest element!",story:"Hold me and I feel WAY heavier than expected. Heavyweight champ."},
+{n:"Iridium",s:"Ir",num:77,e:"☄️",f:"warrior",fact:"Dinosaur detective!",story:"The asteroid that killed the dinosaurs left me behind as the clue. Space detective.",rv:"Still thinking about those dinosaurs? Me too.",cb:[{w:"Asteroid impact",r:"Extinction evidence 🦕",eq:"Ir layer"}]},
+{n:"Platinum",s:"Pt",num:78,e:"💎",f:"warrior",fact:"Rarer than gold!",story:"Fanciest rings and watches. I stay perfect forever.",rv:"Yes, I'm fancier than Gold. Don't tell him."},
+{n:"Mercury",s:"Hg",num:80,e:"🌡️",f:"warrior",fact:"Liquid metal!",story:"Only metal that's liquid at room temperature. I flow like water but I'm metal. Wild, right?",rv:"Still amazed I'm liquid? Everyone is. It's my best trick.",cb:[{w:"Room temp",r:"Liquid Metal 🌊",eq:"Hg (liquid)"}]},
+{n:"Thallium",s:"Tl",num:81,e:"🔍",f:"shifter",fact:"Night vision helper!",story:"Night vision cameras use me to see in pitch darkness."},
+{n:"Lead",s:"Pb",num:82,e:"🛡️",f:"shifter",fact:"X-ray blocker!",story:"Heavy lead vests at the doctor? Me, keeping you safe from X-rays."},
+{n:"Bismuth",s:"Bi",num:83,e:"🌈",f:"shifter",fact:"Rainbow crystals!",story:"I grow staircase crystals with every rainbow color. Prettiest metal ever!",rv:"Want to see my rainbow stairs again? I'll never get tired of showing them.",cb:[{w:"Crystallization",r:"Rainbow Stairs 🌈",eq:"Bi crystals"}]},
+{n:"Polonium",s:"Po",num:84,e:"☢️",f:"shifter",fact:"Discovered by Curie!",story:"Marie Curie named me after Poland. Rare and radioactive."},
+{n:"Astatine",s:"At",num:85,e:"👤",f:"saltmaker",fact:"Rarest natural element!",story:"Less than one ounce of me on the whole planet. Ultimate rare find."},
+{n:"Radon",s:"Rn",num:86,e:"🏠",f:"noble",fact:"Basement lurker!",story:"Radioactive gas that sneaks into basements. Test your home!"},
+{n:"Francium",s:"Fr",num:87,e:"💥",f:"explosion",fact:"Ultra rare exploder!",story:"Only about 30 grams of me exist at any time. Then I vanish."},
+{n:"Radium",s:"Ra",num:88,e:"☢️",f:"earth",fact:"I glow by myself!",story:"Marie Curie discovered me. Old clocks had me to glow at night."},
+{n:"Actinium",s:"Ac",num:89,e:"✨",f:"radioactive",fact:"Blue glow!",story:"Put me in a dark room and I shine pale blue. Pure energy."},
+{n:"Thorium",s:"Th",num:90,e:"⚡",f:"radioactive",fact:"Named after THOR!",story:"The god of thunder gave me his name! Scientists think I could power clean energy plants someday.",rv:"THOR! Say it louder! I love my name!",cb:[{w:"Nuclear reactor",r:"Clean Energy ⚡",eq:"Th fuel"}]},
+{n:"Protactinium",s:"Pa",num:91,e:"🔗",f:"radioactive",fact:"I become Actinium!",story:"I slowly transform over time. Like a very slow metamorphosis."},
+{n:"Uranium",s:"U",num:92,e:"☢️",f:"radioactive",fact:"I power whole cities!",story:"One tiny piece of me has more energy than tons and tons of coal. I am pure, concentrated power.",rv:"One little piece of me powers a whole city. Let that sink in.",cb:[{w:"Fission",r:"Nuclear Energy ⚡",eq:"U → energy"},{w:"Time",r:"Lead (eventually) ⏳",eq:"U → Pb"}]},
+{n:"Neptunium",s:"Np",num:93,e:"🔵",f:"radioactive",fact:"Named after Neptune!",story:"Like Neptune after Uranus in space, I follow Uranium on the table."},
+{n:"Plutonium",s:"Pu",num:94,e:"💣",f:"radioactive",fact:"Planet-level power!",story:"Named after dwarf planet Pluto. I pack incredible, world-changing power in a tiny, tiny space.",rv:"Careful. I'm the most powerful thing in this whole app.",cb:[{w:"Fission",r:"Massive Energy 💥",eq:"Pu → energy"}]},
+{n:"Americium",s:"Am",num:95,e:"🚨",f:"radioactive",fact:"In smoke detectors!",story:"That smoke detector on the ceiling? A tiny bit of me is inside, watching for smoke 24/7.",rv:"Beep beep! Just checking. I never sleep."},
+{n:"Curium",s:"Cm",num:96,e:"👩‍🔬",f:"radioactive",fact:"Named after Curie!",story:"Marie Curie was one of the greatest scientists ever."},
+{n:"Berkelium",s:"Bk",num:97,e:"🐻",f:"radioactive",fact:"Made in Berkeley!",story:"University of California created more elements than almost anywhere."},
+{n:"Californium",s:"Cf",num:98,e:"🌉",f:"radioactive",fact:"Underground scanner!",story:"I scan deep underground to find gold and oil. Metal detector on steroids."},
+{n:"Einsteinium",s:"Es",num:99,e:"🧠",f:"radioactive",fact:"Einstein's element!",story:"Named after the most famous scientist. I carry genius."},
+{n:"Fermium",s:"Fm",num:100,e:"⚛️",f:"radioactive",fact:"Number 100!",story:"Found in nuclear test dust. The big one-zero-zero."},
+{n:"Mendelevium",s:"Md",num:101,e:"📋",f:"radioactive",fact:"Table maker's tribute!",story:"Named after the man who invented the periodic table itself."},
+{n:"Nobelium",s:"No",num:102,e:"🏅",f:"radioactive",fact:"Nobel Prize element!",story:"The biggest award in science gave me my name."},
+{n:"Lawrencium",s:"Lr",num:103,e:"🔬",f:"radioactive",fact:"Lab legend!",story:"Ernest Lawrence built the atom smasher that helped discover me."},
+{n:"Rutherfordium",s:"Rf",num:104,e:"🔬",f:"warrior",fact:"Smashed into existence!",story:"Made by crashing atoms together at incredible speed."},
+{n:"Dubnium",s:"Db",num:105,e:"🔬",f:"warrior",fact:"Born in Russia!",story:"Named after Dubna, the city where atom-smashing geniuses work."},
+{n:"Seaborgium",s:"Sg",num:106,e:"🔬",f:"warrior",fact:"Ten elements guy!",story:"Named after Glenn Seaborg, who discovered TEN elements."},
+{n:"Bohrium",s:"Bh",num:107,e:"🔬",f:"warrior",fact:"Gone in a flash!",story:"I exist for a tiny fraction of a second, then vanish."},
+{n:"Hassium",s:"Hs",num:108,e:"🔬",f:"warrior",fact:"German-made!",story:"Named after Hesse, Germany. Super heavy, super rare."},
+{n:"Meitnerium",s:"Mt",num:109,e:"👩‍🔬",f:"warrior",fact:"Named for a hero!",story:"Lise Meitner helped discover nuclear fission. My hero!"},
+{n:"Darmstadtium",s:"Ds",num:110,e:"🔬",f:"warrior",fact:"Blink and I'm gone!",story:"I disappear in millionths of a second."},
+{n:"Roentgenium",s:"Rg",num:111,e:"📷",f:"warrior",fact:"X-ray tribute!",story:"Named after the man who discovered X-rays."},
+{n:"Copernicium",s:"Cn",num:112,e:"🌍",f:"warrior",fact:"Earth orbits the Sun!",story:"Copernicus figured that out. I carry his name."},
+{n:"Nihonium",s:"Nh",num:113,e:"🇯🇵",f:"shifter",fact:"Japan's element!",story:"Japanese scientists worked super hard to create me."},
+{n:"Flerovium",s:"Fl",num:114,e:"🔬",f:"shifter",fact:"Russian creation!",story:"Only a few atoms of me have ever existed."},
+{n:"Moscovium",s:"Mc",num:115,e:"🔬",f:"shifter",fact:"Moscow's element!",story:"One of the newest members of the periodic table."},
+{n:"Livermorium",s:"Lv",num:116,e:"🔬",f:"shifter",fact:"California made!",story:"I exist for less than a blink before vanishing."},
+{n:"Tennessine",s:"Ts",num:117,e:"🔬",f:"saltmaker",fact:"Tennessee's element!",story:"Scientists at Oak Ridge National Lab helped create me."},
+{n:"Oganesson",s:"Og",num:118,e:"🏁",f:"noble",fact:"The FINAL element!",story:"Number 118. The grand finale. The heaviest ever made. I'm the finish line of the periodic table.",rv:"{name}... you did it. Every element. Every power. I am whole again for the first time in a thousand years. I am Eternatus, the Eternal Dragon. And you are my champion.",eLine:"THE FINAL POWER! I AM COMPLETE!"}
+];
+const EL={};E.forEach(el=>EL[el.num]=el);
+
+// Periodic table positions [row,col]
+const PP={1:[1,1],2:[1,18],3:[2,1],4:[2,2],5:[2,13],6:[2,14],7:[2,15],8:[2,16],9:[2,17],10:[2,18],11:[3,1],12:[3,2],13:[3,13],14:[3,14],15:[3,15],16:[3,16],17:[3,17],18:[3,18],19:[4,1],20:[4,2],21:[4,3],22:[4,4],23:[4,5],24:[4,6],25:[4,7],26:[4,8],27:[4,9],28:[4,10],29:[4,11],30:[4,12],31:[4,13],32:[4,14],33:[4,15],34:[4,16],35:[4,17],36:[4,18],37:[5,1],38:[5,2],39:[5,3],40:[5,4],41:[5,5],42:[5,6],43:[5,7],44:[5,8],45:[5,9],46:[5,10],47:[5,11],48:[5,12],49:[5,13],50:[5,14],51:[5,15],52:[5,16],53:[5,17],54:[5,18],55:[6,1],56:[6,2],72:[6,4],73:[6,5],74:[6,6],75:[6,7],76:[6,8],77:[6,9],78:[6,10],79:[6,11],80:[6,12],81:[6,13],82:[6,14],83:[6,15],84:[6,16],85:[6,17],86:[6,18],87:[7,1],88:[7,2],104:[7,4],105:[7,5],106:[7,6],107:[7,7],108:[7,8],109:[7,9],110:[7,10],111:[7,11],112:[7,12],113:[7,13],114:[7,14],115:[7,15],116:[7,16],117:[7,17],118:[7,18],57:[9,4],58:[9,5],59:[9,6],60:[9,7],61:[9,8],62:[9,9],63:[9,10],64:[9,11],65:[9,12],66:[9,13],67:[9,14],68:[9,15],69:[9,16],70:[9,17],71:[9,18],89:[10,4],90:[10,5],91:[10,6],92:[10,7],93:[10,8],94:[10,9],95:[10,10],96:[10,11],97:[10,12],98:[10,13],99:[10,14],100:[10,15],101:[10,16],102:[10,17],103:[10,18]};
+
+// Column families for Dragon's Map teaching
+const COL_FAM={1:'explosion',2:'earth',3:'warrior',4:'warrior',5:'warrior',6:'warrior',7:'warrior',8:'warrior',9:'warrior',10:'warrior',11:'warrior',12:'warrior',13:'shifter',14:'halfhalf',15:'lifemaker',16:'lifemaker',17:'saltmaker',18:'noble'};
+const COL_TEACH={1:"Column 1: The Explosion Squad! They all blow up in water.",2:"Column 2: Earth Builders! Strong and steady.",18:"Column 18: The Glow Squad! Loners who never react with anyone.",17:"Column 17: Salt Makers! Fierce and stinky.",14:"Column 14: Half-and-Halfs! Part metal, part not."};
+
+// ═══════════════════════════════════════
+// ACHIEVEMENTS
+// ═══════════════════════════════════════
+const ACHS=[{c:5,t:'⚡ Atom Apprentice',m:'5 elements! You are an Atom Apprentice!'},{c:20,t:'🏆 Starter Champion',m:'ALL 20 Starters! You are a Starter Champion!'},{c:50,t:'🔬 Element Master',m:'50 elements! Element Master!'},{c:100,t:'🧪 Mega Scientist',m:'100! Mega Scientist!'},{c:118,t:'🐉 Eternal Dragon',m:'ALL 118! THE ETERNAL DRAGON!'}];
+function getAchTitle(){let t='';for(const a of ACHS)if(state.disc.length>=a.c)t=a.t;return t}
+function checkAch(){
+  for(const a of ACHS){
+    if(state.disc.length>=a.c&&!state.achShown.includes(a.c)){
+      state.achShown.push(a.c);saveAll();showCeleb(a.t);
+      playTone(523,'sine',.12);setTimeout(()=>playTone(784,'sine',.15),100);setTimeout(()=>playTone(1047,'sine',.2),220);
+      triggerExcited();document.getElementById('mspText').textContent=a.m;
+      // 118/118 FINALE
+      if(a.c===118){setTimeout(()=>{showFinale()},1500)}
+      break;
+    }
+  }
+  document.getElementById('achTitle').textContent=getAchTitle();
+}
+function showFinale(){
+  const mc=document.getElementById('megaCeleb');
+  document.getElementById('mcTitle').textContent='🐉 THE ETERNAL DRAGON 🐉';
+  document.getElementById('mcSub').textContent=T('{name}... you did it. Every element. Every power. I am whole again for the first time in a thousand years. I am Eternatus, the Eternal Dragon. And you are my champion.');
+  document.getElementById('mcBtn').textContent='I Am the Eternal Dragon';
+  mc.classList.add('active');
+  // Epic audio
+  playTone(262,'sine',.2,.12);setTimeout(()=>playTone(330,'sine',.2,.12),150);setTimeout(()=>playTone(392,'sine',.2,.12),300);setTimeout(()=>playTone(523,'sine',.25,.12),480);setTimeout(()=>playTone(659,'sine',.25,.12),660);setTimeout(()=>playTone(784,'sine',.3,.12),840);setTimeout(()=>playTone(1047,'sine',.4,.12),1050);
+  for(let i=0;i<8;i++)setTimeout(()=>bigBurst(Math.random()*innerWidth,Math.random()*innerHeight,['#7DF9FF','#C792EA','#FFD54F','#66BB6A','#EF5350','#CE93D8','#FF7043','#5C6BC0'][i]),i*250);
+  document.getElementById('mcBtn').onclick=()=>{mc.classList.remove('active');document.getElementById('mbar').setAttribute('data-tier','5')};
+}
+
+// Mega gate
+function startersOK(){return E.filter(el=>el.l1).every(el=>isDisc(el.num))}
+function megaOK(){return state.megaUnlocked||startersOK()}
+function checkMega(){if(!state.megaUnlocked&&startersOK()){state.megaUnlocked=true;saveAll();showMegaCeleb();return true}return false}
+function showMegaCeleb(){
+  const mc=document.getElementById('megaCeleb');
+  document.getElementById('mcTitle').textContent='MEGA EVOLUTION UNLOCKED!';
+  document.getElementById('mcSub').textContent=T('All 20 Starters discovered! Eternatus has evolved! The full periodic table of 118 elements awaits you, {name}.');
+  document.getElementById('mcBtn').textContent='Enter Mega Evolution →';
+  mc.classList.add('active');
+  playTone(262,'sine',.15);setTimeout(()=>playTone(392,'sine',.15),120);setTimeout(()=>playTone(523,'sine',.15),240);setTimeout(()=>playTone(659,'sine',.2),380);setTimeout(()=>playTone(784,'sine',.2),520);setTimeout(()=>playTone(1047,'sine',.3),680);
+  for(let i=0;i<5;i++)setTimeout(()=>bigBurst(innerWidth/2+(Math.random()*100-50),innerHeight/2+(Math.random()*100-50),['#7DF9FF','#C792EA','#FFD54F','#66BB6A','#EF5350'][i]),i*200);
+  document.getElementById('mcBtn').onclick=()=>{mc.classList.remove('active');curLv='2';curFam='all';document.querySelectorAll('.ltab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.ltab')[1].classList.add('active');updateTabLocks();renderAll();updateMascot('all');runMegaTour()};
+}
+function updateTabLocks(){
+  const tabs=document.querySelectorAll('.ltab');
+  if(megaOK())tabs[1].classList.remove('locked');
+  else{tabs[1].classList.add('locked');const n=20-E.filter(el=>el.l1&&isDisc(el.num)).length;tabs[1].querySelector('.lc').textContent=n+' to unlock'}
+}
+function playMegaSwitch(){playTone(262,'sine',.1,.1);setTimeout(()=>playTone(330,'sine',.1,.1),80);setTimeout(()=>playTone(523,'sine',.2,.1),180)}
+
+// ═══════════════════════════════════════
+// GUIDED FAMILY ARCS (L1)
+// ═══════════════════════════════════════
+const ARC_ORDER=[
+  {fam:'lifemaker',title:'Chapter 1: The Life Makers',intro:"These are the building blocks of everything alive. You, me, trees, {toy}. Find them all and my life force returns!",done:"Life energy floods through me! The Life Makers are COMPLETE!"},
+  {fam:'noble',title:'Chapter 2: The Glow Squad',intro:"My wings need their light back! The Glow Squad are loners who never react with anyone. But they GLOW! Find them!",done:"My wings shimmer with new light! The Glow Squad is COMPLETE!"},
+  {fam:'explosion',title:'Chapter 3: The Explosion Squad',intro:"CAREFUL, {name}! These are dangerous. Drop them in water and BOOM! But I need their fire power. Can you handle it?",done:"FIRE POWER RESTORED! The Explosion Squad is COMPLETE! Stand back!"},
+  {fam:'warrior',title:'Chapter 4: The Metal Warriors',intro:"My biggest army! These metals build everything. Bridges, coins, jewelry, rockets. I need ALL of them, {name}!",done:"My armor is UNBREAKABLE! The Metal Warriors are COMPLETE!"},
+  {fam:'earth',title:'Chapter 5: Earth Builders',intro:"Strong and steady like the ground beneath your feet. I need this foundation, {name}!",done:"The ground trembles beneath me! Earth Builder power: RESTORED!"},
+  {fam:'halfhalf',title:'Chapter 6: The Half-and-Halfs',intro:"The tricksters! Half metal, half not. They can't pick a side, but I need their cleverness!",done:"Both sides of my power unite! The trickster is MINE!"},
+  {fam:'shifter',title:'Chapter 7: Shape Shifters',intro:"Sneaky metals that bend and change. Soft but very clever. I need this one, {name}!",done:"My form shifts and flows! Shape Shifter power: ABSORBED!"},
+  {fam:'saltmaker',title:'Chapter 8: Salt Makers',intro:"Fierce and stinky! This one fights germs and never apologizes. The last piece of my Starter power!",done:"My breath burns with fierce energy! The Salt Maker is MINE!"}
+];
+function getArcL1Els(fam){return E.filter(el=>el.l1&&el.f===fam)}
+function getArcRemaining(fam){return getArcL1Els(fam).filter(el=>!isDisc(el.num))}
+function getCurrentArc(){return state.currentArc<ARC_ORDER.length?ARC_ORDER[state.currentArc]:null}
+function updateArcBanner(){
+  const arc=getCurrentArc();const banner=document.getElementById('arcBanner');
+  if(!arc||curLv!=='1'){banner.classList.add('hidden');return}
+  const els=getArcL1Els(arc.fam);const found=els.filter(el=>isDisc(el.num)).length;
+  if(found>=els.length){banner.classList.add('hidden');return}
+  banner.classList.remove('hidden');
+  document.getElementById('arcTitle').textContent=arc.title;
+  document.getElementById('arcTitle').style.color=F[arc.fam].c;
+  document.getElementById('arcDesc').textContent=T(arc.intro);
+  document.getElementById('arcProg').textContent=found+' of '+els.length+' found';
+  banner.style.borderColor=F[arc.fam].bd;
+}
+function checkArcComplete(){
+  const arc=getCurrentArc();if(!arc)return false;
+  const els=getArcL1Els(arc.fam);const allFound=els.every(el=>isDisc(el.num));
+  if(allFound&&!state.arcComplete.includes(arc.fam)){
+    state.arcComplete.push(arc.fam);
+    // Family completion celebration - FULL SCREEN
+    const fc=F[arc.fam];
+    showFamCeleb(arc.fam,fc.n+' COMPLETE!',T(arc.done),()=>{
+      state.currentArc++;saveAll();
+      const next=getCurrentArc();
+      if(next){
+        document.getElementById('mspText').textContent=T(next.intro);
+        updateArcBanner();
+      }else{
+        document.getElementById('arcBanner').classList.add('hidden');
+      }
+    });
+    document.getElementById('mspText').textContent=T(arc.done);
+    // Unique family audio
+    const famAudio={lifemaker:[440,523,659,784],noble:[880,1047,1319,1568],explosion:[150,200,120,180],warrior:[330,440,523,659],earth:[260,330,392,523],halfhalf:[600,700,800,900],shifter:[500,600,700,840],saltmaker:[700,840,1000,1200]};
+    const tones=famAudio[arc.fam]||[440,523,659,784];
+    tones.forEach((f,i)=>setTimeout(()=>playTone(f,fc.audio[1]||'sine',.2,.12),i*150));
+    triggerExcited();
+    saveAll();return true;
+  }
+  return false;
+}
+
+// ═══════════════════════════════════════
+// MEGA EVOLUTION MINI-TOUR
+// ═══════════════════════════════════════
+const MEGA_TOUR=[
+  {num:3,speech:"Welcome to Mega Evolution! Meet Lithium. I power every battery in every device. The iPad? Me."},
+  {num:60,speech:"Neodymium! From the Hidden Powers family. My magnets are inside every headphone and speaker you own."},
+  {num:92,speech:T("Uranium! The Radioactive Force. One tiny piece of me has more energy than TONS of coal. Welcome to the big leagues, {name}.")}
+];
+function runMegaTour(){
+  if(state.megaTourDone)return;state.megaTourDone=true;saveAll();
+  let step=0;
+  function advanceMT(){
+    if(step>=MEGA_TOUR.length){return}
+    const mt=MEGA_TOUR[step];const el=EL[mt.num];const fc=F[el.f];
+    discover(el.num);discoverFam(el.f);
+    document.getElementById('mspText').textContent=T(mt.speech);
+    speakName(el.n);playFamilySound(el.f);triggerExcited();
+    bigBurst(innerWidth/2,innerHeight/3,fc.c);
+    step++;
+    if(step<MEGA_TOUR.length)setTimeout(advanceMT,3000);
+    else{setTimeout(()=>{document.getElementById('mspText').textContent=T('98 more elements await you, {name}. Explore any family you want!');updatePower();renderAll()},3000)}
+  }
+  setTimeout(advanceMT,1500);
+}
+
+// ═══════════════════════════════════════
+// WELCOME BACK
+// ═══════════════════════════════════════
+function checkWelcomeBack(){
+  if(!state.intro||!state.firstDiscTime)return;
+  const hours=(Date.now()-state.lastVisit)/3600000;
+  state.lastVisit=Date.now();state.sessionDisc=[];saveAll();
+  if(hours>=4){
+    const remaining=118-state.disc.length;
+    const wb=document.getElementById('wbReturn');
+    const text=remaining>0?T('{name}! You\'re back! I missed you. We have '+remaining+' elements to go. Ready?'):T('{name}! The Eternal Dragon welcomes you back!');
+    document.getElementById('wbReturnText').textContent='\uD83D\uDC09 Eternatus: "'+text+'"';
+    wb.classList.remove('hidden');
+    playTone(440,'sine',.1,.06);setTimeout(()=>playTone(660,'sine',.12,.06),150);
+    setTimeout(()=>wb.classList.add('hidden'),6000);
+  }
+}
+
+// ═══════════════════════════════════════
+// BIRTHDAY ELEMENT BUDDY
+// ═══════════════════════════════════════
+function getBuddyElement(){if(!P.bday||P.bday<1||P.bday>31)return null;return EL[P.bday]||null}
+function renderBuddy(){
+  const badge=document.getElementById('buddyBadge');const wrap=document.getElementById('buddyWrap');const el=getBuddyElement();
+  if(!el){badge.classList.add('empty');badge.textContent='?';wrap.classList.remove('has-buddy');return}
+  const fc=F[el.f];badge.classList.remove('empty');badge.textContent=el.e;
+  badge.style.borderColor=fc.c;badge.style.background=fc.bg;wrap.classList.add('has-buddy');
+}
+function onBuddyTap(){
+  const el=getBuddyElement();
+  if(!el){document.getElementById('mspText').textContent='Set your birthday in a new quest to meet your Element Buddy!';return}
+  const fc=F[el.f];const isFound=isDisc(el.num);
+  if(!isFound){discover(el.num);discoverFam(el.f);updatePower();renderAll()}
+  // Special buddy modal
+  openModal(el,!isFound,false);
+  // Override Eternatus text with buddy speech
+  const etT=document.getElementById('meternText');
+  if(isFound){
+    etT.textContent='\u{1F49C} Eternatus: "'+T(el.n+' is YOUR element, {name}. Born on the '+P.bday+ordSuf(P.bday)+', atomic number '+el.num+'. You two are bonded forever.')+'"';
+  }else{
+    etT.textContent='\u{1F49C} Eternatus: "'+T('{name}... meet YOUR element. '+el.n+'. Born on the '+P.bday+ordSuf(P.bday)+', atomic number '+el.num+'. This one was always meant for you.')+'"';
+    // Special buddy discovery audio
+    playTone(523,'sine',.15,.1);setTimeout(()=>playTone(659,'sine',.15,.1),120);setTimeout(()=>playTone(784,'sine',.15,.1),240);setTimeout(()=>playTone(1047,'sine',.2,.12),380);setTimeout(()=>playTone(1319,'sine',.25,.12),520);
+    bigBurst(innerWidth/2,innerHeight/3,fc.c);bigBurst(innerWidth/2,innerHeight/3,'#FFD54F');
+    triggerExcited();
+  }
+  // Buddy-specific audio: 4-note personal melody
+  const base=[262,330,392,523];const off=el.num%12;
+  base.forEach((f,i)=>setTimeout(()=>playTone(f+off*10,'sine',.12,.06),i*180));
+}
+function ordSuf(n){const s=['th','st','nd','rd'];const v=n%100;return s[(v-20)%10]||s[v]||s[0]}
+// Buddy tap handled by buddyWrap onclick in HTML
+
+// ═══════════════════════════════════════
+// WILD ELEMENT SURPRISE
+// ═══════════════════════════════════════
+function checkWildElement(){
+  if(!state.intro)return;
+  const undiscovered=E.filter(el=>!isDisc(el.num));
+  if(undiscovered.length===0)return;
+  const hours=(Date.now()-(state.lastWild||0))/3600000;
+  if(hours<4)return;
+  if(Math.random()>0.3)return;
+  // Show wild banner
+  const banner=document.getElementById('wildBanner');
+  banner.classList.remove('hidden');
+  document.getElementById('wildText').textContent='\u{1F409} Eternatus senses a wild element nearby!';
+  playTone(200,'sine',.2,.05);setTimeout(()=>playTone(300,'sine',.2,.05),200);setTimeout(()=>playTone(400,'sine',.15,.06),400);
+  // Stays until child taps Reveal
+  document.getElementById('wildBtn').onclick=()=>{
+    state.lastWild=Date.now();saveAll();
+    // Pick random undiscovered
+    const pool=E.filter(el=>!isDisc(el.num));
+    const el=pool[Math.floor(Math.random()*pool.length)];
+    const fc=F[el.f];
+    discover(el.num);discoverFam(el.f);
+    // Reveal animation in-place with close button
+    banner.innerHTML='<div class="wild-reveal"><div class="wr-emoji">'+el.e+'</div><div class="wr-sym" style="color:'+fc.c+';text-shadow:0 0 20px '+fc.gl+'">'+el.s+'</div><div class="wr-name">'+el.n+'</div><div class="wr-speech">"\u26a1 A wild '+el.n+' appeared! '+el.fact+'"</div><button style="margin-top:10px;padding:8px 24px;border-radius:10px;border:none;font-family:Fredoka,sans-serif;font-size:.78rem;font-weight:600;cursor:pointer;background:rgba(255,255,255,.1);color:var(--t1)" id="wildClose">Got it! \u2192</button></div>';
+    banner.style.borderColor=fc.bd;banner.style.background=fc.bg;
+    speakName(el.n);playDiscover();
+    bigBurst(banner.getBoundingClientRect().left+banner.offsetWidth/2,banner.getBoundingClientRect().top+30,fc.c);
+    if(!state.sessionDisc)state.sessionDisc=[];state.sessionDisc.push(el.n);
+    updatePower();updateArcBanner();
+    // Stay until child taps close
+    document.getElementById('wildClose').onclick=()=>{
+      banner.classList.add('hidden');
+      banner.innerHTML='<div class="wild-text" id="wildText"></div><button class="wild-btn" id="wildBtn">Reveal \u2192</button>';
+      checkAch();checkArcComplete();updateTabLocks();renderAll();
+    };
+  };
+}
+
+// ═══════════════════════════════════════
+// EASTER EGG 1: RADIANT ELEMENTS (7% on revisit)
+// ═══════════════════════════════════════
+function isRadiant(){return Math.random()<0.07}
+function playRadiantSound(){
+  // TRIPLE TRUMPET FANFARE — brassy, loud, unmissable
+  playTone(523,'square',.35,.14);setTimeout(function(){playTone(523,'square',.2,.12)},180);
+  setTimeout(function(){playTone(659,'square',.2,.12)},320);setTimeout(function(){playTone(784,'square',.5,.16)},480);
+  // Shimmer cascade
+  setTimeout(function(){playTone(1047,'sine',.15,.1)},680);setTimeout(function(){playTone(1319,'sine',.15,.1)},750);
+  setTimeout(function(){playTone(1568,'sine',.15,.1)},820);setTimeout(function(){playTone(2093,'sine',.25,.12)},900);
+  // SECOND fanfare hit
+  setTimeout(function(){playTone(784,'square',.2,.12)},1200);setTimeout(function(){playTone(1047,'square',.5,.16)},1400);
+  // THIRD fanfare — triumphant finale
+  setTimeout(function(){playTone(784,'square',.15,.12)},2200);setTimeout(function(){playTone(1047,'square',.2,.14)},2400);
+  setTimeout(function(){playTone(1319,'square',.6,.16)},2600);
+  // Shimmer tail
+  setTimeout(function(){playTone(2093,'sine',.2,.08)},2800);setTimeout(function(){playTone(2637,'sine',.15,.06)},2950);setTimeout(function(){playTone(3136,'sine',.3,.08)},3100);
+  // Deep booms throughout
+  setTimeout(function(){playTone(65,'sine',.5,.1)},80);
+  setTimeout(function(){playTone(80,'sine',.4,.08)},480);
+  setTimeout(function(){playTone(100,'sine',.4,.08)},1200);
+  setTimeout(function(){playTone(80,'sine',.5,.1)},2400);
+}
+function shakeScreen(){
+  var el=document.body;el.style.transition='none';
+  var shakes=[[-4,-2],[6,3],[-3,5],[5,-4],[-6,2],[3,-3],[-2,4],[4,-2],[-3,1],[2,-3],[0,0]];
+  shakes.forEach(function(s,i){
+    setTimeout(function(){el.style.transform='translate('+s[0]+'px,'+s[1]+'px)'},i*40);
+  });
+  setTimeout(function(){el.style.transform='';el.style.transition=''},500);
+}
+function spawnMeteorShower(){
+  var container=document.createElement('div');container.className='meteor-shower';document.body.appendChild(container);
+  var colors=['#FFD93D','#FF6B6B','#7DF9FF','#C792EA','#6BCB77','#4D96FF','#FF7043','#fff','#E040FB','#FFAB40'];
+
+  // SCREEN SHAKE on impact
+  shakeScreen();
+
+  // PHASE 1: BRIGHT screen flash (0ms)
+  var flash=document.createElement('div');flash.className='radiant-flash';
+  flash.style.background='linear-gradient(135deg,rgba(255,217,61,.3),rgba(125,249,255,.2),rgba(199,146,234,.2))';
+  document.body.appendChild(flash);
+
+  // PHASE 2: 7 shockwave rings (0-840ms)
+  for(var r=0;r<7;r++){
+    (function(idx){
+      setTimeout(function(){
+        var ring=document.createElement('div');ring.className='radiant-ring';
+        var rc=['#FFD93D','#7DF9FF','#C792EA','#FF6B6B','#6BCB77','#fff','#E040FB'];
+        ring.style.cssText='top:40%;left:50%;width:'+(120+idx*70)+'px;height:'+(120+idx*70)+'px;border-color:'+rc[idx]+';border-width:3px';
+        document.body.appendChild(ring);
+        setTimeout(function(){ring.remove()},1000);
+      },idx*120);
+    })(r);
+  }
+
+  // PHASE 3: 70 meteors (200ms - 4000ms)
+  for(var i=0;i<70;i++){
+    (function(idx){
+      setTimeout(function(){
+        var m=document.createElement('div');m.className='meteor';
+        var c=colors[Math.floor(Math.random()*colors.length)];
+        var startX=Math.random()*120-10;
+        var dur=0.4+Math.random()*0.8;
+        var mx=60+Math.random()*300;
+        var my=200+Math.random()*600;
+        var sz=3+Math.random()*4;
+        m.style.cssText='left:'+startX+'%;top:-10px;color:'+c+';background:'+c+';box-shadow:0 0 10px '+c+',0 0 20px '+c+';--mx:'+mx+'px;--my:'+my+'px;animation-duration:'+dur+'s;width:'+sz+'px;height:'+sz+'px';
+        container.appendChild(m);
+      },200+idx*55);
+    })(i);
+  }
+
+  // PHASE 4: FIRST confetti wave — 120 pieces launching UP from bottom (500ms)
+  for(var j=0;j<120;j++){
+    (function(idx){
+      setTimeout(function(){
+        var conf=document.createElement('div');
+        var c=colors[Math.floor(Math.random()*colors.length)];
+        var w=Math.random()*10+4;var h=Math.random()*8+3;
+        var sx=Math.random()*innerWidth;
+        var tx=(Math.random()-0.5)*500;
+        var ty=-(150+Math.random()*400);
+        var rot=Math.random()*1080-540;
+        var dur=2+Math.random()*2;
+        conf.style.cssText='position:fixed;left:'+sx+'px;bottom:-10px;width:'+w+'px;height:'+h+'px;background:'+c+';border-radius:'+(Math.random()>0.5?'50%':'2px')+';z-index:660;pointer-events:none;opacity:1;box-shadow:0 0 6px '+c+';animation:confettiBurst '+dur+'s cubic-bezier(.15,.8,.3,1) forwards';
+        conf.style.setProperty('--ctx',tx+'px');
+        conf.style.setProperty('--cty',ty+'px');
+        conf.style.setProperty('--cr',rot+'deg');
+        document.body.appendChild(conf);
+        setTimeout(function(){conf.remove()},dur*1000+100);
+      },500+idx*30);
+    })(j);
+  }
+
+  // PHASE 5: 15 big particle bursts (300ms - 5000ms)
+  for(var b=0;b<15;b++){
+    (function(idx){
+      setTimeout(function(){
+        bigBurst(Math.random()*innerWidth,Math.random()*innerHeight*0.7,colors[Math.floor(Math.random()*colors.length)]);
+      },300+idx*320);
+    })(b);
+  }
+
+  // PHASE 6: Second screen flash + shake at peak (1800ms)
+  setTimeout(function(){
+    shakeScreen();
+    var flash2=document.createElement('div');flash2.className='radiant-flash';
+    flash2.style.background='linear-gradient(135deg,rgba(255,217,61,.35),rgba(255,107,107,.2))';
+    document.body.appendChild(flash2);
+    setTimeout(function(){flash2.remove()},700);
+  },1800);
+
+  // PHASE 7: SECOND confetti wave from SIDES (3000ms) — 80 more pieces
+  setTimeout(function(){
+    for(var k=0;k<80;k++){
+      (function(idx){
+        setTimeout(function(){
+          var conf=document.createElement('div');
+          var c=colors[Math.floor(Math.random()*colors.length)];
+          var w=Math.random()*10+4;var h=Math.random()*8+3;
+          var fromLeft=Math.random()>0.5;
+          var sx=fromLeft?-10:innerWidth+10;
+          var tx=fromLeft?(200+Math.random()*300):-(200+Math.random()*300);
+          var ty=(Math.random()-0.5)*400;
+          var rot=Math.random()*1080-540;
+          var dur=1.5+Math.random()*2;
+          conf.style.cssText='position:fixed;left:'+sx+'px;top:'+(Math.random()*innerHeight*0.6+innerHeight*0.1)+'px;width:'+w+'px;height:'+h+'px;background:'+c+';border-radius:'+(Math.random()>0.5?'50%':'2px')+';z-index:660;pointer-events:none;opacity:1;box-shadow:0 0 6px '+c+';animation:confettiBurst '+dur+'s cubic-bezier(.15,.8,.3,1) forwards';
+          conf.style.setProperty('--ctx',tx+'px');
+          conf.style.setProperty('--cty',ty+'px');
+          conf.style.setProperty('--cr',rot+'deg');
+          document.body.appendChild(conf);
+          setTimeout(function(){conf.remove()},dur*1000+100);
+        },idx*25);
+      })(k);
+    }
+  },3000);
+
+  // PHASE 8: Third flash + massive starburst finale (4500ms)
+  setTimeout(function(){
+    shakeScreen();
+    var flash3=document.createElement('div');flash3.className='radiant-flash';
+    flash3.style.background='linear-gradient(135deg,rgba(255,217,61,.4),rgba(125,249,255,.25))';
+    document.body.appendChild(flash3);
+    setTimeout(function(){flash3.remove()},700);
+    for(var s=0;s<12;s++){
+      bigBurst(innerWidth/2+(Math.random()*200-100),innerHeight*0.35+(Math.random()*100-50),colors[Math.floor(Math.random()*colors.length)]);
+    }
+  },4500);
+
+  // PHASE 9: Lingering sparkle rain (5000-7000ms)
+  setTimeout(function(){
+    for(var sp=0;sp<30;sp++){
+      (function(idx){
+        setTimeout(function(){
+          var s=document.createElement('div');
+          s.style.cssText='position:fixed;left:'+Math.random()*100+'%;top:-5px;width:3px;height:3px;border-radius:50%;background:#FFD93D;box-shadow:0 0 6px #FFD93D;pointer-events:none;z-index:660;opacity:1;animation:meteorFall '+(1+Math.random())+'s linear forwards;--mx:'+(Math.random()*40-20)+'px;--my:'+(innerHeight+20)+'px';
+          document.body.appendChild(s);
+          setTimeout(function(){s.remove()},2200);
+        },idx*65);
+      })(sp);
+    }
+  },5000);
+
+  // Cleanup (8 seconds total)
+  setTimeout(function(){container.remove();flash.remove()},8000);
+}
+function applyRadiant(el){
+  var hdr=document.getElementById('mhdr');hdr.classList.add('radiant');
+  var info=hdr.querySelector('.m-info');
+  if(info){var badge=document.createElement('div');badge.className='radiant-badge';badge.textContent='✨ RADIANT';info.insertBefore(badge,info.firstChild)}
+  var etT=document.getElementById('meternText');
+  var radiantLines=['Whoa! A RADIANT '+el.n+'! Incredibly rare!','The universe is shining on you! RADIANT '+el.n+'!','I have not seen a Radiant in centuries! '+el.n+' is glowing!','RADIANT! Only the luckiest explorers find these!','The atoms are aligned! A RADIANT '+el.n+'!'];
+  etT.textContent='✨ Eternatus: "'+radiantLines[Math.floor(Math.random()*radiantLines.length)]+'"';
+  if(!state.radiants.includes(el.num)){state.radiants.push(el.num);saveAll()}
+  playRadiantSound();
+  spawnMeteorShower();
+}
+function clearRadiant(){document.getElementById('mhdr').classList.remove('radiant');var b=document.querySelector('.radiant-badge');if(b)b.remove()}
+
+// ═══════════════════════════════════════
+// EASTER EGG 2: ETERNATUS WHISPERS (lore at milestones)
+// ═══════════════════════════════════════
+var WHISPERS={
+  15:{text:"Did you know, {name}? Before my powers were scattered, I could fly between stars."},
+  30:{text:"I once met an element so rare it only existed for a millionth of a second. I still remember it."},
+  45:{text:"The elements do not just have powers. They have memories. Carbon remembers every living thing it has ever been part of."},
+  60:{text:"You are past the halfway mark. I can feel the old power coming back. My wings are spreading wider."},
+  75:{text:"Most humans never learn what you already know, {name}. You are different."},
+  90:{text:"Only 28 more. I can almost see the finish line. Can you feel it too?"},
+  105:{text:"13 left. My heart is pounding. For the first time in a thousand years, I am nervous."}
+};
+function checkWhisper(){
+  var count=state.disc.length;
+  if(WHISPERS[count]&&!state.whispersShown.includes(count)){
+    state.whispersShown.push(count);saveAll();
+    document.getElementById('mspText').textContent=T('🌟 '+WHISPERS[count].text);
+    playTone(330,'sine',.2,.05);setTimeout(function(){playTone(440,'sine',.2,.05)},200);setTimeout(function(){playTone(523,'sine',.25,.06)},420);
+  }
+}
+
+// ═══════════════════════════════════════
+// EASTER EGG 3: COMBO DISCOVERY REACTIONS
+// ═══════════════════════════════════════
+function checkComboReaction(el){
+  if(!el.cb||!el.cb.length)return null;
+  for(var i=0;i<el.cb.length;i++){
+    var combo=el.cb[i];
+    var partnerName=combo.w;
+    var partner=E.find(function(e){return e.n===partnerName||e.s===partnerName});
+    if(partner&&isDisc(partner.num)){
+      var key=Math.min(el.num,partner.num)+'-'+Math.max(el.num,partner.num);
+      if(!state.combosReacted.includes(key)){
+        state.combosReacted.push(key);saveAll();
+        return 'Wait... you have BOTH '+el.n+' and '+partner.n+' now! Together they make '+combo.r+'! '+combo.eq+'!';
+      }
+    }
+  }
+  return null;
+}
+
+// ═══════════════════════════════════════
+// EASTER EGG 4: SECRET ELEMENT 119
+// ═══════════════════════════════════════
+function checkSecret119(){
+  if(state.secret119)return;
+  var allFams=Object.keys(F);
+  var touched=allFams.every(function(f){return state.fams.includes(f)});
+  if(touched){
+    state.secret119=true;saveAll();
+    setTimeout(function(){
+      document.getElementById('mspText').textContent=T('🔮 {name}... you have touched every family in my kingdom. Here is something most people never learn: the periodic table is not finished. Scientists are still trying to CREATE element 119. Maybe someday, {name}, YOU will be the one who finds it.');
+      playTone(262,'sine',.2,.06);setTimeout(function(){playTone(392,'sine',.2,.06)},180);setTimeout(function(){playTone(523,'sine',.25,.08)},360);setTimeout(function(){playTone(784,'sine',.3,.1)},560);
+    },1500);
+  }
+}
+
+// ═══════════════════════════════════════
+// EASTER EGG 5: BIRTHDAY WEEK
+// ═══════════════════════════════════════
+function isBirthdayWeek(){
+  if(!P.bday)return false;
+  var today=new Date().getDate();
+  var diff=Math.abs(today-P.bday);
+  if(diff>28)diff=31-diff;
+  return diff<=3;
+}
+var birthdayMsgShown=false;
+function getBirthdayParticleColor(){return isBirthdayWeek()?'#FFD93D':null}
+function checkBirthdayMessage(){
+  if(isBirthdayWeek()&&!birthdayMsgShown&&state.disc.length>5){
+    birthdayMsgShown=true;
+    setTimeout(function(){
+      document.getElementById('mspText').textContent=T('🎂 Birthday power is making me stronger, {name}!');
+      playTone(523,'sine',.1,.08);setTimeout(function(){playTone(659,'sine',.1,.08)},80);setTimeout(function(){playTone(784,'sine',.12,.08)},160);setTimeout(function(){playTone(1047,'sine',.15,.1)},260);
+    },3000);
+  }
+}
+
+// ═══════════════════════════════════════
+// EASTER EGG 6: NIGHT SHIFT
+// ═══════════════════════════════════════
+function checkNightShift(){
+  var h=new Date().getHours();
+  if(h>=20||h<6){
+    var sf=document.getElementById('sf');
+    for(var i=0;i<40;i++){
+      var s=document.createElement('div');s.className='st';
+      var z=Math.random()*3+1;
+      s.style.cssText='width:'+z+'px;height:'+z+'px;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--d:'+(Math.random()*2+1.5)+'s;--a:'+(Math.random()*.3+.2)+';--b:'+(Math.random()*.6+.4)+';animation-delay:'+Math.random()*2+'s';
+      sf.appendChild(s);
+    }
+    if(state.intro){
+      setTimeout(function(){
+        document.getElementById('mspText').textContent=T('🌙 The elements glow brighter at night, {name}. Perfect time to discover.');
+      },2000);
+    }
+  }
+}
+
+
+function renderProfile(){
+  const c=document.getElementById('profile');const total=state.disc.length;
+  const days=state.firstDiscTime?Math.max(1,Math.ceil((Date.now()-state.firstDiscTime)/86400000)):0;
+  const ce=getColorElement();
+  let anch='<div class="prof-anchor">💎 <span>Carbon</span> lives inside '+P.toy+'</div>';
+  if(P.food)anch+='<div class="prof-anchor">🍟 <span>Sodium</span> is the salt on '+P.food+'</div>';
+  if(P.pet)anch+='<div class="prof-anchor">🦴 <span>Calcium</span> builds '+P.pet+"'s bones</div>"+'<div class="prof-anchor">🌉 <span>Iron</span> carries oxygen in '+P.pet+"'s blood</div>";
+  if(ce)anch+='<div class="prof-anchor">🎨 <span>'+ce.el+'</span> '+ce.why+' — '+P.color+'!</div>';
+  const buddy=getBuddyElement();
+  if(buddy)anch+='<div class="prof-anchor">💜 <span>'+buddy.n+'</span> is your Element Buddy — born on the '+P.bday+ordSuf(P.bday)+', atomic number '+buddy.num+'</div>';
+  if(state.radiants&&state.radiants.length>0)anch+='<div class="prof-anchor">✨ <span>Radiant Elements</span> found: '+state.radiants.length+' of 118</div>';
+  let tl='';
+  if(state.firstDiscTime)tl+='<div class="tl-item">Started Elementum</div>';
+  ACHS.filter(a=>state.achShown.includes(a.c)).forEach(a=>{tl+='<div class="tl-item">Earned '+a.t+'</div>'});
+  if(state.megaUnlocked)tl+='<div class="tl-item">Mega Evolution unlocked!</div>';
+  // Session summary
+  let sess='';
+  if(state.sessionDisc&&state.sessionDisc.length>0){
+    const fams=new Set();state.sessionDisc.forEach(n=>{const el=E.find(e=>e.n===n);if(el)fams.add(F[el.f].n)});
+    sess='<div class="sess-summary"><h3>This Session</h3><div class="sess-item">Discovered '+state.sessionDisc.length+' new element'+(state.sessionDisc.length>1?'s':'')+': '+state.sessionDisc.join(', ')+'</div>'+(fams.size?'<div class="sess-item" style="margin-top:4px;color:var(--cyan)">Families touched: '+[...fams].join(', ')+'</div>':'')+'</div>';
+  }
+  c.innerHTML='<div class="prof-card"><div class="prof-name">'+P.name+"'s Elementum</div>"+'<div class="prof-title">'+(getAchTitle()||'Beginner Explorer')+'</div><div class="prof-stats"><div class="prof-stat"><div class="prof-stat-val">'+total+'</div><div class="prof-stat-lbl">Elements</div></div><div class="prof-stat"><div class="prof-stat-val">'+state.fams.length+'</div><div class="prof-stat-lbl">Families</div></div><div class="prof-stat"><div class="prof-stat-val">'+(state.matchesCorrect||0)+'</div><div class="prof-stat-lbl">Quiz Right</div></div><div class="prof-stat"><div class="prof-stat-val">'+days+'</div><div class="prof-stat-lbl">Days</div></div></div></div>'+sess+(anch?'<div class="prof-anchors"><h3>Your Element Anchors</h3>'+anch+'</div>':'')+(tl?'<div class="prof-timeline"><h3>Your Journey</h3>'+tl+'</div>':'')+'<button class="prof-share" id="profShare">📸 Share Progress</button><button class="reset-btn" id="resetBtn" style="margin-top:16px;opacity:.3;font-size:.6rem;font-family:Quicksand,sans-serif;font-weight:600;color:var(--t2);background:none;border:none;cursor:pointer;width:100%;text-align:center;padding:8px">↺ Reset All Progress</button>';
+  document.getElementById('profShare').onclick=showShareCard;
+  document.getElementById('resetBtn').onclick=()=>document.getElementById('resetConfirm').classList.remove('hidden');
+}
+function showShareCard(){
+  const ov=document.getElementById('shareOv');
+  document.getElementById('scName').textContent=P.name+"'s Elementum";
+  document.getElementById('scTitle').textContent=getAchTitle()||'Beginner Explorer';
+  document.getElementById('scStat').textContent=state.disc.length;
+  document.getElementById('scBar').style.width=Math.round(state.disc.length/118*100)+'%';
+  ov.classList.add('active');playTone(523,'sine',.1);setTimeout(()=>playTone(784,'sine',.12),100);
+}
+document.getElementById('shareClose').onclick=()=>document.getElementById('shareOv').classList.remove('active');
+
+// ═══════════════════════════════════════
+// MATCH GAME (with reverse quiz)
+// ═══════════════════════════════════════
+function maybeMatch(){if(state.disc.length%5===0&&state.disc.length>0)setTimeout(()=>showMatch(),800)}
+function showMatch(){
+  const disc=E.filter(el=>isDisc(el.num));if(disc.length<4)return;
+  const rev=((state.matchesPlayed||0)%2===1);
+  const tgt=disc[Math.floor(Math.random()*disc.length)];
+  const oth=disc.filter(el=>el.num!==tgt.num).sort(()=>Math.random()-.5).slice(0,3);
+  const opts=[tgt,...oth].sort(()=>Math.random()-.5);
+  const ov=document.getElementById('matchOv');
+  playTone(294,'sine',.06,.1);setTimeout(()=>playTone(587,'sine',.08,.1),80);
+  const og=document.getElementById('matchOpts');og.innerHTML='';let ans=false;
+  if(rev){
+    document.getElementById('matchQ').textContent=T('Eternatus asks: What does '+tgt.n+' do?');
+    opts.forEach(el=>{const d=document.createElement('div');d.className='match-opt';d.innerHTML='<div class="mo-emoji">'+el.e+'</div><div class="mo-name" style="font-size:.72rem">'+el.fact+'</div>';d.onclick=()=>doMatch(d,el,tgt,opts,og,ans,()=>{ans=true});og.appendChild(d)});
+  }else{
+    document.getElementById('matchQ').textContent=T('Eternatus asks: Which element '+tgt.fact.toLowerCase().replace(/!$/,'')+'?');
+    opts.forEach(el=>{const d=document.createElement('div');d.className='match-opt';d.innerHTML='<div class="mo-emoji">'+el.e+'</div><div class="mo-name">'+el.n+'</div>';d.onclick=()=>doMatch(d,el,tgt,opts,og,ans,()=>{ans=true});og.appendChild(d)});
+  }
+  document.getElementById('matchRes').textContent='';
+  document.getElementById('matchSkip').onclick=()=>{ov.classList.remove('active');state.matchesPlayed=(state.matchesPlayed||0)+1;saveAll()};
+  ov.classList.add('active');
+}
+function doMatch(d,el,tgt,opts,og,ans,setA){
+  if(ans)return;setA();state.matchesPlayed=(state.matchesPlayed||0)+1;
+  if(el.num===tgt.num){d.classList.add('correct');document.getElementById('matchRes').textContent='⚡ Correct!';playTone(659,'sine',.08,.1);setTimeout(()=>playTone(880,'sine',.1,.1),80);setTimeout(()=>playTone(1047,'sine',.12,.1),160);state.matchesCorrect=(state.matchesCorrect||0)+1;triggerExcited()}
+  else{d.classList.add('wrong');document.getElementById('matchRes').textContent="That's "+el.n+'! Answer: '+tgt.n;playTone(200,'square',.08,.05);[...og.children].forEach((c,i)=>{if(opts[i].num===tgt.num)c.classList.add('correct')})}
+  saveAll();setTimeout(()=>document.getElementById('matchOv').classList.remove('active'),2000);
+}
+function playEOTDShimmer(){try{const c=getAC(),o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.setValueAtTime(800,c.currentTime);o.frequency.exponentialRampToValueAtTime(1200,c.currentTime+.3);g.gain.setValueAtTime(.05,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.35);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+.35)}catch(e){}}
+
+
+// ═══════════════════════════════════════
+// AUDIO
+// ═══════════════════════════════════════
+let ac;function getAC(){if(!ac)ac=new(window.AudioContext||window.webkitAudioContext)();return ac}
+function playTone(freq=440,type='sine',dur=.12,vol=.08){try{const c=getAC(),o=c.createOscillator(),g=c.createGain();o.type=type;o.frequency.setValueAtTime(freq,c.currentTime);g.gain.setValueAtTime(vol,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+dur);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+dur)}catch(e){}}
+function playFamilySound(fk){const a=F[fk]?.audio;if(a)playTone(a[0],a[1],a[2])}
+function playDiscover(){playTone(523,'sine',.1);setTimeout(()=>playTone(659,'sine',.1),80);setTimeout(()=>playTone(784,'sine',.12),160);setTimeout(()=>playTone(1047,'sine',.2),260);triggerExcited()}
+function playRevisit(fk){playFamilySound(fk);playRumble()}
+function playRumble(){const t=state.disc.length<10?80:state.disc.length<60?70:60;playTone(t,'sine',.15,.06);setTimeout(()=>playTone(t+20,'sine',.12,.05),60)}
+function triggerExcited(){const m=document.getElementById('mbar');m.classList.add('excited','pulse');setTimeout(()=>m.classList.remove('excited','pulse'),800)}
+function speakName(n){if('speechSynthesis'in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance('This is '+n);u.rate=.8;u.pitch=1.15;speechSynthesis.speak(u)}}
+
+// ═══════════════════════════════════════
+// STARFIELD + PARTICLES
+// ═══════════════════════════════════════
+function mkStars(){const el=document.getElementById('sf');for(let i=0;i<60;i++){const s=document.createElement('div');s.className='st';const z=Math.random()*2.5+.5;s.style.cssText=`width:${z}px;height:${z}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${Math.random()*3+2}s;--a:${Math.random()*.2+.1};--b:${Math.random()*.5+.4};animation-delay:${Math.random()*3}s`;el.appendChild(s)}}
+function burst(x,y,color,count=7){for(let i=0;i<count;i++){const p=document.createElement('div');p.className='particle';const a=(Math.PI*2/count)*i+Math.random()*.5,d=30+Math.random()*35;p.style.cssText=`left:${x-3}px;top:${y-3}px;background:${color};--tx:${Math.cos(a)*d}px;--ty:${Math.sin(a)*d}px;box-shadow:0 0 5px ${color}`;document.body.appendChild(p);setTimeout(()=>p.remove(),600)}}
+function bigBurst(x,y,c){burst(x,y,c,14)}
+function showCeleb(text){const el=document.getElementById('celeb');const t=document.createElement('div');t.className='celeb-text';t.textContent=text;el.appendChild(t);setTimeout(()=>t.remove(),900)}
+function showToast(emoji,name,famName,famColor){
+  const t=document.getElementById('toast');
+  document.getElementById('toastEmoji').textContent=emoji;
+  document.getElementById('toastText').innerHTML='<span style="color:var(--cyan)">New Element!</span> '+name;
+  document.getElementById('toastFam').textContent=famName;
+  t.style.borderLeftColor=famColor;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+function showFamCeleb(famKey,title,quote,onClose){
+  const fc=F[famKey];const ov=document.getElementById('famCeleb');
+  document.getElementById('famGlow').style.background=fc.c;
+  document.getElementById('famBadge').textContent=fc.n;
+  document.getElementById('famBadge').style.background=fc.bg;
+  document.getElementById('famBadge').style.color=fc.c;
+  document.getElementById('famBadge').style.border='1.5px solid '+fc.bd;
+  document.getElementById('famTitle').textContent=title;
+  document.getElementById('famTitle').style.color=fc.c;
+  document.getElementById('famQuote').textContent='"'+quote+'"';
+  ov.classList.add('active');
+  // Particle cascade
+  for(let i=0;i<6;i++)setTimeout(()=>bigBurst(innerWidth/2+(Math.random()*120-60),innerHeight/2+(Math.random()*100-50),fc.c),i*200);
+  // Close on button tap
+  document.getElementById('famClose').onclick=()=>{ov.classList.remove('active');if(onClose)onClose()};
+}
+
+// ═══════════════════════════════════════
+// WELCOME
+// ═══════════════════════════════════════
+function runWelcome(){
+  const w=document.getElementById('welcome');
+  if(state.intro){w.style.display='none';document.getElementById('app').classList.remove('hidden');return}
+  if(P.name!=='Explorer'){w.style.display='none';runIntro();return}
+  const ni=document.getElementById('wName'),ti=document.getElementById('wToy'),btn=document.getElementById('wStart');
+  const fi=document.getElementById('wFood'),pi=document.getElementById('wPet'),ci=document.getElementById('wColor'),bi=document.getElementById('wBday');
+  function check(){const ok=ni.value.trim()&&ti.value.trim();btn.disabled=!ok;document.getElementById('wStartHint').style.display=ok?'none':'block'}
+  ni.oninput=check;ti.oninput=check;
+  btn.onclick=()=>{
+    // Resume AudioContext for iPad
+    try{getAC().resume()}catch(e){}
+    P.name=ni.value.trim()||'Explorer';P.toy=ti.value.trim()||'blanket';
+    P.food=fi.value.trim()||'';P.pet=pi.value.trim()||'';P.color=ci.value.trim()||'';
+    P.bday=bi?parseInt(bi.value)||0:0;if(P.bday<1||P.bday>31)P.bday=0;
+    saveAll();
+    // Welcome beat
+    w.classList.add('done');
+    const wb=document.getElementById('welcomeBeat');
+    wb.classList.remove('hidden');
+    document.getElementById('wbName').textContent='Welcome, '+P.name+'.';
+    playTone(440,'sine',.15,.06);setTimeout(()=>playTone(660,'sine',.15,.06),200);
+    document.getElementById('wbBtn').onclick=()=>{wb.classList.add('hidden');w.style.display='none';runIntro()};
+  };
+}
+
+// ═══════════════════════════════════════
+// INTRO
+// ═══════════════════════════════════════
+const INTRO_SEQ=[
+  {num:1,speech:"This is Hydrogen. The very first atom ever born in the universe. I can feel ancient fire returning to my core!"},
+  {num:2,speech:"Helium! My wings feel lighter already! This one makes balloons float and voices go squeaky!"},
+  {num:6,speech:T("Carbon! The builder of all life! I can feel {toy}'s warmth... life energy is flooding back into me!")},
+  {num:79,speech:"GOLD! My scales are hardening into golden armor! Nothing can stop me now!"},
+  {num:8,speech:T("Oxygen! *takes a huge breath* I can BREATHE again, {name}! You've restored five of my powers!")}
+];
+let introStep=-1;
+function runIntro(){
+  const ov=document.getElementById('intro');
+  if(state.intro){ov.style.display='none';document.getElementById('app').classList.remove('hidden');return}
+  ov.classList.remove('hidden');ov.style.display='flex';
+  document.getElementById('iSpeech').textContent=T("I am the ancient dragon of the elements. But my powers have been scattered across the Elementum... Every element you discover restores my strength. Will you help me, {name}?");
+  document.getElementById('iBtn').onclick=()=>{introStep++;advanceIntro()};
+}
+function advanceIntro(){
+  const btn=document.getElementById('iBtn'),speech=document.getElementById('iSpeech'),card=document.getElementById('iCard');
+  const buddy=getBuddyElement();
+  const hasBuddy=!!buddy;
+  if(introStep===0){
+    document.getElementById('iTitle').textContent='Professor Eternatus';
+    card.innerHTML='';card.classList.remove('show');card.style.background='transparent';card.style.border='none';
+    if(hasBuddy){
+      speech.textContent=T("I am the ancient dragon of the elements, {name}. My powers have been scattered across 118 elements. Every one you discover makes me stronger. But first... let me show you something about YOU.");
+      btn.textContent='What is it? →';
+    }else{
+      speech.textContent=T("I am the ancient dragon of the elements, {name}. My powers have been scattered across 118 elements. Every one you discover makes me stronger. Let me introduce you to your first 5!");
+      btn.textContent='Find Hydrogen →';
+    }
+  }else if(introStep===1&&hasBuddy){
+    const fc=F[buddy.f];
+    const BS={1:"Hydrogen is the lightest thing in the entire universe and the FIRST atom ever born after the Big Bang. Two Hydrogens plus one Oxygen makes every drop of water you have ever touched. Your superpower? You are the beginning of EVERYTHING.",2:"Helium makes balloons fly and voices go squeaky! Stars are made of it. The Sun is BURNING Helium right now. Your superpower? You are lighter than air itself.",3:"Lithium powers every battery in every phone, tablet, and electric car. Without Lithium, the iPad goes dark. Your superpower? You keep the whole world charged.",4:"Beryllium hides inside every emerald on Earth. That gorgeous green? Beryllium. It is also in spacecraft. Your superpower? Precious gems AND space travel.",5:"Boron is in laundry soap fighting stains, in slime recipes, and in rocket fuel. Your superpower? You clean, you play, you FLY.",6:"Carbon is inside EVERYTHING alive. Inside {toy}. Inside you. Inside every plant, animal, and person on Earth. Squeeze Carbon hard enough and it becomes a DIAMOND. Your superpower? You are the building block of all life.",7:"Nitrogen is invisible and makes up 80% of every breath you take. The ultimate ninja. Everywhere, but nobody notices. Your superpower? You are the invisible force that fills the world.",8:"Oxygen keeps every human, animal, and fire alive. Every breath {name} takes? Oxygen giving your body energy. Your superpower? You are the breath of life itself.",9:"Fluorine is in toothpaste fighting sugar bugs every morning. It makes teeth so tough they crunch anything. Your superpower? You protect and strengthen everything you touch.",10:"Neon lights up the night! Every glowing sign uses Neon. Red, blue, green, any color. Your superpower? You light up the world when it gets dark.",11:"Sodium makes fries taste amazing AND explodes in water! BOOM! Delicious AND dangerous. Your superpower? You are a walking contradiction.",12:"Magnesium makes the dazzling white flash in fireworks. That bright burst that makes everyone go OOOOH? Magnesium. Your superpower? You light up the sky.",13:"Aluminum holds up airplanes AND wraps leftovers. Strong enough for rockets but crushable by hand. Your superpower? Lightweight but mighty.",14:"Silicon started as beach sand. Then it learned to think. Every computer and video game runs on Silicon. Your superpower? You are the sand that learned to THINK.",15:"Phosphorus glows in the dark AND lives inside your DNA. The code that makes you YOU? Phosphorus. Your superpower? You glow AND carry the code of life.",16:"Sulfur stinks like rotten eggs but lives in volcanoes and every living cell. Gross, powerful, and absolutely essential. Your superpower? Nobody can ignore you.",17:"Chlorine zaps germs in every pool so kids splash safe. That pool smell? Chlorine doing its job. Your superpower? You protect everyone around you.",18:"Argon is the shyest element. It hides in lightbulbs, quietly keeping the light going. Never reacts with anyone. Your superpower? You work silently, keeping everything running.",19:"Potassium hides in every banana. It keeps muscles moving and hearts beating. Without it, your heart stops. Your superpower? You keep the most important muscle going.",20:"Calcium builds every bone in your body. Without it you would be floppy like a jellyfish. Your superpower? You are the framework that holds everything together.",21:"Scandium makes stadium lights blazingly bright. That wall of light at a big game? Scandium. Your superpower? You make the biggest stages shine.",22:"Titanium is the superhero metal. Rockets, jets, artificial bones. Almost NOTHING breaks it. Your superpower? You are unbreakable.",23:"Vanadium toughens steel for tools and jet engines. Mix it in and metal becomes way stronger. Your superpower? You make everything around you tougher.",24:"Chromium makes everything shiny! Chrome bumpers, mirror finishes, stainless steel. Your superpower? You bring brilliance to the world.",25:"Manganese stops rust. Without it, train tracks crumble and bridges fall. Your superpower? You prevent things from breaking down.",26:"Iron holds up bridges AND carries oxygen in your blood. Right now, Iron is flowing through {name}. Your superpower? You are strength, inside and out.",27:"Cobalt paints the deepest, most gorgeous blue. For thousands of years, that perfect blue. Your superpower? You create beauty that lasts forever.",28:"Nickel is in every nickel coin. Smooth, strong, humble. Never rusts, never tarnishes. Your superpower? Reliable, steady, always there.",29:"Copper carries electricity through every wire and charger. Every light that turns on ran through Copper. Your superpower? You deliver power to the world.",30:"Zinc heals cuts and scrapes. Got a boo-boo? Zinc fixes it. Also in sunscreen. Your superpower? You heal and protect.",31:"Gallium melts in your hand! Liquid metal puddle. Then solid again. Your superpower? You transform between solid and liquid at will."};
+    document.getElementById('iTitle').textContent='Your Element Superpower';
+    speech.textContent=T(BS[P.bday]||buddy.story);
+    card.style.background=fc.bg;card.style.border='2px solid '+fc.c;
+    card.innerHTML='<div class="ic-emoji" style="font-size:2.8rem">'+buddy.e+'</div><div class="ic-sym" style="color:'+fc.c+';text-shadow:0 0 24px '+fc.gl+';font-size:3.6rem">'+buddy.s+'</div><div class="ic-name" style="font-size:1.1rem">'+buddy.n+'</div><div style="font-family:Quicksand,sans-serif;font-size:.6rem;color:'+fc.c+';font-weight:700;margin-top:4px">YOUR ELEMENT BUDDY</div>';
+    card.classList.add('show');
+    discover(buddy.num);discoverFam(buddy.f);speakName(buddy.n);
+    playTone(523,'sine',.15,.1);setTimeout(function(){playTone(659,'sine',.15,.1)},120);setTimeout(function(){playTone(784,'sine',.15,.1)},240);setTimeout(function(){playTone(1047,'sine',.2,.12)},380);setTimeout(function(){playTone(1319,'sine',.25,.12)},520);
+    setTimeout(function(){bigBurst(innerWidth/2,innerHeight/2-40,'#FFD54F');bigBurst(innerWidth/2,innerHeight/2-40,fc.c)},300);
+    btn.textContent='Meet My First 5 →';
+  }else if((introStep===2&&hasBuddy)||(introStep===1&&!hasBuddy)){
+    document.getElementById('iTitle').textContent='Your First 5 Elements';
+    speech.textContent=T("There are 118 elements in my world, {name}. I am going to introduce you to your first 5 right now. These are your Starters. After that, you will explore the rest on your own. Ready?");
+    card.innerHTML='';card.classList.remove('show');card.style.background='transparent';card.style.border='none';
+    btn.textContent='Find Hydrogen →';
+  }else{
+    const offset=hasBuddy?3:2;
+    const elIdx=introStep-offset;
+    if(elIdx>=0&&elIdx<5){
+      const seq=INTRO_SEQ[elIdx];const el=EL[seq.num];const fc=F[el.f];
+      document.getElementById('iTitle').textContent='Element '+(elIdx+1)+' of 5';
+      speech.textContent=T(seq.speech);
+      card.style.background=fc.bg;card.style.border='1.5px solid '+fc.bd;
+      card.innerHTML='<div class="ic-emoji">'+el.e+'</div><div class="ic-sym" style="color:'+fc.c+';text-shadow:0 0 20px '+fc.gl+'">'+el.s+'</div><div class="ic-name">'+el.n+'</div>';
+      card.classList.add('show');discover(seq.num);discoverFam(el.f);speakName(el.n);playDiscover();
+      if(elIdx<4)btn.textContent='Next Element →';
+      else btn.textContent="Let's Explore!";
+    }else{
+      state.intro=true;saveAll();
+      document.getElementById('intro').classList.add('done');document.getElementById('app').classList.remove('hidden');
+      setTimeout(function(){document.getElementById('intro').style.display='none'},600);
+      updatePower();renderAll();updateTabLocks();renderBuddy();
+    }
+  }
+}
+
+
+// ═══════════════════════════════════════
+// APP STATE
+// ═══════════════════════════════════════
+let curLv='1',curFam='all';
+function getEls(){return curLv==='1'?E.filter(el=>el.l1):E}
+function getFams(){const els=getEls();const fs=new Set(els.map(el=>el.f));return[{key:'all',name:curLv==='1'?'All Starters':'All 118'},...[...fs].map(k=>({key:k,name:F[k].n}))]}
+
+// ═══════════════════════════════════════
+// RENDER
+// ═══════════════════════════════════════
+function renderAll(){renderFamTabs();renderCards();updatePower();updateCount()}
+function renderFamTabs(){
+  const c=document.getElementById('ftabs');c.innerHTML='';
+  getFams().forEach(fm=>{
+    const b=document.createElement('button');b.className='ftab'+(fm.key===curFam?' active':'');b.textContent=fm.name;
+    if(fm.key!=='all'&&fm.key===curFam){b.style.background=F[fm.key].c;b.style.boxShadow=`0 3px 14px ${F[fm.key].gl}`}
+    else if(fm.key==='all'&&curFam==='all')b.style.background='linear-gradient(135deg,var(--cyan),var(--purple))';
+    b.onclick=()=>{curFam=fm.key;renderFamTabs();renderCards();updateCount();
+      if(fm.key!=='all'){playFamilySound(fm.key);showFamilyBio(fm.key)}else{document.getElementById('fbio').classList.remove('show');playTone(500,'sine',.08)}
+      updateMascot(fm.key)};
+    c.appendChild(b);
+  });
+}
+function showFamilyBio(fk){const el=document.getElementById('fbio'),txt=document.getElementById('fbioText');txt.textContent=T(F[fk].bio);el.classList.add('show');el.style.borderColor=F[fk].bd;el.style.background=F[fk].bg}
+function renderCards(){
+  const grid=document.getElementById('grid');grid.innerHTML='';
+  let els=getEls();if(curFam!=='all')els=els.filter(el=>el.f===curFam);els.sort((a,b)=>a.num-b.num);
+  els.forEach((el,i)=>{
+    const fc=F[el.f];const disc=isDisc(el.num);const w=document.createElement('div');
+    w.className='cw'+(disc?'':' undiscovered');w.style.animationDelay=`${Math.min(i*.035,1.2)}s`;
+    w.style.setProperty('--cc',fc.c);w.style.setProperty('--cbg',fc.bg);w.style.setProperty('--cg',fc.gl);w.style.setProperty('--cb',fc.bd);
+    w.innerHTML=`<div class="cin" style="background:${fc.bg};border:1.5px solid ${fc.bd}"><div class="c-fam">${F[el.f].n}</div><div class="c-emoji">${el.e}</div><div class="c-sym">${el.s}</div><div class="c-name">${el.n}</div>${state.radiants&&state.radiants.includes(el.num)?'<div class="card-radiant">✨</div>':''}</div>`;
+    w.onclick=(ev)=>{
+      const isNew=discover(el.num);const isNewFam=discoverFam(el.f);openModal(el,isNew,isNewFam);
+      if(isNew){bigBurst(ev.clientX,ev.clientY,getBirthdayParticleColor()||fc.c);playDiscover();showToast(el.e,el.n,F[el.f].n,fc.c);w.classList.remove('undiscovered');
+        if(!state.sessionDisc)state.sessionDisc=[];state.sessionDisc.push(el.n);saveAll();
+        setTimeout(()=>{checkAch();checkMega();checkArcComplete();checkWhisper();checkSecret119();updateTabLocks();updateArcBanner();maybeMatch()},500)}
+      else{burst(ev.clientX,ev.clientY,fc.c);playRevisit(el.f)}
+      if(isNewFam)setTimeout(()=>playTone(392,'sine',.1),400);
+      updatePower();updateCount();
+    };
+    grid.appendChild(w);
+  });
+}
+function updateCount(){const els=getEls();let f=curFam==='all'?els:els.filter(el=>el.f===curFam);const d=f.filter(el=>isDisc(el.num)).length;document.getElementById('cnt').innerHTML=`<span>${d}</span> of ${f.length} discovered`}
+function updatePower(){
+  const els=getEls();const total=els.length;const found=els.filter(el=>isDisc(el.num)).length;
+  document.getElementById('pwrLabel').textContent=`Powers: ${found} / ${total}`;
+  document.getElementById('pwrFill').style.width=Math.min(100,Math.round(found/total*100))+'%';
+  const all=state.disc.length;const m=document.getElementById('mbar');
+  m.setAttribute('data-tier',all<3?1:all<10?2:all<25?3:all<60?4:5);
+  document.getElementById('achTitle').textContent=getAchTitle();
+}
+function updateMascot(fk){
+  const sp=document.getElementById('mspText');
+  if(fk==='all'){const f=state.disc.length;sp.textContent=f<5?T('Tap an element to restore my power, {name}!'):f<20?'My strength is growing! Keep going!':f<50?'My wings spread wider with every discovery!':f<100?"Almost whole again! The power is incredible!":"FULL POWER! I am ETERNATUS!";}
+  else sp.textContent=T(F[fk].bio.split('.')[0]+'.');
+  playRumble();
+}
+
+// ═══════════════════════════════════════
+// ELEMENT OF THE DAY
+// ═══════════════════════════════════════
+function getEOTD(){const d=Math.floor(Date.now()/86400000);return E[d%E.length]}
+function renderEOTD(){
+  const el=getEOTD();const fc=F[el.f];const container=document.getElementById('eotd');
+  container.innerHTML=`
+    <div class="eotd-card" style="background:var(--bg3);border:1.5px solid ${fc.bd}">
+      <div class="eotd-hdr" style="--cg:${fc.gl};background:${fc.bg}">
+        <div class="eotd-emoji">${el.e}</div>
+        <div class="eotd-sym" style="--cc:${fc.c};color:${fc.c};text-shadow:0 0 30px ${fc.gl}">${el.s}</div>
+        <div class="eotd-name">${el.n}</div>
+        <div class="m-meta" style="margin-top:8px"><span>#${el.num}</span><span>${F[el.f].n}</span></div>
+      </div>
+      <div class="eotd-body">
+        <div><div class="m-lbl" style="color:${fc.c}">Superpower</div><div class="m-fact">${el.fact}</div></div>
+        <div><div class="m-lbl" style="color:${fc.c}">Story</div><div class="m-story">${T(el.story)}</div></div>
+        ${el.cb&&el.cb.length?`<div><div class="m-lbl" style="color:${fc.c}">⚡ Mega Combos</div><div class="m-combos">${el.cb.map(c=>`<div class="m-combo" style="border-color:${fc.bd}"><span class="m-combo-eq" style="color:${fc.c}">${el.s} + ${c.w}</span><span class="m-combo-arrow" style="color:${fc.c}">→</span><span class="m-combo-result">${c.r}</span></div>`).join('')}</div></div>`:''}
+        <div class="eotd-teach"><p>🐉 Eternatus challenge: "Think you know ${el.n} well enough to teach it? Try explaining it to someone in your own words!"</p></div>
+      </div>
+    </div>
+    <div class="eotd-nav">
+      <button id="eotdRandom">🔀 Random Element</button>
+      <button id="eotdSpeak">🔊 Hear the Name</button>
+    </div>`;
+  // Discover on view
+  discover(el.num);discoverFam(el.f);updatePower();
+  document.getElementById('eotdSpeak').onclick=()=>{speakName(el.n);playFamilySound(el.f)};
+  document.getElementById('eotdRandom').onclick=()=>{const r=E[Math.floor(Math.random()*E.length)];const ov=getEOTD;window._eotdOverride=r;renderEOTDCustom(r)};
+}
+function renderEOTDCustom(el){
+  // Quick re-render with a specific element
+  const fc=F[el.f];const container=document.getElementById('eotd');
+  container.querySelector('.eotd-emoji').textContent=el.e;
+  container.querySelector('.eotd-sym').textContent=el.s;container.querySelector('.eotd-sym').style.color=fc.c;
+  container.querySelector('.eotd-name').textContent=el.n;
+  container.querySelector('.eotd-hdr').style.background=fc.bg;
+  container.querySelector('.m-fact').textContent=el.fact;
+  container.querySelector('.m-story').textContent=T(el.story);
+  container.querySelector('.eotd-card').style.borderColor=fc.bd;
+  discover(el.num);discoverFam(el.f);speakName(el.n);playFamilySound(el.f);updatePower();
+}
+
+// ═══════════════════════════════════════
+// DRAGON'S MAP
+// ═══════════════════════════════════════
+let mapFam='all';
+function renderMapTabs(){
+  const c=document.getElementById('dmFtabs');c.innerHTML='';
+  const fams=[{key:'all',name:'All Families'},...Object.keys(F).map(k=>({key:k,name:F[k].n}))];
+  fams.forEach(fm=>{
+    const b=document.createElement('button');b.className='ftab'+(fm.key===mapFam?' active':'');b.textContent=fm.name;
+    if(fm.key!=='all'&&fm.key===mapFam){b.style.background=F[fm.key].c;b.style.boxShadow=`0 3px 14px ${F[fm.key].gl}`}
+    else if(fm.key==='all'&&mapFam==='all')b.style.background='linear-gradient(135deg,var(--cyan),var(--purple))';
+    b.onclick=()=>{mapFam=fm.key;renderMapTabs();applyMapFilter();
+      if(fm.key!=='all'){playFamilySound(fm.key);const bio=document.getElementById('dmFbio'),txt=document.getElementById('dmFbioText');txt.textContent=T(F[fm.key].bio);bio.classList.add('show');bio.style.borderColor=F[fm.key].bd;bio.style.background=F[fm.key].bg}
+      else{document.getElementById('dmFbio').classList.remove('show');playTone(500,'sine',.08)}
+    };
+    c.appendChild(b);
+  });
+}
+function applyMapFilter(){
+  const cells=document.querySelectorAll('.dm-cell');
+  cells.forEach(cell=>{
+    const num=parseInt(cell.dataset.num);const el=EL[num];
+    if(!el)return;
+    const fc=F[el.f];
+    if(mapFam==='all'){
+      cell.style.opacity='';cell.style.transform='';cell.style.boxShadow='';
+      cell.style.background=fc.bg;cell.style.borderColor=fc.bd;cell.style.zIndex='';
+      cell.querySelector('.dm-sym').style.color=fc.c;
+      cell.querySelector('.dm-num').style.color='';
+    }else if(el.f===mapFam){
+      cell.style.opacity='1';
+      cell.style.transform='scale(1.15)';
+      cell.style.background=fc.c;
+      cell.style.borderColor=fc.c;
+      cell.style.boxShadow='0 0 10px '+fc.gl+', 0 0 20px '+fc.gl;
+      cell.style.zIndex='3';
+      cell.querySelector('.dm-sym').style.color='#0B0E1A';
+      cell.querySelector('.dm-num').style.color='#0B0E1A';
+    }else{
+      cell.style.opacity='.15';cell.style.transform='';cell.style.boxShadow='';
+      cell.style.background=fc.bg;cell.style.borderColor=fc.bd;cell.style.zIndex='';
+      cell.querySelector('.dm-sym').style.color=fc.c;
+      cell.querySelector('.dm-num').style.color='';
+    }
+  });
+}
+function renderMap(){
+  const g=document.getElementById('dmapGrid');g.innerHTML='';
+  document.getElementById('dmColHint').classList.remove('show');
+  document.getElementById('dmFbio').classList.remove('show');
+  mapFam='all';renderMapTabs();
+  for(let r=1;r<=10;r++){for(let c=1;c<=18;c++){
+    let el=null;for(const num in PP){if(PP[num][0]===r&&PP[num][1]===c){el=EL[+num];break}}
+    if(r===8){if(c===1){const d=document.createElement('div');d.style.cssText=`grid-row:8;grid-column:1/19;height:6px`;g.appendChild(d)}continue}
+    if((r===6&&c===3)||(r===7&&c===3)){const d=document.createElement('div');d.className='dm-label';d.style.cssText=`grid-row:${r};grid-column:${c}`;d.textContent=r===6?'57-71':'89-103';g.appendChild(d);continue}
+    if(!el)continue;
+    const fc=F[el.f];const disc=isDisc(el.num);const d=document.createElement('div');
+    d.className='dm-cell'+(disc?'':' undiscovered');
+    d.dataset.num=el.num;
+    d.style.cssText=`grid-row:${r};grid-column:${c};background:${fc.bg};border:1px solid ${fc.bd};color:${fc.c};transition:opacity .3s,transform .3s`;
+    d.innerHTML=`<div class="dm-num">${el.num}</div><div class="dm-sym">${el.s}</div>`;
+    d.onclick=(ev)=>{
+      const isNew=discover(el.num);const isNewFam=discoverFam(el.f);openModal(el,isNew,isNewFam);
+      if(isNew){bigBurst(ev.clientX,ev.clientY,getBirthdayParticleColor()||fc.c);playDiscover();showToast(el.e,el.n,F[el.f].n,fc.c);d.classList.remove('undiscovered');
+        if(!state.sessionDisc)state.sessionDisc=[];state.sessionDisc.push(el.n);saveAll();
+        setTimeout(()=>{checkAch();checkMega();checkArcComplete();checkWhisper();checkSecret119();updateTabLocks();updateArcBanner();maybeMatch()},500)}
+      else{burst(ev.clientX,ev.clientY,fc.c);playRevisit(el.f)}
+      updatePower();
+      // Column teaching
+      if(COL_TEACH[c]){const hint=document.getElementById('dmColHint');document.getElementById('dmColText').textContent=T(COL_TEACH[c]+` See? All ${F[COL_FAM[c]]?.n||'elements'} in the same column share the same powers!`);hint.classList.add('show')}
+    };
+    g.appendChild(d);
+  }}
+}
+
+// ═══════════════════════════════════════
+// MODAL
+// ═══════════════════════════════════════
+function openModal(el,isNew,isNewFam){
+  clearRadiant();
+  const fc=F[el.f];const m=document.getElementById('mov'),mc=document.getElementById('mc');
+  mc.style.setProperty('--cc',fc.c);mc.style.setProperty('--cbg',fc.bg);mc.style.setProperty('--cg',fc.gl);mc.style.setProperty('--cb',fc.bd);
+  document.getElementById('mhdr').style.background=fc.bg;
+  document.getElementById('me').textContent=el.e;document.getElementById('ms').textContent=el.s;
+  document.getElementById('mn').textContent=el.n;
+  document.getElementById('mm').innerHTML=`<span>#${el.num}</span><span>${F[el.f].n}</span>`;
+  document.getElementById('mf').textContent=el.fact;document.getElementById('mst').textContent=T(el.story);
+  // Combos
+  const cw=document.getElementById('mCombosWrap'),cc=document.getElementById('mCombos');
+  if(el.cb&&el.cb.length>0){cw.style.display='block';cc.innerHTML=el.cb.map(c=>`<div class="m-combo"><span class="m-combo-eq">${el.s} + ${c.w}</span><span class="m-combo-arrow">→</span><span class="m-combo-result">${c.r}</span></div>`).join('')}else cw.style.display='none';
+  // Eternatus
+  const et=document.getElementById('metern'),etT=document.getElementById('meternText');et.style.display='block';
+  if(isNew){
+    let line=el.eLine?T(el.eLine):T(F[el.f].disc);
+    if(isNewFam)line=`NEW FAMILY: ${F[el.f].n}! `+line;
+    // Check combo reaction
+    const comboMsg=checkComboReaction(el);
+    if(comboMsg)line=line+' '+comboMsg;
+    etT.textContent='⚡ Eternatus: "'+line+'"';
+  }else{
+    // RADIANT CHECK (5% chance on revisit)
+    if(isRadiant()){
+      applyRadiant(el);
+    }else{
+      const rv=el.rv?T(el.rv):`${el.n}! One of my favorites.`;
+      etT.textContent='🐉 Eternatus: "'+rv+'"';
+    }
+  }
+  speakName(el.n);
+  playRumble();if(isNew)document.getElementById('mspText').textContent=el.eLine?T(el.eLine):T(F[el.f].disc);
+  const btn=document.getElementById('mspk');btn.style.borderColor=fc.bd;btn.style.background=fc.bg;btn.style.color=fc.c;
+  btn.onclick=()=>{speakName(el.n);playFamilySound(el.f)};
+  m.classList.add('active');document.body.style.overflow='hidden';
+}
+function closeModal(){clearRadiant();document.getElementById('mov').classList.remove('active');document.body.style.overflow='';playTone(500,'sine',.06)}
+document.getElementById('mx').onclick=closeModal;
+document.getElementById('mov').onclick=(e)=>{if(e.target.id==='mov')closeModal()};
+
+// ═══════════════════════════════════════
+// LEVEL TABS
+// ═══════════════════════════════════════
+document.getElementById('ltabs').onclick=(e)=>{
+  const tab=e.target.closest('.ltab');if(!tab)return;const lv=tab.dataset.lv;if(lv===curLv)return;
+  if(lv==='2'&&!megaOK()){const n=20-E.filter(el=>el.l1&&isDisc(el.num)).length;document.getElementById('mspText').textContent=T(`Not yet, {name}! Discover ${n} more Starters to unlock Mega Evolution!`);playTone(200,'square',.1,.06);playRumble();return}
+  curLv=lv;curFam='all';document.querySelectorAll('.ltab').forEach(t=>t.classList.remove('active'));tab.classList.add('active');
+  document.getElementById('fbio').classList.remove('show');
+  const showGrid=lv==='1'||lv==='2';
+  document.getElementById('grid').classList.toggle('hidden',!showGrid);
+  document.getElementById('ftabs').classList.toggle('hidden',!showGrid);
+  document.getElementById('cnt').classList.toggle('hidden',!showGrid);
+  document.getElementById('dmap').classList.toggle('hidden',lv!=='map');
+  document.getElementById('eotd').classList.toggle('hidden',lv!=='eotd');
+  document.getElementById('profile').classList.toggle('hidden',lv!=='profile');
+  if(showGrid){renderAll();if(lv==='1')updateArcBanner();else document.getElementById('arcBanner').classList.add('hidden')}
+  if(lv==='map'){renderMap();document.getElementById('arcBanner').classList.add('hidden')}
+  if(lv==='eotd'){renderEOTD();playEOTDShimmer()}
+  if(lv==='profile')renderProfile();
+  updateMascot('all');updatePower();
+  if(lv==='2')playMegaSwitch();else playTone(440,'sine',.08);
+};
+
+// ═══════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════
+mkStars();
+runWelcome();
+if(state.intro){renderAll();updateMascot('all');updateTabLocks();updateArcBanner();checkWelcomeBack();checkWildElement();renderBuddy();checkNightShift();checkBirthdayMessage();document.getElementById('achTitle').textContent=getAchTitle()}
+
+// Reset (now triggered from profile tab)
+document.getElementById('resetCancel').onclick=()=>document.getElementById('resetConfirm').classList.add('hidden');
+document.getElementById('resetYes').onclick=()=>{localStorage.removeItem(SK);location.reload()};
+</script>
+</body>
+</html>
