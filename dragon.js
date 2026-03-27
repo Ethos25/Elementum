@@ -1,4 +1,33 @@
 // ═══════════════════════════════════════════════════════════════
+// LOAD ORDER: elements-data.js → sound.js → game.js → dragon.js
+//
+// PROVIDES (globals used by other files):
+//   DS                  — dragon state object (initialized, tier, sleeping, …)
+//   initDragon()        — call once from ui.js after DOM ready
+//   armSleepCheck()     — (re)start the idle→sleep countdown; call from ui.js on modal close
+//   dgSetEyes(r)        — set pupil dilation radius
+//   dgEmitSparks(n, colors) — emit n spark particles
+//   dgOnDiscover(color) — reaction when new element discovered
+//   dgOnRevisit()       — reaction when known element revisited
+//   dgOnNewFamily()     — reaction when new family unlocked
+//   dgOnAchievement()   — reaction when achievement fires
+//   dgOnModalOpen(cx,cy)— reaction when element modal opens
+//   dgOnModalClose()    — reaction when modal closes
+//   dgElement118Ceremony() — full 118-element finale sequence
+//   triggerExcited()    — brief excited state (mbar pulse + scale)
+//   updateMascot(fk)    — update dragon speech bubble text
+//   updatePower()       — refresh power bar + tier badge
+//
+// CONSUMES (from other files):
+//   state, P, T()       — game.js
+//   saveAll()           — game.js  (dg_woken flag persistence)
+//   E[], F              — elements-data.js
+//   pauseAudio()        — sound.js
+//   resumeAudio()       — sound.js
+//   playTone()          — sound.js
+//   playGiggle()        — sound.js  (guarded: typeof check)
+//   getMasterBus()      — sound.js
+// ═══════════════════════════════════════════════════════════════
 // ETERNATUS DRAGON ANIMATION ENGINE  v3.0
 // Idle personality · Eye tracking · Tap reactions
 // Discovery evolution · Breathing · Contextual emotion
@@ -235,7 +264,7 @@ function armSleepCheck() {
   DS.sleepCheckInterval = setInterval(function() {
     if (DS.sleeping || DS.busy) return;
     var now  = Date.now();
-    var stale = 30000;
+    var stale = 60000;
     if ((now - DS.lastTapTime    > stale) &&
         (now - DS.lastScrollTime > stale) &&
         (now - DS.lastTabTime    > stale)) {

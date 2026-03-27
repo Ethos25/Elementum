@@ -1,4 +1,41 @@
 // ═══════════════════════════════════════
+// LOAD ORDER: journeys-data.js → elements-data.js → sound.js → game.js
+//
+// PROVIDES (globals used by other files):
+//   state, P, SK        — persisted game state, profile, localStorage key
+//   T(s)                — token replacement ({name}, {toy}, etc.)
+//   discover(n)         — mark element n discovered; returns true if new
+//   discoverFam(f)      — mark family f discovered; returns true if new
+//   isDisc(n)           — boolean: is element n discovered?
+//   saveAll()           — persist state + profile to localStorage
+//   checkAch()          — evaluate achievement conditions
+//   getAchTitle()       — current rank title string
+//   checkMega()         — unlock Mega Evolution if threshold met
+//   checkArcComplete()  — check/advance story arc progress
+//   updateArcBanner()   — refresh arc progress in dragon speech + pwr label
+//   updateTabLocks()    — lock/unlock tabs based on progress
+//   checkWelcomeBack()  — show welcome-back greeting after 4+ hour gap
+//   getRankDisplay()    — formatted rank string for profile tab
+//   T(s)                — personalisation token substitution
+//   spawnMeteorShower() — radiant element celebration effect
+//   clearMeteorShower() — clean up meteor shower elements
+//   shakeScreen()       — brief CSS screen shake
+//   isBirthdayWeek()    — true if within 3 days of profile birthday
+//
+// CONSUMES (from other files):
+//   E[], EL, F          — elements-data.js
+//   WONDER_PATHS        — journeys-data.js
+//   playTone()          — sound.js
+//   playFamilySound()   — sound.js
+//   playDiscover()      — sound.js
+//   triggerExcited()    — dragon.js
+//   dgOnAchievement()   — dragon.js  (guarded: DS.initialized check)
+//   DS                  — dragon.js  (guarded: typeof DS check)
+//   dgSetEyes()         — dragon.js  (guarded)
+//   dgEmitSparks()      — dragon.js  (guarded)
+//   renderAll()         — ui.js      (called after mega/arc events)
+//   updateJourneyProgress(), showJourneyComplete() — ui.js (guarded)
+// ═══════════════════════════════════════
 // PERSONALIZATION
 // ═══════════════════════════════════════
 var SK='elementum_v2';
@@ -208,16 +245,13 @@ function getArcRemaining(fam){return getArcL1Els(fam).filter(function(el){return
 function getCurrentArc(){return state.currentArc<ARC_ORDER.length?ARC_ORDER[state.currentArc]:null}
 
 function updateArcBanner(){
-  var arc=getCurrentArc();var banner=document.getElementById('arcBanner');
-  if(!arc||curLv!=='1'){banner.classList.add('hidden');return}
+  document.getElementById('arcBanner').classList.add('hidden');
+  var arc=getCurrentArc();
+  if(!arc||curLv!=='1')return;
   var els=getArcL1Els(arc.fam);var found=els.filter(function(el){return isDisc(el.num)}).length;
-  if(found>=els.length){banner.classList.add('hidden');return}
-  banner.classList.remove('hidden');
-  document.getElementById('arcTitle').textContent=arc.title;
-  document.getElementById('arcTitle').style.color=F[arc.fam].c;
-  document.getElementById('arcDesc').textContent=T(arc.intro);
-  document.getElementById('arcProg').textContent=found+' of '+els.length+' found';
-  banner.style.borderColor=F[arc.fam].bd;
+  if(found>=els.length)return;
+  document.getElementById('mspText').textContent=T(arc.intro);
+  document.getElementById('pwrLabel').textContent=arc.title.split(':')[0]+': '+found+' of '+els.length+' found';
 }
 
 function checkArcComplete(){
@@ -240,7 +274,7 @@ function checkArcComplete(){
     });
     document.getElementById('mspText').textContent=T(arc.done);
     // Unique family audio
-    var famAudio={lifemaker:[440,523,659,784],noble:[880,1047,1319,1568],explosion:[150,200,120,180],warrior:[330,440,523,659],earth:[260,330,392,523],halfhalf:[600,700,800,900],shifter:[500,600,700,840],saltmaker:[700,840,1000,1200]};
+    var famAudio={lifemaker:[440,523,659,784],noble:[880,1047,1319,1568],explosion:[164.81,246.94,329.63,493.88],warrior:[330,440,523,659],earth:[260,330,392,523],halfhalf:[600,700,800,900],shifter:[500,600,700,840],saltmaker:[700,840,1000,1200]};
     var tones=famAudio[arc.fam]||[440,523,659,784];
     tones.forEach(function(f,i){setTimeout(function(){playTone(f,fc.audio[1]||'sine',.2,.12)},i*150)});
     triggerExcited();
@@ -289,6 +323,22 @@ function checkWelcomeBack(){
     document.getElementById('wbReturnText').textContent='\uD83D\uDC09 Eternatus: "'+text+'"';
     wb.classList.remove('hidden');
     playTone(440,'sine',.1,.06);setTimeout(function(){playTone(660,'sine',.12,.06)},150);
+    // Dragon physical welcome-back reaction
+    if (typeof DS !== 'undefined' && DS.initialized) {
+      dgSetEyes(5);
+      setTimeout(function() {
+        if (DS.mbar) {
+          DS.mbar.classList.add('dg-wing-flap');
+          setTimeout(function() {
+            DS.mbar.classList.remove('dg-wing-flap');
+            dgSetEyes(3.5);
+          }, 1800);
+        }
+      }, 500);
+      setTimeout(function() {
+        dgEmitSparks(6, ['#7DF9FF', '#C792EA', '#FFD54F']);
+      }, 300);
+    }
     setTimeout(function(){wb.classList.add('hidden')},6000);
   }
 }
@@ -414,8 +464,8 @@ function spawnMeteorShower(){
     })(r);
   }
 
-  // PHASE 3: 70 meteors (200ms - 4000ms)
-  for(var i=0;i<70;i++){
+  // PHASE 3: 35 meteors (200ms - 2000ms)
+  for(var i=0;i<35;i++){
     (function(idx){
       setTimeout(function(){
         var m=document.createElement('div');m.className='meteor';
@@ -431,8 +481,8 @@ function spawnMeteorShower(){
     })(i);
   }
 
-  // PHASE 4: FIRST confetti wave — 120 pieces launching UP from bottom (500ms)
-  for(var j=0;j<120;j++){
+  // PHASE 4: FIRST confetti wave — 60 pieces launching UP from bottom (500ms)
+  for(var j=0;j<60;j++){
     (function(idx){
       setTimeout(function(){
         var conf=document.createElement('div');
@@ -453,8 +503,8 @@ function spawnMeteorShower(){
     })(j);
   }
 
-  // PHASE 5: 15 big particle bursts (300ms - 5000ms)
-  for(var b=0;b<15;b++){
+  // PHASE 5: 8 big particle bursts (300ms - 2500ms)
+  for(var b=0;b<8;b++){
     (function(idx){
       setTimeout(function(){
         bigBurst(Math.random()*innerWidth,Math.random()*innerHeight*0.7,colors[Math.floor(Math.random()*colors.length)]);
@@ -462,68 +512,17 @@ function spawnMeteorShower(){
     })(b);
   }
 
-  // PHASE 6: Second screen flash + shake at peak (1800ms)
+  // PHASE 6: Second screen flash + shake at peak (1500ms)
   setTimeout(function(){
     shakeScreen();
     var flash2=document.createElement('div');flash2.className='radiant-flash';
     flash2.style.background='linear-gradient(135deg,rgba(255,217,61,.35),rgba(255,107,107,.2))';
     document.body.appendChild(flash2);
     setTimeout(function(){flash2.remove()},700);
-  },1800);
+  },1500);
 
-  // PHASE 7: SECOND confetti wave from SIDES (3000ms) — 80 more pieces
-  setTimeout(function(){
-    for(var k=0;k<80;k++){
-      (function(idx){
-        setTimeout(function(){
-          var conf=document.createElement('div');
-          var c=colors[Math.floor(Math.random()*colors.length)];
-          var w=Math.random()*10+4;var h=Math.random()*8+3;
-          var fromLeft=Math.random()>0.5;
-          var sx=fromLeft?-10:innerWidth+10;
-          var tx=fromLeft?(200+Math.random()*300):-(200+Math.random()*300);
-          var ty=(Math.random()-0.5)*400;
-          var rot=Math.random()*1080-540;
-          var dur=1.5+Math.random()*2;
-          conf.style.cssText='position:fixed;left:'+sx+'px;top:'+(Math.random()*innerHeight*0.6+innerHeight*0.1)+'px;width:'+w+'px;height:'+h+'px;background:'+c+';border-radius:'+(Math.random()>0.5?'50%':'2px')+';z-index:660;pointer-events:none;opacity:1;box-shadow:0 0 6px '+c+';animation:confettiBurst '+dur+'s cubic-bezier(.15,.8,.3,1) forwards';
-          conf.style.setProperty('--ctx',tx+'px');
-          conf.style.setProperty('--cty',ty+'px');
-          conf.style.setProperty('--cr',rot+'deg');
-          document.body.appendChild(conf);
-          setTimeout(function(){conf.remove()},dur*1000+100);
-        },idx*25);
-      })(k);
-    }
-  },3000);
-
-  // PHASE 8: Third flash + massive starburst finale (4500ms)
-  setTimeout(function(){
-    shakeScreen();
-    var flash3=document.createElement('div');flash3.className='radiant-flash';
-    flash3.style.background='linear-gradient(135deg,rgba(255,217,61,.4),rgba(125,249,255,.25))';
-    document.body.appendChild(flash3);
-    setTimeout(function(){flash3.remove()},700);
-    for(var s=0;s<12;s++){
-      bigBurst(innerWidth/2+(Math.random()*200-100),innerHeight*0.35+(Math.random()*100-50),colors[Math.floor(Math.random()*colors.length)]);
-    }
-  },4500);
-
-  // PHASE 9: Lingering sparkle rain (5000-7000ms)
-  setTimeout(function(){
-    for(var sp=0;sp<30;sp++){
-      (function(idx){
-        setTimeout(function(){
-          var s=document.createElement('div');
-          s.style.cssText='position:fixed;left:'+Math.random()*100+'%;top:-5px;width:3px;height:3px;border-radius:50%;background:#FFD93D;box-shadow:0 0 6px #FFD93D;pointer-events:none;z-index:660;opacity:1;animation:meteorFall '+(1+Math.random())+'s linear forwards;--mx:'+(Math.random()*40-20)+'px;--my:'+(innerHeight+20)+'px';
-          document.body.appendChild(s);
-          setTimeout(function(){s.remove()},2200);
-        },idx*65);
-      })(sp);
-    }
-  },5000);
-
-  // Cleanup (8 seconds total)
-  setTimeout(function(){container.remove();flash.remove()},8000);
+  // Cleanup (4 seconds total)
+  setTimeout(function(){container.remove();flash.remove()},4000);
 }
 
 function applyRadiant(el){
@@ -547,6 +546,12 @@ function applyRadiant(el){
 function clearRadiant(){
   document.getElementById('mhdr').classList.remove('radiant');
   var b=document.querySelector('.radiant-badge');if(b)b.remove();
+}
+
+function clearMeteorShower(){
+  document.querySelectorAll('.meteor-shower').forEach(function(el){el.remove()});
+  document.querySelectorAll('.radiant-flash').forEach(function(el){el.remove()});
+  document.querySelectorAll('.radiant-ring').forEach(function(el){el.remove()});
 }
 
 // ═══════════════════════════════════════

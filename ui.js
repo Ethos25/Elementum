@@ -1,4 +1,54 @@
 // ═══════════════════════════════════════
+// LOAD ORDER: game.js → dragon.js → constellation.js → ui.js  (last)
+//
+// PROVIDES (globals used by other files):
+//   activeJourney          — current Wonder Path ID or null
+//   renderAll()            — re-render grid + tabs + power bar
+//   openModal(el,isNew,isNewFam) — show element detail modal
+//   closeModal()           — close element detail modal
+//   showFamCeleb(fam,title,quote,cb) — family completion overlay
+//   burst(x,y,c)           — small particle burst
+//   bigBurst(x,y,c)        — large particle burst
+//   showToast(e,n,f,c)     — top-of-screen discovery toast
+//   updateJourneyProgress(path) — refresh journey progress UI
+//   showJourneyComplete(path)   — journey completion overlay
+//   initApp()              — main entry point (called at bottom of file)
+//
+// CONSUMES (from other files):
+//   state, P, T()                  — game.js
+//   discover(), discoverFam()      — game.js
+//   isDisc(), saveAll()            — game.js
+//   checkAch(), checkMega()        — game.js
+//   checkArcComplete()             — game.js
+//   checkWhisper(), checkSecret119() — game.js
+//   updateTabLocks()               — game.js
+//   updateArcBanner()              — game.js
+//   getRankDisplay()               — game.js
+//   isBirthdayWeek(), getBirthdayParticleColor() — game.js
+//   getBuddyElement(), renderBuddy() — game.js
+//   isRadiant(), applyRadiant()    — game.js
+//   clearRadiant()                 — game.js
+//   checkComboReaction()           — game.js
+//   checkWelcomeBack(), checkWildElement() — game.js
+//   checkNightShift(), checkBirthdayMessage() — game.js
+//   maybeMatch()                   — game.js
+//   E[], EL, F                     — elements-data.js
+//   WONDER_PATHS                   — journeys-data.js
+//   DS, armSleepCheck()            — dragon.js
+//   initDragon()                   — dragon.js
+//   triggerExcited(), updateMascot(), updatePower() — dragon.js
+//   dgOnModalOpen(), dgOnModalClose() — dragon.js
+//   dgOnDiscover(), dgOnRevisit(), dgOnNewFamily() — dragon.js
+//   playTone(), playFamilySound()  — sound.js
+//   playDiscoverEvolved()          — sound.js
+//   speakName(), playRumble()      — sound.js
+//   playMegaSwitch(), playEOTDShimmer() — sound.js
+//   getAC()                        — sound.js
+//   enterConstellationMode()       — constellation.js  (guarded: typeof check)
+//   enterConstellationModeAll()    — constellation.js  (guarded)
+//   isConstellationActive()        — constellation.js  (guarded)
+//   exitConstellationMode()        — constellation.js  (guarded)
+// ═══════════════════════════════════════
 // JOURNEY STATE (UI layer)
 // ═══════════════════════════════════════
 var activeJourney = null; // path ID string or null
@@ -139,9 +189,12 @@ function updateCount(){
 // ═══════════════════════════════════════
 function getEOTD(){var d=Math.floor(Date.now()/86400000);return E[d%E.length]}
 
-function renderEOTD(){
-  var el=getEOTD();var fc=F[el.f];var container=document.getElementById('eotd');
-  container.innerHTML=
+function buildEOTDCardHTML(el){
+  var fc=F[el.f];
+  var discBtn=isDisc(el.num)
+    ?'<button class="eotd-disc-btn" disabled>Already Discovered ✓</button>'
+    :'<button class="eotd-disc-btn" id="eotdDiscover">⚡ Discover this element</button>';
+  return (
     '<div class="eotd-card" style="background:var(--bg3);border:1.5px solid '+fc.bd+'">'+
       '<div class="eotd-hdr" style="--cg:'+fc.gl+';background:'+fc.bg+'">'+
         '<div class="eotd-emoji">'+el.e+'</div>'+
@@ -154,28 +207,44 @@ function renderEOTD(){
         '<div><div class="m-lbl" style="color:'+fc.c+'">Story</div><div class="m-story">'+T(el.story)+'</div></div>'+
         (el.cb&&el.cb.length?'<div><div class="m-lbl" style="color:'+fc.c+'">⚡ Mega Combos</div><div class="m-combos">'+el.cb.map(function(c){return '<div class="m-combo" style="border-color:'+fc.bd+'"><span class="m-combo-eq" style="color:'+fc.c+'">'+el.s+' + '+c.w+'</span><span class="m-combo-arrow" style="color:'+fc.c+'">→</span><span class="m-combo-result">'+c.r+'</span></div>'}).join('')+'</div></div>':'')+
         '<div class="eotd-teach"><p>🐉 Eternatus challenge: "Think you know '+el.n+' well enough to teach it? Try explaining it to someone in your own words!"</p></div>'+
+        '<div class="eotd-disc-wrap">'+discBtn+'</div>'+
       '</div>'+
     '</div>'+
     '<div class="eotd-nav">'+
       '<button id="eotdRandom">🔀 Random Element</button>'+
       '<button id="eotdSpeak">🔊 Hear the Name</button>'+
-    '</div>';
-  // Discover on view
-  discover(el.num);discoverFam(el.f);updatePower();
+    '</div>'
+  );
+}
+
+function wireEOTDButtons(el){
+  var fc=F[el.f];
   document.getElementById('eotdSpeak').onclick=function(){speakName(el.n);playFamilySound(el.f)};
-  document.getElementById('eotdRandom').onclick=function(){var r=E[Math.floor(Math.random()*E.length)];renderEOTDCustom(r)};
+  document.getElementById('eotdRandom').onclick=function(){renderEOTDCustom(E[Math.floor(Math.random()*E.length)])};
+  var discBtn=document.getElementById('eotdDiscover');
+  if(discBtn){
+    discBtn.onclick=function(){
+      var isNew=discover(el.num);var isNewFam=discoverFam(el.f);
+      updatePower();updateCount();
+      showToast(el.e,el.n,F[el.f].n,fc.c);
+      if(isNew){playDiscoverEvolved(state.disc.length);setTimeout(function(){checkAch();checkMega();checkArcComplete();checkWhisper();updateTabLocks();updateArcBanner();},500)}
+      // Replace button with disabled confirmed state
+      discBtn.textContent='Already Discovered ✓';discBtn.disabled=true;
+    };
+  }
+}
+
+function renderEOTD(){
+  var el=getEOTD();var container=document.getElementById('eotd');
+  container.innerHTML=buildEOTDCardHTML(el);
+  wireEOTDButtons(el);
 }
 
 function renderEOTDCustom(el){
-  var fc=F[el.f];var container=document.getElementById('eotd');
-  container.querySelector('.eotd-emoji').textContent=el.e;
-  container.querySelector('.eotd-sym').textContent=el.s;container.querySelector('.eotd-sym').style.color=fc.c;
-  container.querySelector('.eotd-name').textContent=el.n;
-  container.querySelector('.eotd-hdr').style.background=fc.bg;
-  container.querySelector('.m-fact').textContent=el.fact;
-  container.querySelector('.m-story').textContent=T(el.story);
-  container.querySelector('.eotd-card').style.borderColor=fc.bd;
-  discover(el.num);discoverFam(el.f);speakName(el.n);playFamilySound(el.f);updatePower();
+  var container=document.getElementById('eotd');
+  container.innerHTML=buildEOTDCardHTML(el);
+  wireEOTDButtons(el);
+  speakName(el.n);playFamilySound(el.f);
 }
 
 // ═══════════════════════════════════════
@@ -192,6 +261,7 @@ function renderMapTabs(){
     else if(fm.key==='all'&&mapFam==='all')b.style.background='linear-gradient(135deg,var(--cyan),var(--purple))';
     b.onclick=function(){
       mapFam=fm.key;renderMapTabs();applyMapFilter();
+      document.getElementById('dmColHint').classList.remove('show');
       if(fm.key!=='all'){
         playFamilySound(fm.key);
         var bio=document.getElementById('dmFbio'),txt=document.getElementById('dmFbioText');
@@ -290,8 +360,9 @@ function renderMap(){
           }else{burst(ev.clientX,ev.clientY,fcRef.c);playRevisit(elRef.f)}
           updatePower();
           // Column teaching
+          var hint=document.getElementById('dmColHint');
+          hint.classList.remove('show');
           if(COL_TEACH[cRef]){
-            var hint=document.getElementById('dmColHint');
             document.getElementById('dmColText').textContent=T(COL_TEACH[cRef]+' See? All '+(F[COL_FAM[cRef]]&&F[COL_FAM[cRef]].n||'elements')+' in the same column share the same powers!');
             hint.classList.add('show');
           }
@@ -384,6 +455,7 @@ function openModal(el,isNew,isNewFam){
   var btn=document.getElementById('mspk');btn.style.borderColor=fc.bd;btn.style.background=fc.bg;btn.style.color=fc.c;
   btn.onclick=function(){speakName(el.n);playFamilySound(el.f)};
   m.classList.add('active');document.body.style.overflow='hidden';
+  clearInterval(DS.sleepCheckInterval);
   // v3: dragon peeks toward modal
   if(DS.initialized){
     var mRect=document.getElementById('mc').getBoundingClientRect();
@@ -392,7 +464,9 @@ function openModal(el,isNew,isNewFam){
 }
 
 function closeModal(){
-  clearRadiant();document.getElementById('mov').classList.remove('active');document.body.style.overflow='';playTone(500,'sine',.06);
+  clearRadiant();if(typeof clearMeteorShower==='function')clearMeteorShower();
+  document.getElementById('mov').classList.remove('active');document.body.style.overflow='';playTone(500,'sine',.06);
+  if(DS.initialized)armSleepCheck();
   // v3: dragon eyes return to center
   if(DS.initialized)dgOnModalClose();
 }
@@ -532,6 +606,13 @@ function advanceIntro(){
       document.getElementById('intro').classList.add('done');document.getElementById('app').classList.remove('hidden');
       setTimeout(function(){document.getElementById('intro').style.display='none'},600);
       updatePower();renderAll();updateTabLocks();renderBuddy();
+      setTimeout(function() {
+        if (!state.journeyFirstOpen) {
+          document.getElementById('mspText').textContent =
+            T('\uD83D\uDC09 Eternatus: "Psst, {name}... when you are ready, I have QUESTS for us! Look for the Quests tab!"');
+          if (typeof triggerExcited === 'function') triggerExcited();
+        }
+      }, 8000);
     }
   }
 }

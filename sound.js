@@ -1,4 +1,31 @@
 // ═══════════════════════════════════════════════════════════════
+// LOAD ORDER: sound.js  (no JS dependencies — load before game.js)
+//
+// PROVIDES (globals used by other files):
+//   getAC()             — AudioContext (lazy-init)
+//   getMasterBus()      — master DynamicsCompressor → limiter chain
+//   playTone(freq,type,vol,dur) — generic tone
+//   playFamilySound(fk) — per-family audio signature
+//   playRevisit(fk)     — softer revisit sound
+//   playDiscover()      — new-element discovery sound
+//   playDiscoverEvolved(count) — discovery sound scaled to progress
+//   playRumble()        — low rumble on modal open
+//   speakName(n)        — synthesised element name pronunciation
+//   playEOTDShimmer()   — element-of-the-day shimmer tone
+//   playMegaSwitch()    — mega evolution tab transition sound
+//   playRadiantSound()  — radiant element reveal sound
+//   playGiggle()        — dragon giggle (used by dragon.js)
+//   playGentleWake()    — dragon gentle wake sound
+//   playStartledWake()  — dragon startled wake sound
+//   playFireBreath(tier)— dragon fire breath sound
+//   playTierCeremony(tier) — tier unlock fanfare
+//   playElement118Completion() — element 118 grand finale sound
+//   pauseAudio()        — suspend AudioContext (called by dragon.js IntersectionObserver)
+//   resumeAudio()       — resume AudioContext
+//
+// CONSUMES (from other files):
+//   state               — game.js  (state.disc.length for volume scaling)
+// ═══════════════════════════════════════════════════════════════
 // AUDIO / WEB AUDIO ENGINE  v3.0
 // Harmonic root: E2 = 82.41 Hz — all frequencies harmonically related
 // ═══════════════════════════════════════════════════════════════

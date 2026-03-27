@@ -107,7 +107,7 @@ var E=[
 {n:"Astatine",s:"At",num:85,e:"👤",f:"saltmaker",fact:"Rarest natural element!",story:"Less than one ounce of me on the whole planet. Ultimate rare find."},
 {n:"Radon",s:"Rn",num:86,e:"🏠",f:"noble",fact:"Basement lurker!",story:"Radioactive gas that sneaks into basements. Test your home!"},
 {n:"Francium",s:"Fr",num:87,e:"💥",f:"explosion",fact:"Ultra rare exploder!",story:"Only about 30 grams of me exist at any time. Then I vanish."},
-{n:"Radium",s:"Ra",num:88,e:"☢️",f:"earth",fact:"I glow by myself!",story:"Marie Curie discovered me. Old clocks had me to glow at night."},
+{n:"Radium",s:"Ra",num:88,e:"☢️",f:"earth",fact:"I glow by myself!",story:"Marie Curie discovered me. Old clocks had me to glow at night. Scientists stopped using me because I'm too dangerous!"},
 {n:"Actinium",s:"Ac",num:89,e:"✨",f:"radioactive",fact:"Blue glow!",story:"Put me in a dark room and I shine pale blue. Pure energy."},
 {n:"Thorium",s:"Th",num:90,e:"⚡",f:"radioactive",fact:"Named after THOR!",story:"The god of thunder gave me his name! Scientists think I could power clean energy plants someday.",rv:"THOR! Say it louder! I love my name!",cb:[{w:"Nuclear reactor",r:"Clean Energy ⚡",eq:"Th fuel"}]},
 {n:"Protactinium",s:"Pa",num:91,e:"🔗",f:"radioactive",fact:"I become Actinium!",story:"I slowly transform over time. Like a very slow metamorphosis."},

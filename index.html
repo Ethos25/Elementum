@@ -23,6 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Quicksand:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="animations.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -198,11 +199,11 @@
 
 <div class="ltabs" id="ltabs">
   <button class="ltab active" data-lv="1">Starters<span class="lc">20 Elements</span></button>
-  <button class="ltab" data-lv="2">Mega Evolution<span class="lc">All 118</span></button>
-  <button class="ltab" data-lv="eotd">Today<span class="lc">Element of Day</span></button>
-  <button class="ltab" data-lv="map">Dragon's Map<span class="lc">Periodic Grid</span></button>
+  <button class="ltab" data-lv="2">All 118<span class="lc">Mega</span></button>
+  <button class="ltab" data-lv="eotd">Today<span class="lc">Daily</span></button>
+  <button class="ltab" data-lv="map">Map<span class="lc">Periodic</span></button>
   <button class="ltab" data-lv="profile">My Dex<span class="lc">Profile</span></button>
-  <button class="ltab" data-lv="journeys">🔭 Journeys<span class="lc">Wonder Paths</span></button>
+  <button class="ltab" data-lv="journeys">Quests<span class="lc">Paths</span></button>
 </div>
 
 <!-- Journey header — shown above grid when in an active Wonder Path -->
@@ -235,7 +236,7 @@
 </div>
 
 <!-- MODAL -->
-<div class="mov" id="mov"><div class="mcard" id="mc"><button class="mx" id="mx">&times;</button><div class="mhdr" id="mhdr"><div class="m-emoji" id="me"></div><div class="m-info"><div class="m-sym" id="ms"></div><div class="m-name" id="mn"></div><div class="m-meta" id="mm"></div></div></div><div class="m-body"><div><div class="m-lbl">Superpower</div><div class="m-fact" id="mf"></div></div><div><div class="m-lbl">In Your World</div><div class="m-story" id="mst"></div></div><div id="mCombosWrap" style="display:none"><div class="m-lbl">⚡ Mega Combos</div><div class="m-combos" id="mCombos"></div></div><div class="m-eternatus" id="metern" style="display:none"><p id="meternText"></p></div><button class="m-speak" id="mspk"><span>🔊</span><span>Hear My Name</span></button></div></div></div>
+<div class="mov" id="mov"><div class="mcard" id="mc"><button class="mx" id="mx">&times;</button><div class="mhdr" id="mhdr"><div class="m-emoji" id="me"></div><div class="m-info"><div class="m-sym" id="ms"></div><h2 class="m-name" id="mn"></h2><div class="m-meta" id="mm"></div></div></div><div class="m-body"><div><h3 class="m-lbl">Superpower</h3><div class="m-fact" id="mf"></div></div><div><h3 class="m-lbl">In Your World</h3><div class="m-story" id="mst"></div></div><div id="mCombosWrap" style="display:none"><h3 class="m-lbl">⚡ Mega Combos</h3><div class="m-combos" id="mCombos"></div></div><div class="m-eternatus" id="metern" style="display:none"><p id="meternText"></p></div><button class="m-speak" id="mspk"><span>🔊</span><span>Hear My Name</span></button></div></div></div>
 <div class="celeb" id="celeb"></div>
 <div class="toast" id="toast"><div class="toast-emoji" id="toastEmoji"></div><div class="toast-text" id="toastText"></div><div class="toast-fam" id="toastFam"></div></div>
 <!-- JOURNEY COMPLETE OVERLAY -->

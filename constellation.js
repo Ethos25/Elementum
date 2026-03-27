@@ -1,4 +1,16 @@
 // ═══════════════════════════════════════
+// LOAD ORDER: journeys-data.js → elements-data.js → dragon.js → constellation.js
+//
+// PROVIDES (globals used by other files — all guarded with typeof checks in callers):
+//   isConstellationActive()       — true if thread overlay is currently shown
+//   enterConstellationMode(pathId)— draw journey thread for one Wonder Path
+//   enterConstellationModeAll()   — draw all discovered journey threads
+//   exitConstellationMode()       — hide and clean up thread overlay
+//
+// CONSUMES (from other files):
+//   WONDER_PATHS   — journeys-data.js
+//   isDisc()       — game.js  (which elements the child has found)
+// ═══════════════════════════════════════
 // CONSTELLATION MAP — Opt-in Journey Thread Overlay
 // Threads are hidden by default. Revealed via the ✦ toggle button.
 // ═══════════════════════════════════════

@@ -1,0 +1,65 @@
+/* ═══════════════════════════════════════════════════════════════════
+   animations.css — ALL @keyframes for Elementum
+   Extracted from styles.css so animation definitions live in one place.
+   Load order: animations.css → styles.css (styles.css depends on these)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Stars ─────────────────────────────────────────────────────── */
+@keyframes tw{0%{opacity:var(--a);transform:scale(.8)}100%{opacity:var(--b);transform:scale(1.2)}}
+
+/* ── Intro / Welcome ────────────────────────────────────────────── */
+@keyframes dragonFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── Cards ──────────────────────────────────────────────────────── */
+@keyframes ci{from{opacity:0;transform:translateY(20px) scale(.92)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+/* ── Dragon bar ─────────────────────────────────────────────────── */
+@keyframes dragonPulse{0%{filter:drop-shadow(0 0 12px rgba(125,249,255,.15))}50%{filter:drop-shadow(0 0 30px rgba(125,249,255,.5)) drop-shadow(0 0 60px rgba(199,146,234,.3))}100%{filter:drop-shadow(0 0 12px rgba(125,249,255,.15))}}
+
+/* ── Celebrations ───────────────────────────────────────────────── */
+@keyframes celebPop{0%{opacity:0;transform:translate(-50%,-50%) scale(.5)}30%{opacity:1;transform:translate(-50%,-50%) scale(1.2)}100%{opacity:0;transform:translate(-50%,-60%) scale(1)}}
+@keyframes shm{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes pf{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(0)}}
+
+/* ── Radiant elements ───────────────────────────────────────────── */
+@keyframes rainbowShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes sparkleRotate{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+@keyframes textShimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+
+/* ── Meteor shower ──────────────────────────────────────────────── */
+@keyframes meteorFall{0%{opacity:1;transform:translate(0,0)}100%{opacity:0;transform:translate(var(--mx),var(--my))}}
+@keyframes radFlash{0%{opacity:0}15%{opacity:.3}100%{opacity:0}}
+@keyframes ringExpand{0%{opacity:.8;transform:translate(-50%,-50%) scale(0)}60%{opacity:.4}100%{opacity:0;transform:translate(-50%,-50%) scale(1)}}
+@keyframes confettiBurst{0%{opacity:1;transform:translateY(0) translateX(0) rotate(0deg) scale(1)}40%{opacity:1}100%{opacity:0;transform:translateY(var(--cty)) translateX(var(--ctx)) rotate(var(--cr)) scale(0.3)}}
+
+/* ── Buddy badge ────────────────────────────────────────────────── */
+@keyframes buddyPulse{0%,100%{box-shadow:0 0 8px rgba(125,249,255,.1)}50%{box-shadow:0 0 16px rgba(125,249,255,.25)}}
+
+/* ── Dragon engine — idle / sleep ──────────────────────────────── */
+@keyframes dgZFloat{0%{opacity:0;transform:translateY(0) scale(.8) rotate(-5deg)}25%{opacity:.95}100%{opacity:0;transform:translateY(-44px) scale(1.15) rotate(18deg)}}
+
+/* ── Dragon engine — reactions ──────────────────────────────────── */
+@keyframes dgSpin{0%{transform:rotate(0deg) scale(1)}50%{transform:rotate(200deg) scale(1.12)}100%{transform:rotate(360deg) scale(1)}}
+@keyframes dgBackflip {
+  0%   { transform: rotateY(0deg)   scale(1)    translateY(0px) }
+  40%  { transform: rotateY(180deg) scale(1.15) translateY(-12px) }
+  70%  { transform: rotateY(330deg) scale(0.95) translateY(-4px) }
+  100% { transform: rotateY(360deg) scale(1)    translateY(0px) }
+}
+@keyframes dgWingFlap{0%,100%{transform:scaleX(1) scaleY(1)}25%{transform:scaleX(1.22) scaleY(.93)}75%{transform:scaleX(.85) scaleY(1.08)}}
+@keyframes dgStretch{0%,100%{transform:scale(1)}40%{transform:scaleX(1.28) translateY(-5px) scale(1.04)}80%{transform:scaleX(.96) scale(.99)}}
+@keyframes dgWingGlow{0%,100%{stroke:#C792EA;stroke-opacity:.7}50%{stroke:#7DF9FF;stroke-opacity:1;filter:drop-shadow(0 0 4px #7DF9FF)}}
+
+/* ── Dragon engine — tier effects ──────────────────────────────── */
+@keyframes dgTier5Pulse{0%,100%{filter:drop-shadow(0 0 26px rgba(125,249,255,.55)) drop-shadow(0 0 16px rgba(199,146,234,.38)) drop-shadow(0 0 8px rgba(255,213,79,.25))}50%{filter:drop-shadow(0 0 40px rgba(125,249,255,.75)) drop-shadow(0 0 24px rgba(199,146,234,.55)) drop-shadow(0 0 14px rgba(255,213,79,.4))}}
+
+/* ── Dragon engine — ceremonies ────────────────────────────────── */
+@keyframes dgCeremonyPulse {
+  0%, 100% { border-color: rgba(125,249,255,.12) }
+  50%      { border-color: rgba(125,249,255,.55); box-shadow: 0 0 24px rgba(125,249,255,.2) }
+}
+@keyframes dgWingsExtended {
+  0%   { transform: scaleX(1)    }
+  100% { transform: scaleX(1.35) }
+}
