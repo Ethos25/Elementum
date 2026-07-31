@@ -1,7 +1,7 @@
 # Elementum — Project Notes for Claude
 
 ## Project overview
-Kids' chemistry app for ages 4–6. 118 elements, dragon mascot "Professor Eternatus."
+Kids' chemistry app for ages 4–6. 118 elements, dragon mascot "Ferro."
 Static HTML/CSS/JS — no bundler, no framework. Open `index.html` directly in a browser.
 
 ## File layout
@@ -12,7 +12,7 @@ Static HTML/CSS/JS — no bundler, no framework. Open `index.html` directly in a
 | `elements-data.js` | Element definitions (all 118) |
 | `game.js` | Game state, discovery, achievements — localStorage key `elementum_v2` |
 | `sound.js` | Web Audio engine v3 — harmonic root E2 (82.41 Hz), master bus compressor |
-| `dragon.js` | Eternatus animation engine v3 — idle, sleep, wake, tier ceremonies |
+| `dragon.js` | Ferro animation engine v3 — idle, sleep, wake, tier ceremonies |
 | `ui.js` | Modals, tabs, rendering, intro flow |
 
 ## Key constants
@@ -53,7 +53,7 @@ npx playwright screenshot --browser chromium http://localhost:3333 screenshots/m
 1. **01-intro-overlay** — fresh session, intro form visible
 2. **02-element-grid** — intro bypassed via localStorage, element grid shown
 3. **03-element-modal** — first element card (Hydrogen) opened
-4. **04-dragon-bar** — isolated screenshot of the Eternatus dragon bar
+4. **04-dragon-bar** — isolated screenshot of the Ferro dragon bar
 5. **05-intro-scrolled** — intro form scrolled to bottom
 
 Screenshots are written to `screenshots/` (gitignored).

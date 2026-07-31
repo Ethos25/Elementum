@@ -10,7 +10,7 @@
 //   saveAll()           — persist state + profile to localStorage
 //   checkAch()          — evaluate achievement conditions
 //   getAchTitle()       — current rank title string
-//   checkMega()         — unlock Mega Evolution if threshold met
+//   checkMega()         — unlock Evolution if threshold met
 //   checkArcComplete()  — check/advance story arc progress
 //   updateArcBanner()   — refresh arc progress in dragon speech + pwr label
 //   updateTabLocks()    — lock/unlock tabs based on progress
@@ -180,7 +180,7 @@ function checkAch(){
 function showFinale(){
   var mc=document.getElementById('megaCeleb');
   document.getElementById('mcTitle').textContent='🐉 THE ETERNAL DRAGON 🐉';
-  document.getElementById('mcSub').textContent=T('{name}... you did it. Every element. Every power. I am whole again for the first time in a thousand years. I am Eternatus, the Eternal Dragon. And you are my champion.');
+  document.getElementById('mcSub').textContent=T('{name}... you did it. Every element. Every power. I am whole again for the first time in a thousand years. I am Ferro, the Eternal Dragon. And you are my champion.');
   document.getElementById('mcBtn').textContent='I Am the Eternal Dragon';
   mc.classList.add('active');
   // Epic audio
@@ -201,9 +201,9 @@ function checkMega(){
 
 function showMegaCeleb(){
   var mc=document.getElementById('megaCeleb');
-  document.getElementById('mcTitle').textContent='MEGA EVOLUTION UNLOCKED!';
-  document.getElementById('mcSub').textContent=T('All 20 Starters discovered! Eternatus has evolved! The full periodic table of 118 elements awaits you, {name}.');
-  document.getElementById('mcBtn').textContent='Enter Mega Evolution →';
+  document.getElementById('mcTitle').textContent='EVOLUTION UNLOCKED!';
+  document.getElementById('mcSub').textContent=T('All 20 Starters discovered! Ferro has evolved! The full periodic table of 118 elements awaits you, {name}.');
+  document.getElementById('mcBtn').textContent='Enter Evolution →';
   mc.classList.add('active');
   playTone(262,'sine',.15);setTimeout(function(){playTone(392,'sine',.15)},120);setTimeout(function(){playTone(523,'sine',.15)},240);setTimeout(function(){playTone(659,'sine',.2)},380);setTimeout(function(){playTone(784,'sine',.2)},520);setTimeout(function(){playTone(1047,'sine',.3)},680);
   var cols=['#7DF9FF','#C792EA','#FFD54F','#66BB6A','#EF5350'];
@@ -284,10 +284,10 @@ function checkArcComplete(){
 }
 
 // ═══════════════════════════════════════
-// MEGA EVOLUTION MINI-TOUR
+// EVOLUTION MINI-TOUR
 // ═══════════════════════════════════════
 var MEGA_TOUR=[
-  {num:3,speech:"Welcome to Mega Evolution! Meet Lithium. I power every battery in every device. The iPad? Me."},
+  {num:3,speech:"Welcome to Evolution! Meet Lithium. I power every battery in every device. The iPad? Me."},
   {num:60,speech:"Neodymium! From the Hidden Powers family. My magnets are inside every headphone and speaker you own."},
   {num:92,speech:"{name}: Uranium! The Radioactive Force. One tiny piece of me has more energy than TONS of coal. Welcome to the big leagues, {name}."}
 ];
@@ -320,7 +320,7 @@ function checkWelcomeBack(){
     var remaining=118-state.disc.length;
     var wb=document.getElementById('wbReturn');
     var text=remaining>0?T('{name}! You\'re back! I missed you. We have '+remaining+' elements to go. Ready?'):T('{name}! The Eternal Dragon welcomes you back!');
-    document.getElementById('wbReturnText').textContent='\uD83D\uDC09 Eternatus: "'+text+'"';
+    document.getElementById('wbReturnText').textContent='\uD83D\uDC09 Ferro: "'+text+'"';
     wb.classList.remove('hidden');
     playTone(440,'sine',.1,.06);setTimeout(function(){playTone(660,'sine',.12,.06)},150);
     // Dragon physical welcome-back reaction
@@ -365,12 +365,12 @@ function onBuddyTap(){
   if(!isFound){discover(el.num);discoverFam(el.f);updatePower();renderAll()}
   // Special buddy modal
   openModal(el,!isFound,false);
-  // Override Eternatus text with buddy speech
+  // Override Ferro text with buddy speech
   var etT=document.getElementById('meternText');
   if(isFound){
-    etT.textContent='\u{1F49C} Eternatus: "'+T(el.n+' is YOUR element, {name}. Born on the '+P.bday+ordSuf(P.bday)+', atomic number '+el.num+'. You two are bonded forever.')+'"';
+    etT.textContent='\u{1F49C} Ferro: "'+T(el.n+' is YOUR element, {name}. Born on the '+P.bday+ordSuf(P.bday)+', atomic number '+el.num+'. You two are bonded forever.')+'"';
   }else{
-    etT.textContent='\u{1F49C} Eternatus: "'+T('{name}... meet YOUR element. '+el.n+'. Born on the '+P.bday+ordSuf(P.bday)+', atomic number '+el.num+'. This one was always meant for you.')+'"';
+    etT.textContent='\u{1F49C} Ferro: "'+T('{name}... meet YOUR element. '+el.n+'. Born on the '+P.bday+ordSuf(P.bday)+', atomic number '+el.num+'. This one was always meant for you.')+'"';
     // Special buddy discovery audio
     playTone(523,'sine',.15,.1);setTimeout(function(){playTone(659,'sine',.15,.1)},120);setTimeout(function(){playTone(784,'sine',.15,.1)},240);setTimeout(function(){playTone(1047,'sine',.2,.12)},380);setTimeout(function(){playTone(1319,'sine',.25,.12)},520);
     bigBurst(innerWidth/2,innerHeight/3,fc.c);bigBurst(innerWidth/2,innerHeight/3,'#FFD54F');
@@ -399,7 +399,7 @@ function checkWildElement(){
   // Show wild banner
   var banner=document.getElementById('wildBanner');
   banner.classList.remove('hidden');
-  document.getElementById('wildText').textContent='\u{1F409} Eternatus senses a wild element nearby!';
+  document.getElementById('wildText').textContent='\u{1F409} Ferro senses a wild element nearby!';
   playTone(200,'sine',.2,.05);setTimeout(function(){playTone(300,'sine',.2,.05)},200);setTimeout(function(){playTone(400,'sine',.15,.06)},400);
   // Stays until child taps Reveal
   document.getElementById('wildBtn').onclick=function(){
@@ -537,7 +537,7 @@ function applyRadiant(el){
     'RADIANT! Only the luckiest explorers find these!',
     'The atoms are aligned! A RADIANT '+el.n+'!'
   ];
-  etT.textContent='✨ Eternatus: "'+radiantLines[Math.floor(Math.random()*radiantLines.length)]+'"';
+  etT.textContent='✨ Ferro: "'+radiantLines[Math.floor(Math.random()*radiantLines.length)]+'"';
   if(!state.radiants.includes(el.num)){state.radiants.push(el.num);saveAll()}
   playRadiantSound();
   spawnMeteorShower();
@@ -555,7 +555,7 @@ function clearMeteorShower(){
 }
 
 // ═══════════════════════════════════════
-// EASTER EGG 2: ETERNATUS WHISPERS (lore at milestones)
+// EASTER EGG 2: FERRO WHISPERS (lore at milestones)
 // ═══════════════════════════════════════
 var WHISPERS={
   15:{text:"Did you know, {name}? Before my powers were scattered, I could fly between stars."},
@@ -675,7 +675,7 @@ function showMatch(){
   playTone(294,'sine',.06,.1);setTimeout(function(){playTone(587,'sine',.08,.1)},80);
   var og=document.getElementById('matchOpts');og.innerHTML='';var ans=false;
   if(rev){
-    document.getElementById('matchQ').textContent=T('Eternatus asks: What does '+tgt.n+' do?');
+    document.getElementById('matchQ').textContent=T('Ferro asks: What does '+tgt.n+' do?');
     opts.forEach(function(el){
       var d=document.createElement('div');d.className='match-opt';
       d.innerHTML='<div class="mo-emoji">'+el.e+'</div><div class="mo-name" style="font-size:.72rem">'+el.fact+'</div>';
@@ -683,7 +683,7 @@ function showMatch(){
       og.appendChild(d);
     });
   }else{
-    document.getElementById('matchQ').textContent=T('Eternatus asks: Which element '+tgt.fact.toLowerCase().replace(/!$/,'')+'?');
+    document.getElementById('matchQ').textContent=T('Ferro asks: Which element '+tgt.fact.toLowerCase().replace(/!$/,'')+'?');
     opts.forEach(function(el){
       var d=document.createElement('div');d.className='match-opt';
       d.innerHTML='<div class="mo-emoji">'+el.e+'</div><div class="mo-name">'+el.n+'</div>';

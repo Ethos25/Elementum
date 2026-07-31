@@ -163,7 +163,7 @@ function renderCards(){
         bigBurst(ev.clientX,ev.clientY,getBirthdayParticleColor()||fc.c);playDiscoverEvolved(state.disc.length);showToast(el.e,el.n,F[el.f].n,fc.c);w.classList.remove('undiscovered');
         if(!state.sessionDisc)state.sessionDisc=[];state.sessionDisc.push(el.n);saveAll();
         setTimeout(function(){checkAch();checkMega();checkArcComplete();checkWhisper();checkSecret119();updateTabLocks();updateArcBanner();maybeMatch();
-          if(activeJourney&&Math.random()<0.3){var ap=WONDER_PATHS.find(function(p){return p.id===activeJourney});if(ap&&ap.elements.includes(el.num)){var found=ap.elements.filter(function(n){return isDisc(n)}).length;if(found<ap.elements.length)document.getElementById('mspText').textContent='🐉 Eternatus: "That\'s '+found+' of '+ap.elements.length+'! Keep going!"';}}
+          if(activeJourney&&Math.random()<0.3){var ap=WONDER_PATHS.find(function(p){return p.id===activeJourney});if(ap&&ap.elements.includes(el.num)){var found=ap.elements.filter(function(n){return isDisc(n)}).length;if(found<ap.elements.length)document.getElementById('mspText').textContent='🐉 Ferro: "That\'s '+found+' of '+ap.elements.length+'! Keep going!"';}}
         },500);
       }else{burst(ev.clientX,ev.clientY,fc.c);playRevisit(el.f)}
       if(isNewFam)setTimeout(function(){playTone(392,'sine',.1)},400);
@@ -206,7 +206,7 @@ function buildEOTDCardHTML(el){
         '<div><div class="m-lbl" style="color:'+fc.c+'">Superpower</div><div class="m-fact">'+el.fact+'</div></div>'+
         '<div><div class="m-lbl" style="color:'+fc.c+'">Story</div><div class="m-story">'+T(el.story)+'</div></div>'+
         (el.cb&&el.cb.length?'<div><div class="m-lbl" style="color:'+fc.c+'">⚡ Mega Combos</div><div class="m-combos">'+el.cb.map(function(c){return '<div class="m-combo" style="border-color:'+fc.bd+'"><span class="m-combo-eq" style="color:'+fc.c+'">'+el.s+' + '+c.w+'</span><span class="m-combo-arrow" style="color:'+fc.c+'">→</span><span class="m-combo-result">'+c.r+'</span></div>'}).join('')+'</div></div>':'')+
-        '<div class="eotd-teach"><p>🐉 Eternatus challenge: "Think you know '+el.n+' well enough to teach it? Try explaining it to someone in your own words!"</p></div>'+
+        '<div class="eotd-teach"><p>🐉 Ferro challenge: "Think you know '+el.n+' well enough to teach it? Try explaining it to someone in your own words!"</p></div>'+
         '<div class="eotd-disc-wrap">'+discBtn+'</div>'+
       '</div>'+
     '</div>'+
@@ -427,7 +427,7 @@ function openModal(el,isNew,isNewFam){
     cw.style.display='block';
     cc.innerHTML=el.cb.map(function(c){return '<div class="m-combo"><span class="m-combo-eq">'+el.s+' + '+c.w+'</span><span class="m-combo-arrow">→</span><span class="m-combo-result">'+c.r+'</span></div>'}).join('');
   }else cw.style.display='none';
-  // Eternatus
+  // Ferro
   var et=document.getElementById('metern'),etT=document.getElementById('meternText');et.style.display='block';
   if(isNew){
     var line=el.eLine?T(el.eLine):T(F[el.f].disc);
@@ -435,14 +435,14 @@ function openModal(el,isNew,isNewFam){
     // Check combo reaction
     var comboMsg=checkComboReaction(el);
     if(comboMsg)line=line+' '+comboMsg;
-    etT.textContent='⚡ Eternatus: "'+line+'"';
+    etT.textContent='⚡ Ferro: "'+line+'"';
   }else{
     // RADIANT CHECK (7% chance on revisit)
     if(isRadiant()){
       applyRadiant(el);
     }else{
       var rv=el.rv?T(el.rv):el.n+'! One of my favorites.';
-      etT.textContent='🐉 Eternatus: "'+rv+'"';
+      etT.textContent='🐉 Ferro: "'+rv+'"';
     }
   }
   // Dragon reactions
@@ -488,7 +488,7 @@ function renderProfile(){
   var tl='';
   if(state.firstDiscTime)tl+='<div class="tl-item">Started Elementum</div>';
   ACHS.filter(function(a){return state.achShown.includes(a.c)}).forEach(function(a){tl+='<div class="tl-item">Earned '+a.t+'</div>'});
-  if(state.megaUnlocked)tl+='<div class="tl-item">Mega Evolution unlocked!</div>';
+  if(state.megaUnlocked)tl+='<div class="tl-item">Evolution unlocked!</div>';
   // Session summary
   var sess='';
   if(state.sessionDisc&&state.sessionDisc.length>0){
@@ -563,7 +563,7 @@ function advanceIntro(){
   var buddy=getBuddyElement();
   var hasBuddy=!!buddy;
   if(introStep===0){
-    document.getElementById('iTitle').textContent='Professor Eternatus';
+    document.getElementById('iTitle').textContent='Ferro';
     card.innerHTML='';card.classList.remove('show');card.style.background='transparent';card.style.border='none';
     if(hasBuddy){
       speech.textContent=T("I am the ancient dragon of the elements, {name}. My powers have been scattered across 118 elements. Every one you discover makes me stronger. But first... let me show you something about YOU.");
@@ -609,7 +609,7 @@ function advanceIntro(){
       setTimeout(function() {
         if (!state.journeyFirstOpen) {
           document.getElementById('mspText').textContent =
-            T('\uD83D\uDC09 Eternatus: "Psst, {name}... when you are ready, I have QUESTS for us! Look for the Quests tab!"');
+            T('\uD83D\uDC09 Ferro: "Psst, {name}... when you are ready, I have QUESTS for us! Look for the Quests tab!"');
           if (typeof triggerExcited === 'function') triggerExcited();
         }
       }, 8000);
@@ -633,7 +633,7 @@ function initLevelTabs(){
     if(lv===curLv)return;
     if(lv==='2'&&!megaOK()){
       var n=20-E.filter(function(el){return el.l1&&isDisc(el.num)}).length;
-      document.getElementById('mspText').textContent=T('Not yet, {name}! Discover '+n+' more Starters to unlock Mega Evolution!');
+      document.getElementById('mspText').textContent=T('Not yet, {name}! Discover '+n+' more Starters to unlock Evolution!');
       playTone(200,'square',.1,.06);playRumble();return;
     }
     curLv=lv;curFam='all';
@@ -680,7 +680,7 @@ function showJourneyScreen(){
   playTone(440,'sine',.08);
   if(!state.journeyFirstOpen){
     state.journeyFirstOpen=true;saveAll();
-    document.getElementById('mspText').textContent='🐉 Eternatus: "Oh! I have ADVENTURES for us! Pick one!"';
+    document.getElementById('mspText').textContent='🐉 Ferro: "Oh! I have ADVENTURES for us! Pick one!"';
     triggerExcited();
   }
 }
@@ -781,7 +781,7 @@ function enterJourney(pathId){
   document.getElementById('journeyQuestion').textContent=path.question;
   updateJourneyProgress(path);
   renderCards();updateCount();
-  document.getElementById('mspText').textContent='🐉 Eternatus: "'+path.dragonLine+'"';
+  document.getElementById('mspText').textContent='🐉 Ferro: "'+path.dragonLine+'"';
   triggerExcited();
   document.getElementById('journeyBack').onclick=function(){showJourneyScreen();};
   playTone(440,'sine',.08);updatePower();
@@ -799,7 +799,7 @@ function showJourneyComplete(path){
   document.getElementById('jcRevelation').textContent=path.revelation;
   document.getElementById('jcBadge').innerHTML='<span class="jcb-emoji">'+path.badge+'</span><span class="jcb-title">'+path.badgeTitle+'</span>';
   ov.classList.add('active');
-  document.getElementById('mspText').textContent='🐉 Eternatus: "You did it! You\'re a '+path.badgeTitle+' now!"';
+  document.getElementById('mspText').textContent='🐉 Ferro: "You did it! You\'re a '+path.badgeTitle+' now!"';
   triggerExcited();
   // Reuse celebration audio
   playTone(523,'sine',.15);setTimeout(function(){playTone(659,'sine',.15)},100);
@@ -827,7 +827,7 @@ function showJourneyComplete(path){
       if(typeof enterConstellationMode==='function'){
         enterConstellationMode(path.id);
         if(state.wonderPathsCompleted>=2){
-          setTimeout(function(){document.getElementById('mspText').textContent='🐉 Eternatus: "I think you\'re getting SMARTER. I can feel it."'},3000);
+          setTimeout(function(){document.getElementById('mspText').textContent='🐉 Ferro: "I think you\'re getting SMARTER. I can feel it."'},3000);
         }
       }
     },400);

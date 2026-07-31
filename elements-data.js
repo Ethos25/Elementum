@@ -137,7 +137,7 @@ var E=[
 {n:"Moscovium",s:"Mc",num:115,e:"🔬",f:"shifter",fact:"Moscow's element!",story:"One of the newest members of the periodic table."},
 {n:"Livermorium",s:"Lv",num:116,e:"🔬",f:"shifter",fact:"California made!",story:"I exist for less than a blink before vanishing."},
 {n:"Tennessine",s:"Ts",num:117,e:"🔬",f:"saltmaker",fact:"Tennessee's element!",story:"Scientists at Oak Ridge National Lab helped create me."},
-{n:"Oganesson",s:"Og",num:118,e:"🏁",f:"noble",fact:"The FINAL element!",story:"Number 118. The grand finale. The heaviest ever made. I'm the finish line of the periodic table.",rv:"{name}... you did it. Every element. Every power. I am whole again for the first time in a thousand years. I am Eternatus, the Eternal Dragon. And you are my champion.",eLine:"THE FINAL POWER! I AM COMPLETE!"}
+{n:"Oganesson",s:"Og",num:118,e:"🏁",f:"noble",fact:"The FINAL element!",story:"Number 118. The grand finale. The heaviest ever made. I'm the finish line of the periodic table.",rv:"{name}... you did it. Every element. Every power. I am whole again for the first time in a thousand years. I am Ferro, the Eternal Dragon. And you are my champion.",eLine:"THE FINAL POWER! I AM COMPLETE!"}
 ];
 
 var EL={};E.forEach(function(el){EL[el.num]=el});

@@ -101,7 +101,7 @@
       <div class="w-hint" id="wStartHint" style="text-align:center;margin-top:4px">Enter name and toy to begin</div>
     </div>
     <div class="w-parent">
-      <p><strong>For parents:</strong> Elementum teaches all 118 elements through a character-driven collection quest. Your child discovers elements, restores a dragon's powers, unlocks Mega Evolution at 20, and earns titles up to "Eternal Dragon" at 118. Progress saves automatically. No ads. No accounts. Just chemistry disguised as adventure.</p>
+      <p><strong>For parents:</strong> Elementum teaches all 118 elements through a character-driven collection quest. Your child discovers elements, restores a dragon's powers, unlocks Evolution at 20, and earns titles up to "Eternal Dragon" at 118. Progress saves automatically. No ads. No accounts. Just chemistry disguised as adventure.</p>
     </div>
   </div>
 </div>
@@ -130,7 +130,7 @@
     <circle r="2" fill="#E8AF38" opacity=".35"><animateMotion dur="5.5s" repeatCount="indefinite" path="M100,65 A22,30 0 1,1 99.99,65"/></circle>
   </svg>
   <div class="wb-name" id="wbName"></div>
-  <div class="wb-sub">Eternatus is waiting for you.</div>
+  <div class="wb-sub">Ferro is waiting for you.</div>
   <button class="wb-btn" id="wbBtn">Next →</button>
 </div>
 
@@ -154,7 +154,7 @@
     <circle r="2" fill="#C792EA" opacity=".5"><animateMotion dur="4s" repeatCount="indefinite" path="M100,75 A32,18 0 1,1 99.99,75"/></circle>
   </svg>
   <div class="intro-text">
-    <div class="intro-title" id="iTitle">Professor Eternatus</div>
+    <div class="intro-title" id="iTitle">Ferro</div>
     <div class="intro-speech" id="iSpeech"></div>
     <div class="intro-card" id="iCard"></div>
     <button class="intro-btn primary" id="iBtn">Let's Go!</button>
@@ -164,7 +164,7 @@
 <!-- MAIN APP -->
 <div id="app" class="hidden">
 <header class="hdr"><div class="hdr-row"><h1>Elementum</h1></div></header>
-<div class="reset-confirm hidden" id="resetConfirm"><p>Start Elementum from scratch?</p><p class="warn">This erases ALL progress. Eternatus loses all powers.</p><div class="reset-btns"><button class="rbtn-cancel" id="resetCancel">Keep Going</button><button class="rbtn-reset" id="resetYes">Reset Everything</button></div></div>
+<div class="reset-confirm hidden" id="resetConfirm"><p>Start Elementum from scratch?</p><p class="warn">This erases ALL progress. Ferro loses all powers.</p><div class="reset-btns"><button class="rbtn-cancel" id="resetCancel">Keep Going</button><button class="rbtn-reset" id="resetYes">Reset Everything</button></div></div>
 
 <div class="mbar" id="mbar" data-tier="1">
   <div class="buddy-wrap" id="buddyWrap"><div class="buddy-badge empty" id="buddyBadge">?</div><div class="buddy-label" id="buddyLabel">BUDDY</div></div>
@@ -188,13 +188,13 @@
     <circle r="2" fill="#C792EA" opacity=".4"><animateMotion dur="4.2s" repeatCount="indefinite" path="M100,72 A35,18 0 1,1 99.99,72"/></circle>
     <circle r="1.8" fill="#E8AF38" opacity=".35"><animateMotion dur="5.5s" repeatCount="indefinite" path="M100,65 A22,30 0 1,1 99.99,65"/></circle>
   </svg>
-  <div class="msp" id="msp"><strong>Eternatus:</strong> <span id="mspText">Tap an element to restore my power!</span></div>
+  <div class="msp" id="msp"><strong>Ferro:</strong> <span id="mspText">Tap an element to restore my power!</span></div>
   <div class="pwr-row"><div class="pwr" id="pwrLabel">Powers: 0 / 20</div><div class="pwr-bar"><div class="pwr-fill" id="pwrFill" style="width:0%"></div></div></div>
   <div class="ach-row"><span class="ach-title" id="achTitle"></span></div>
 </div>
 
 <div class="wb-return hidden" id="wbReturn"><p id="wbReturnText"></p></div>
-<div class="wild-banner hidden" id="wildBanner"><div class="wild-text" id="wildText">🐉 Eternatus senses a wild element nearby!</div><button class="wild-btn" id="wildBtn">Reveal →</button></div>
+<div class="wild-banner hidden" id="wildBanner"><div class="wild-text" id="wildText">🐉 Ferro senses a wild element nearby!</div><button class="wild-btn" id="wildBtn">Reveal →</button></div>
 <div class="arc-banner hidden" id="arcBanner"><div class="arc-title" id="arcTitle"></div><div class="arc-desc" id="arcDesc"></div><div class="arc-progress" id="arcProg"></div></div>
 
 <div class="ltabs" id="ltabs">
@@ -249,8 +249,8 @@
     <button class="jc-btn" id="jcBtn">Continue →</button>
   </div>
 </div>
-<div class="fam-celeb" id="famCeleb"><div class="fam-celeb-bg"></div><div class="fam-celeb-glow" id="famGlow"></div><div class="fam-celeb-content"><div class="fam-celeb-badge" id="famBadge"></div><div class="fam-celeb-title" id="famTitle"></div><div class="fam-celeb-quote" id="famQuote"></div><div class="fam-celeb-dragon">🐉 Professor Eternatus</div><button style="margin-top:20px;padding:12px 32px;border-radius:12px;border:none;font-family:'Outfit',system-ui,sans-serif;font-size:.9rem;font-weight:600;cursor:pointer;background:rgba(255,255,255,.1);color:var(--t1)" id="famClose">Continue →</button></div></div>
-<div class="mega-celeb" id="megaCeleb"><div class="mc-title" id="mcTitle">MEGA EVOLUTION UNLOCKED!</div><div class="mc-sub" id="mcSub"></div><button class="mc-btn" id="mcBtn">Enter Mega Evolution →</button></div>
+<div class="fam-celeb" id="famCeleb"><div class="fam-celeb-bg"></div><div class="fam-celeb-glow" id="famGlow"></div><div class="fam-celeb-content"><div class="fam-celeb-badge" id="famBadge"></div><div class="fam-celeb-title" id="famTitle"></div><div class="fam-celeb-quote" id="famQuote"></div><div class="fam-celeb-dragon">🐉 Ferro</div><button style="margin-top:20px;padding:12px 32px;border-radius:12px;border:none;font-family:'Outfit',system-ui,sans-serif;font-size:.9rem;font-weight:600;cursor:pointer;background:rgba(255,255,255,.1);color:var(--t1)" id="famClose">Continue →</button></div></div>
+<div class="mega-celeb" id="megaCeleb"><div class="mc-title" id="mcTitle">EVOLUTION UNLOCKED!</div><div class="mc-sub" id="mcSub"></div><button class="mc-btn" id="mcBtn">Enter Evolution →</button></div>
 <div class="match-overlay" id="matchOv"><div class="match-q" id="matchQ"></div><div class="match-opts" id="matchOpts"></div><div class="match-result" id="matchRes"></div><button class="match-skip" id="matchSkip">Skip for now</button></div>
 
 <!-- Scripts: load in dependency order -->

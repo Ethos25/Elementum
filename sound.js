@@ -12,7 +12,7 @@
 //   playRumble()        — low rumble on modal open
 //   speakName(n)        — synthesised element name pronunciation
 //   playEOTDShimmer()   — element-of-the-day shimmer tone
-//   playMegaSwitch()    — mega evolution tab transition sound
+//   playMegaSwitch()    — evolution tab transition sound
 //   playRadiantSound()  — radiant element reveal sound
 //   playGiggle()        — dragon giggle (used by dragon.js)
 //   playGentleWake()    — dragon gentle wake sound

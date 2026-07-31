@@ -28,7 +28,7 @@
 //   playGiggle()        — sound.js  (guarded: typeof check)
 //   getMasterBus()      — sound.js
 // ═══════════════════════════════════════════════════════════════
-// ETERNATUS DRAGON ANIMATION ENGINE  v3.0
+// FERRO DRAGON ANIMATION ENGINE  v3.0
 // Idle personality · Eye tracking · Tap reactions
 // Discovery evolution · Breathing · Contextual emotion
 // Sleep behavioral inference · Tier ceremonies · Rare backflip
@@ -1377,7 +1377,7 @@ function updateMascot(fk) {
       : f < 20  ? 'My strength is growing! Keep going!'
       : f < 50  ? 'My wings spread wider with every discovery!'
       : f < 100 ? 'Almost whole again! The power is incredible!'
-      : 'FULL POWER! I am ETERNATUS!';
+      : 'FULL POWER! I am FERRO!';
   } else {
     sp.textContent = T(F[fk].bio.split('.')[0] + '.');
   }

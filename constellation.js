@@ -274,7 +274,7 @@ function enterConstellationMode(pathId) {
 
   _drawThreadAnimated(path, [path], 0, function() {
     var sp = document.getElementById('mspText');
-    if (sp) sp.textContent = '🐉 Eternatus: "' + path.dragonLine + '"';
+    if (sp) sp.textContent = '🐉 Ferro: "' + path.dragonLine + '"';
     if (typeof triggerExcited === 'function') triggerExcited();
   });
 
